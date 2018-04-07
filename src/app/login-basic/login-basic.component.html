@@ -1,0 +1,39 @@
+
+<li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }" *ngIf="isLoggedIn()" id="currentUser">
+  <a class="nav-link"><span class="fa fa-user-circle-o"></span> {{getCurrentUserName()}}</a>
+</li>
+
+<li class="nav-item" *ngIf="isLoggedIn()">
+  <a class="nav-link" (click)="logout()" href="#" (click)="$event.preventDefault()">
+    <span class="fa fa-unlock"></span> Logout</a>
+</li>
+
+<li class="nav-item" *ngIf="!isLoggedIn()">
+  <a class="nav-link" (click)="showLoginModal(content)" href="#" (click)="$event.preventDefault()">
+    <span class="fa fa-key"></span> Login</a>
+</li>
+
+<!-- Login Modal -->
+<ng-template #content class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Login Form</h5>
+      <button type="button" class="close" aria-label="Close" (click)="hideLoginModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form class="form-signin" (submit)="login(username, password)">
+      <div class="modal-body">
+        <ngb-alert *ngIf="errorMessage" type="danger" (close)="errorMessage=''">{{ errorMessage }}</ngb-alert>
+        <label for="username" class="sr-only">User</label>
+        <input type="text" id="username" class="form-control" placeholder="username" required #username>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="password" required #password>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-secondary" (click)="hideLoginModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
