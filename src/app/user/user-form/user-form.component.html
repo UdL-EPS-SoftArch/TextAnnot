@@ -1,0 +1,42 @@
+<h4>{{formTitle}}</h4>
+<p class="lead">{{formSubtitle}}</p>
+
+<form id="user-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Username input -->
+    <div class="form-group" [class.was-validated]="username.dirty || username.touched">
+      <label class="control-label" for="username">Username*</label>
+      <input id="username" name="username" type="text" class="form-control" required
+           [(ngModel)]="user.username" #username="ngModel">
+      <div class="invalid-feedback">A username is required</div>
+    </div>
+
+    <!-- E-Mail input -->
+    <div class="form-group" [class.was-validated]="email.dirty || email.touched">
+      <label class="control-label" for="email">E-Mail*</label>
+      <input id="email" name="email" type="email" class="form-control" required
+             [(ngModel)]="user.email" #email="ngModel">
+      <div class="invalid-feedback">A properly formatted e-mail is required</div>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-group" [class.was-validated]="password.dirty || password.touched">
+      <label class="control-label" for="password">Password*</label>
+      <input id="password" name="password" type="password" class="form-control" required minlength="8" maxlength="256"
+             [(ngModel)]="user.password" #password="ngModel">
+      <div class="invalid-feedback">A password longer than 8 characters is required</div>
+    </div>
+
+    <!-- Submission error messages -->
+    <div class="form-group" >
+      <ngb-alert *ngIf="errorMessage" type="danger" [dismissible]="false">{{ errorMessage }}</ngb-alert>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+    </div>
+
+  </fieldset>
+</form>

@@ -1,0 +1,32 @@
+<h4>Administrators</h4>
+<p class="lead">Administer the registered users with role admin</p>
+
+<div class="row justify-content-between">
+  <div class="col mb-3">
+    <app-admin-search (onSearch)="onSearch($event)" [admins]="admins"></app-admin-search>
+  </div>
+  <div class="col mb-3">
+    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/admins/new']">Add Administrator</button>
+  </div>
+</div>
+
+<div class="card mb-1" *ngFor="let admin of admins">
+  <div class="card-block row m-1">
+    <h4 class="card-title col-md-12 p-1"><a routerLink="{{admin.uri}}">{{admin.id}}</a></h4>
+    <div class="col-md-4 p-1">
+      <h6 class="card-subtitle text-muted">Username</h6>
+      <p class="card-text">{{admin.id}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <h6 class="card-subtitle text-muted">E-Mail</h6>
+      <p class="card-text">{{admin.email}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <a class="card-link pull-right" routerLink="{{admin.uri}}">Details</a>
+    </div>
+  </div>
+</div>
+
+<p i18n class="text-center">Showing {{admins.length}} out of { totalAdmins, plural,
+    =1 {1 admin}
+    other { {{totalAdmins}} admins} }</p>

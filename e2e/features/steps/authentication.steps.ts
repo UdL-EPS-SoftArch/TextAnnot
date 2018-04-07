@@ -1,0 +1,40 @@
+import { binding, given } from 'cucumber-tsflow';
+import { expect } from 'chai';
+import { NavigationBar } from '../../pages/navbar.page';
+import { LoginForm } from '../../pages/login-form.page';
+
+import NavigationSteps = require('./navigation.steps');
+
+@binding()
+class AuthenticationSteps {
+  private navBar = new NavigationBar();
+  private loginForm = new LoginForm();
+  private navigationSteps = new NavigationSteps();
+
+  @given(/^I sign in as "([^"]*)" with password "([^"]*)"$/)
+  async iSignInAsWithPassword(username: string, password: string): void {
+    await this.navBar.clickSignin();
+    await this.loginForm.signIn(username, password);
+    this.imSignedInAs(username);
+  }
+
+  @given(/^I'm signed in as "([^"]*)"$/)
+  async imSignedInAs(username: string): void {
+    const signedInAs = await this.navBar.getCurrentUser();
+    expect(signedInAs).to.equal(username);
+  }
+
+  @given(/^I log out$/)
+  async iLogOut(): void {
+    await this.navBar.clickSignOut();
+  }
+
+  @given(/^I'm on the home page and logged out$/)
+  async iMInHomePageLoggedOut(): void {
+    this.navigationSteps.iGoToHomePage();
+    if (await this.navBar.getCurrentUser() != null) {
+      this.iLogOut();
+    }
+  }
+}
+export = AuthenticationSteps;

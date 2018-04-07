@@ -1,0 +1,32 @@
+<h4>Linguists</h4>
+<p class="lead">Administer the registered users with role linguist</p>
+
+<div class="row justify-content-between">
+  <div class="col mb-3">
+    <app-linguist-search (onSearch)="onSearch($event)" [linguists]="linguists"></app-linguist-search>
+  </div>
+  <div class="col mb-3">
+    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/linguists/new']">Add Linguist</button>
+  </div>
+</div>
+
+<div class="card mb-1" *ngFor="let linguist of linguists">
+  <div class="card-block row m-1">
+    <h4 class="card-title col-md-12 p-1"><a routerLink="{{linguist.uri}}">{{linguist.id}}</a></h4>
+    <div class="col-md-4 p-1">
+      <h6 class="card-subtitle text-muted">Username</h6>
+      <p class="card-text">{{linguist.id}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <h6 class="card-subtitle text-muted">E-Mail</h6>
+      <p class="card-text">{{linguist.email}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <a class="card-link pull-right" routerLink="{{linguist.uri}}">Details</a>
+    </div>
+  </div>
+</div>
+
+<p i18n class="text-center">Showing {{linguists.length}} out of { totalLinguists, plural,
+    =1 {1 linguist}
+    other { {{totalLinguists}} linguists} }</p>

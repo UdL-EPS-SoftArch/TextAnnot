@@ -1,0 +1,29 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Linguist } from '../linguist';
+import { LinguistService } from '../linguist.service';
+
+@Component({
+  selector: 'app-linguist-create',
+  templateUrl: '../user-form/user-form.component.html'
+})
+export class LinguistCreateComponent implements OnInit {
+  public user: Linguist;
+  public errorMessage: string;
+  public formTitle = 'Register Linguist';
+  public formSubtitle = 'Register a new user with role linguist';
+
+  constructor(private router: Router,
+              private linguistService: LinguistService) { }
+
+  ngOnInit() {
+    this.user = new Linguist();
+  }
+
+  onSubmit(): void {
+    this.linguistService.addLinguist(this.user)
+        .subscribe(
+          linguist => this.router.navigate([linguist.uri]),
+          error => this.errorMessage = error.error ? <any>error.error.message : <any>error.message);
+  }
+}
