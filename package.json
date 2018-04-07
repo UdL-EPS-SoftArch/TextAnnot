@@ -1,6 +1,6 @@
 {
   "name": "textannot-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,10 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "pre-e2e": "webdriver-manager update",
+    "e2e": "npm-run-all e2e-test e2e-report --continue-on-error",
+    "e2e-test": "ng e2e --serve false --webdriver-update false",
+    "e2e-report": "node e2e/generate-html-report.js"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +35,11 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "chai": "^4.1.2",
     "codelyzer": "^4.0.1",
+    "cucumber": "^4.1.0",
+    "cucumber-html-reporter": "^4.0.2",
+    "cucumber-tsflow": "^2.2.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
@@ -40,7 +47,9 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "npm-run-all": "^4.1.2",
     "protractor": "~5.1.2",
+    "protractor-cucumber-framework": "^4.2.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"

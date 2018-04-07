@@ -10,6 +10,7 @@
 /node_modules
 
 # IDEs and editors
+*.iml
 /.idea
 .project
 .classpath
@@ -38,6 +39,8 @@ testem.log
 # e2e
 /e2e/*.js
 /e2e/*.map
+/e2e/protractor-cucumber-report.json
+/e2e/protractor-cucumber_report.html
 
 # System Files
 .DS_Store
