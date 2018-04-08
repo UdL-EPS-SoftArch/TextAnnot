@@ -12,16 +12,15 @@ export class LinguistSearchComponent {
   @Input()
   linguists: Linguist[];
   @Output()
-  onSearch: EventEmitter<any> = new EventEmitter();
+  emitResults: EventEmitter<any> = new EventEmitter();
 
   public errorMessage: string;
-  constructor(private linguistService: LinguistService,
-              private route: ActivatedRoute) {
+  constructor(private linguistService: LinguistService) {
   }
 
   performSearch(searchTerm: string): void {
     this.linguistService.getLinguistsByUsername(searchTerm).subscribe(
-      linguists => { this.onSearch.emit(linguists); },
+      linguists => { this.emitResults.emit(linguists); },
       error => this.errorMessage = <any>error.error.message);
   }
 }

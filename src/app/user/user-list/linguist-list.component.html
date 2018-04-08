@@ -3,7 +3,7 @@
 
 <div class="row justify-content-between">
   <div class="col mb-3">
-    <app-linguist-search (onSearch)="onSearch($event)" [linguists]="linguists"></app-linguist-search>
+    <app-linguist-search (emitResults)="showSearchResults($event)" [linguists]="linguists"></app-linguist-search>
   </div>
   <div class="col mb-3">
     <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/linguists/new']">Add Linguist</button>

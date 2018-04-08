@@ -12,16 +12,15 @@ export class AdminSearchComponent {
   @Input()
   admins: Admin[];
   @Output()
-  onSearch: EventEmitter<any> = new EventEmitter();
+  emitResults: EventEmitter<any> = new EventEmitter();
 
   public errorMessage: string;
-  constructor(private adminService: AdminService,
-              private route: ActivatedRoute) {
+  constructor(private adminService: AdminService) {
   }
 
   performSearch(searchTerm: string): void {
     this.adminService.getAdminsByUsername(searchTerm).subscribe(
-      admins => { this.onSearch.emit(admins); },
+      admins => { this.emitResults.emit(admins); },
       error => this.errorMessage = <any>error.error.message);
   }
 }

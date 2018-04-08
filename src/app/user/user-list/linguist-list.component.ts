@@ -22,7 +22,7 @@ export class LinguistListComponent implements OnInit {
         error => this.errorMessage = <any>error.error.message);
   }
 
-  onSearch(linguists) {
+  showSearchResults(linguists) {
     this.linguists = linguists;
   }
 }

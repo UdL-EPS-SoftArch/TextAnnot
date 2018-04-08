@@ -22,7 +22,7 @@ export class AdminListComponent implements OnInit {
         error => this.errorMessage = <any>error.error.message);
   }
 
-  onSearch(admins) {
+  showSearchResults(admins) {
     this.admins = admins;
   }
 }
