@@ -7,6 +7,6 @@ export class AdministratorGuard implements CanActivate {
   constructor(private authentication: AuthenticationBasicService) {}
 
   canActivate(): boolean {
-    return this.authentication.isAdmin();
+    return this.authentication.isLoggedIn() && this.authentication.isAdmin();
   }
 }

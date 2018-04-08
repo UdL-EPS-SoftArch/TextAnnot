@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
@@ -10,6 +10,7 @@ import { LoginBasicModule } from './login-basic/login-basic.module';
 import { AuthenticationBasicService } from './login-basic/authentication-basic.service';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
 import { AdministratorGuard } from './login-basic/administrator.guard';
+import { AuthInterceptor } from './login-basic/auth-interceptor';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -57,7 +58,9 @@ import { LinguistService } from './user/linguist.service';
     NgbModule.forRoot(),
     LoginBasicModule,
   ],
-  providers: [AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

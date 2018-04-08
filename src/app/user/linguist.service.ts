@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { AuthenticationBasicService } from '../login-basic/authentication-basic.service';
 import { Linguist } from './linguist';
 import { environment } from '../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
@@ -10,21 +9,17 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 @Injectable()
 export class LinguistService {
 
-  constructor(private http: HttpClient,
-              private authentication: AuthenticationBasicService) {}
+  constructor(private http: HttpClient) {}
 
   private getHttpOptions() {
     return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': this.authentication.getCurrentUser().authorization
-      })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   }
 
   // GET /linguists
   getAllLinguists(): Observable<Linguist[]> {
-    return this.http.get(`${environment.API}/linguists`, this.getHttpOptions()).pipe(
+    return this.http.get(`${environment.API}/linguists`).pipe(
       map((res: any) => res._embedded.linguists),
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
@@ -32,7 +27,7 @@ export class LinguistService {
 
   // GET /linguists/{id}
   getLinguist(id: string): Observable<Linguist> {
-    return this.http.get(`${environment.API}/linguists/${id}`, this.getHttpOptions()).pipe(
+    return this.http.get(`${environment.API}/linguists/${id}`).pipe(
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
   }
@@ -57,14 +52,14 @@ export class LinguistService {
 
   // DELETE /linguists/{id}
   deleteLinguist(linguist: Linguist): Observable<Response> {
-    return this.http.delete(`${environment.API}${linguist.uri}`, this.getHttpOptions()).pipe(
+    return this.http.delete(`${environment.API}${linguist.uri}`).pipe(
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
   }
 
   // GET /linguists/search/findByUsernameContaining?text={text}
   getLinguistsByUsername(text: string): Observable<Linguist[]> {
-    return this.http.get(`${environment.API}/linguists/search/findByUsernameContaining?text=${text}`, this.getHttpOptions()).pipe(
+    return this.http.get(`${environment.API}/linguists/search/findByUsernameContaining?text=${text}`).pipe(
       map((res: any) => res._embedded.linguists),
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
