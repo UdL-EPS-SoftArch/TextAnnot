@@ -21,9 +21,9 @@ export class LinguistCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.linguistService.addLinguist(this.user)
+    this.linguistService.create(this.user)
         .subscribe(
           linguist => this.router.navigate([linguist.uri]),
-          error => this.errorMessage = error.error ? <any>error.error.message : <any>error.message);
+          error => this.errorMessage = error.error.errors ? <any>error.error.errors[0].message : <any>error.message);
   }
 }

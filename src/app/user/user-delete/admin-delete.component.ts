@@ -25,7 +25,7 @@ export class AdminDeleteComponent implements OnInit {
 
   delete() {
     this.adminService.deleteAdmin(this.user).subscribe(
-      _ => this.router.navigate(['admins']),
+      () => this.router.navigate(['admins']),
       error => this.errorMessage = <any>error.message);
   }
 }

@@ -5,6 +5,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
+import { AngularHalModule } from 'angular4-hal';
+import { ExternalConfigurationService } from './external-configuration-service';
 
 import { LoginBasicModule } from './login-basic/login-basic.module';
 import { AuthenticationBasicService } from './login-basic/authentication-basic.service';
@@ -57,9 +59,11 @@ import { LinguistService } from './user/linguist.service';
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     LoginBasicModule,
+    AngularHalModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
   bootstrap: [AppComponent]
 })

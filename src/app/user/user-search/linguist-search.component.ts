@@ -1,5 +1,4 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Linguist } from '../linguist';
 import { LinguistService } from '../linguist.service';
 
@@ -19,7 +18,7 @@ export class LinguistSearchComponent {
   }
 
   performSearch(searchTerm: string): void {
-    this.linguistService.getLinguistsByUsername(searchTerm).subscribe(
+    this.linguistService.findByUsernameContaining(searchTerm).subscribe(
       linguists => { this.emitResults.emit(linguists); },
       error => this.errorMessage = <any>error.error.message);
   }

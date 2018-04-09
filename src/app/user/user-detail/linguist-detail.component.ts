@@ -18,7 +18,7 @@ export class LinguistDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.linguistService.getLinguist(id).subscribe(
+    this.linguistService.get(id).subscribe(
           linguist => this.user = linguist,
           error => this.errorMessage = <any>error.message);
   }

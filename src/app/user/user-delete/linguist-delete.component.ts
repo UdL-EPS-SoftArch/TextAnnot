@@ -18,14 +18,14 @@ export class LinguistDeleteComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.linguistService.getLinguist(id).subscribe(
+    this.linguistService.get(id).subscribe(
           linguist => this.user = linguist,
           error => this.errorMessage = <any>error.message);
   }
 
   delete() {
-    this.linguistService.deleteLinguist(this.user).subscribe(
-      _ => this.router.navigate(['linguists']),
+    this.linguistService.delete(this.user).subscribe(
+      () => this.router.navigate(['linguists']),
       error => this.errorMessage = <any>error.message);
   }
 }

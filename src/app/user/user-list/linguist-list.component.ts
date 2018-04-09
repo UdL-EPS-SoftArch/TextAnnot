@@ -14,7 +14,7 @@ export class LinguistListComponent implements OnInit {
   constructor(private linguistService: LinguistService) {}
 
   ngOnInit() {
-    this.linguistService.getAllLinguists()
+    this.linguistService.getAll()
       .subscribe(
         (linguists: Linguist[]) => {
           this.linguists = linguists;
