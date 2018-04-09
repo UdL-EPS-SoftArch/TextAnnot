@@ -9,9 +9,9 @@
     "build-heroku": "ng build --environment=heroku",
     "test": "ng test",
     "lint": "ng lint",
-    "pre-e2e": "webdriver-manager update",
-    "e2e": "npm-run-all e2e-test e2e-report --continue-on-error",
-    "e2e-test": "ng e2e --serve false --webdriver-update false",
+    "e2e": "ng e2e",
+    "e2e-local": "npm-run-all e2e-quick e2e-report --continue-on-error",
+    "e2e-quick": "ng e2e --serve false --webdriver-update false",
     "e2e-report": "node e2e/generate-html-report.js"
   },
   "private": true,

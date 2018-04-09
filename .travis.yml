@@ -1,0 +1,56 @@
+language: node_js
+node_js:
+  - '8'
+sudo: true
+
+addons:
+  chrome: stable
+  apt:
+    packages:
+      - chromium-chromedriver
+
+services:
+  - docker
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+  - node_modules
+
+before_install:
+  - docker run -d -p 8080:8080 udlepssoftarch/textannot-api
+  - while ! nc -z localhost 8080; do sleep 10; done
+  - docker ps -a
+  - export CHROME_BIN=chromium-browser
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm run start &
+  - npm run e2e
+  - npm run build-heroku
+
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -u $DOCKER_USER -p $DOCKER_PASS;
+      export REPO=udlepssoftarch/textannot;
+      export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`;
+      docker build -f Dockerfile -t $REPO:$TRAVIS_COMMIT .;
+      docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG;
+      docker push $REPO;
+      docker login --username=_ --password=$HEROKU_TOKEN registry.heroku.com;
+      docker tag $REPO:$TRAVIS_COMMIT registry.heroku.com/textannot/web;
+      docker push registry.heroku.com/textannot/web;
+    fi
+
+notifications:
+  slack:
+    on_success: change
+    on_failure: always
+    on_pull_request: true
+    secure:
