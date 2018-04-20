@@ -22,14 +22,12 @@ export class AdminEditComponent implements OnInit {
     this.user = new Admin();
     const id = this.route.snapshot.paramMap.get('id');
     this.adminService.getAdmin(id).subscribe(
-          admin => this.user = admin,
-          error => this.errorMessage = <any>error.message);
+          admin => this.user = admin);
   }
 
   onSubmit(): void {
     this.adminService.updateAdmin(this.user)
         .subscribe(
-          admin => this.router.navigate([admin.uri]),
-          error => this.errorMessage = error.error ? <any>error.error.message : <any>error.message);
+          admin => this.router.navigate([admin.uri]));
   }
 }

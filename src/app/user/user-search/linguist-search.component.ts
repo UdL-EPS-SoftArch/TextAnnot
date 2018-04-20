@@ -19,8 +19,7 @@ export class LinguistSearchComponent {
 
   performSearch(searchTerm: string): void {
     this.linguistService.findByUsernameContaining(searchTerm).subscribe(
-      linguists => { this.emitResults.emit(linguists); },
-      error => this.errorMessage = <any>error.error.message);
+      linguists => { this.emitResults.emit(linguists); });
   }
 }
 

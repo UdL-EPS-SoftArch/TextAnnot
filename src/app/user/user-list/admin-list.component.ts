@@ -18,8 +18,7 @@ export class AdminListComponent implements OnInit {
       .subscribe(
         (admins: Admin[]) => {
           this.admins = admins;
-          this.totalAdmins = admins.length; },
-        error => this.errorMessage = <any>error.error.message);
+          this.totalAdmins = admins.length; });
   }
 
   showSearchResults(admins) {

@@ -18,8 +18,7 @@ export class LinguistListComponent implements OnInit {
       .subscribe(
         (linguists: Linguist[]) => {
           this.linguists = linguists;
-          this.totalLinguists = linguists.length; },
-        error => this.errorMessage = <any>error.error.message);
+          this.totalLinguists = linguists.length; });
   }
 
   showSearchResults(linguists) {

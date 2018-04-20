@@ -23,7 +23,6 @@ export class LinguistCreateComponent implements OnInit {
   onSubmit(): void {
     this.linguistService.create(this.user)
         .subscribe(
-          linguist => this.router.navigate([linguist.uri]),
-          error => this.errorMessage = error.error.errors ? <any>error.error.errors[0].message : <any>error.message);
+          linguist => this.router.navigate([linguist.uri]));
   }
 }

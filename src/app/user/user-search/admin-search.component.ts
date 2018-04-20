@@ -20,8 +20,7 @@ export class AdminSearchComponent {
 
   performSearch(searchTerm: string): void {
     this.adminService.getAdminsByUsername(searchTerm).subscribe(
-      admins => { this.emitResults.emit(admins); },
-      error => this.errorMessage = <any>error.error.message);
+      admins => { this.emitResults.emit(admins); });
   }
 }
 

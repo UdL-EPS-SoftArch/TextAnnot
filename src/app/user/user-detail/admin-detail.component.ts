@@ -19,7 +19,6 @@ export class AdminDetailComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.linguistService.getAdmin(id).subscribe(
-          linguist => this.user = linguist,
-          error => this.errorMessage = <any>error.message);
+          linguist => this.user = linguist);
   }
 }

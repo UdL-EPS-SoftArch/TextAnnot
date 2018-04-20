@@ -27,20 +27,17 @@ export class LoginBasicComponent implements OnInit {
     this.errorMessage = '';
   }
 
-  login(userInput: HTMLInputElement, passwordInput: HTMLInputElement): boolean {
+  login(userInput: HTMLInputElement, passwordInput: HTMLInputElement): void {
     this.authenticationService.login(userInput.value, passwordInput.value)
       .subscribe(
         user => {
           this.authenticationService.storeCurrentUser(user);
           this.modalRef.dismiss();
-        },
-        error =>  this.errorMessage = error.error.message);
-    return false;
+        });
   }
 
-  logout(): boolean {
+  logout(): void {
     this.authenticationService.logout();
-    return false;
   }
 
   getCurrentUserName(): string {

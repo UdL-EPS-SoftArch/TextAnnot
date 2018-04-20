@@ -19,13 +19,11 @@ export class AdminDeleteComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.adminService.getAdmin(id).subscribe(
-          linguist => this.user = linguist,
-          error => this.errorMessage = <any>error.message);
+          linguist => this.user = linguist);
   }
 
   delete() {
     this.adminService.deleteAdmin(this.user).subscribe(
-      () => this.router.navigate(['admins']),
-      error => this.errorMessage = <any>error.message);
+      () => this.router.navigate(['admins']));
   }
 }

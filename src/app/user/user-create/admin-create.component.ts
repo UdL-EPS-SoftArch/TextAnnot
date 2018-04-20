@@ -23,7 +23,6 @@ export class AdminCreateComponent implements OnInit {
   onSubmit(): void {
     this.adminService.addAdmin(this.user)
         .subscribe(
-          admin => this.router.navigate([admin.uri]),
-          error => this.errorMessage = error.error ? <any>error.error.message : <any>error.message);
+          admin => this.router.navigate([admin.uri]));
   }
 }

@@ -22,15 +22,13 @@ export class LinguistEditComponent implements OnInit {
     this.user = new Linguist();
     const id = this.route.snapshot.paramMap.get('id');
     this.linguistService.get(id).subscribe(
-          linguist => this.user = linguist,
-          error => this.errorMessage = <any>error.message);
+          linguist => this.user = linguist);
   }
 
   onSubmit(): void {
     this.user.authorities = [];
     this.linguistService.update(this.user)
         .subscribe(
-          linguist => this.router.navigate([linguist.uri]),
-          error => this.errorMessage = error.error ? <any>error.error.message : <any>error.message);
+          linguist => this.router.navigate([linguist.uri]));
   }
 }
