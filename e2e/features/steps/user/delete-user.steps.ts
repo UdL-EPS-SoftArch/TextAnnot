@@ -1,10 +1,10 @@
-import { binding, when } from 'cucumber-tsflow';
-import { UserDetailsPage } from '../../../pages/user/user-details.page';
-import { ConfirmFormPage } from '../../../pages/confirm-form.page';
+import { binding, given, when, then } from 'cucumber-tsflow';
+import { expect } from 'chai';
+import { ConfirmPage } from '../../../pages/confirm.page';
 
 @binding()
 class DeleteUserSteps {
-  private confirmForm = new ConfirmFormPage();
+  private confirmForm = new ConfirmPage();
 
   @when(/^I confirm the deletion$/)
   public iConfirmDeletion(): void {

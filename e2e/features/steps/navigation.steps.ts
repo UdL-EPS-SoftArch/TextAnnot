@@ -1,4 +1,5 @@
-import { binding, given, when } from 'cucumber-tsflow';
+import { binding, given, when, then } from 'cucumber-tsflow';
+import { expect } from 'chai';
 import { browser } from 'protractor';
 import { NavigationBar } from '../../pages/navbar.page';
 import { MainContentPage } from '../../pages/main-content.page';

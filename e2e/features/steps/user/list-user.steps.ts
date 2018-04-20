@@ -1,4 +1,4 @@
-import { binding, then, when } from 'cucumber-tsflow';
+import { binding, given, then, when } from 'cucumber-tsflow';
 import { expect } from 'chai';
 import { UserListPage } from '../../../pages/user/user-list.page';
 import { MainContentPage } from '../../../pages/main-content.page';

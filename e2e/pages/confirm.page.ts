@@ -1,6 +1,6 @@
 import { element, by, browser } from 'protractor';
 
-export class ConfirmFormPage {
+export class ConfirmPage {
 
   private confirmBtn;
   private cancelBtn;

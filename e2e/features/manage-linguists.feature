@@ -18,7 +18,8 @@ Feature: Manage Linguists
   Scenario: No listed linguists when not logged in
     Given I'm on the home page and logged out
     When I click submenu option "Linguists" in menu "Administration"
-    Then I see 0 users
+    Then I see error alert "You should be logged in to perform this action" and close it
+    And I see 0 users
 
   Scenario: Register new linguist and view details
     Given I'm on the home page and logged out
@@ -38,7 +39,8 @@ Feature: Manage Linguists
     And I click submenu option "Linguists" in menu "Administration"
     And I see 2 users
     When I click the "Add Linguist" button
-    Then I see 2 users
+    Then I see error alert "You should be an administrator to perform this action" and close it
+    And I see 2 users
 
   Scenario: Delete an existing linguist
     Given I'm on the home page and logged out
@@ -60,4 +62,5 @@ Feature: Manage Linguists
     And I click the user with name "user"
     And I see a user with name "user"
     When I click the "Delete" button
-    Then I see 1 users
+    Then I see error alert "You should be an administrator to perform this action" and close it
+    And I see 1 users

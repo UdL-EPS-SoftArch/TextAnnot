@@ -13,12 +13,14 @@ Feature: Manage Administrators
     Given I'm on the home page and logged out
     And I sign in as "user" with password "password"
     When I click submenu option "Admins" in menu "Administration"
-    Then I see 0 users
+    Then I see error alert "You should be an administrator to perform this action" and close it
+    And I see 0 users
 
   Scenario: No listed administrators when not logged in
     Given I'm on the home page and logged out
     When I click submenu option "Admins" in menu "Administration"
-    Then I see 0 users
+    Then I see error alert "You should be an administrator to perform this action" and close it
+    And I see 0 users
 
   Scenario: Register new administrator and view details
     Given I'm on the home page and logged out

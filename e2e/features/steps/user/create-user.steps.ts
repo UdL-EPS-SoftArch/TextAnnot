@@ -1,4 +1,4 @@
-import { binding, when } from 'cucumber-tsflow';
+import { binding, given, when, then } from 'cucumber-tsflow';
 import { UserFormPage } from '../../../pages/user/user-form.page';
 import { UserListPage } from '../../../pages/user/user-list.page';
 
