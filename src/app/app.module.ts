@@ -8,6 +8,10 @@ import { routes } from './app.routing';
 import { AngularHalModule } from 'angular4-hal';
 import { ExternalConfigurationService } from './external-configuration-service';
 
+import { ErrorHandlerModule } from './error-handler/error-handler.module';
+import { HttpErrorInterceptor } from './error-handler/http-error-interceptor';
+import { ErrorMessageService } from './error-handler/error-message.service';
+
 import { LoginBasicModule } from './login-basic/login-basic.module';
 import { AuthenticationBasicService } from './login-basic/authentication-basic.service';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
@@ -60,11 +64,13 @@ import { LinguistService } from './user/linguist.service';
     NgbModule.forRoot(),
     LoginBasicModule,
     AngularHalModule.forRoot(),
+    ErrorHandlerModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, ErrorMessageService, AdminService, LinguistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

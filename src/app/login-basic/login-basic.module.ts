@@ -7,6 +7,7 @@ import { routes } from '../app.routing';
 import { NgbAlertModule, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginBasicComponent } from './login-basic.component';
 import { AuthenticationBasicService } from './authentication-basic.service';
+import { ErrorHandlerModule } from '../error-handler/error-handler.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { AuthenticationBasicService } from './authentication-basic.service';
     NgbModalModule,
     NgbAlertModule,
     RouterModule.forRoot(routes),
+    ErrorHandlerModule,
   ],
   providers: [AuthenticationBasicService],
   declarations: [LoginBasicComponent],
