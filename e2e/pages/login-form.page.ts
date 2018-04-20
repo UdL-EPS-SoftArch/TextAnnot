@@ -7,7 +7,7 @@ export class LoginForm {
   private passwordInput;
 
   constructor() {
-    this.form = element(by.css('form.form-signin'));
+    this.form = element(by.id('login-form'));
     this.usernameInput = element(by.id('username'));
     this.passwordInput = element(by.id('password'));
   }
