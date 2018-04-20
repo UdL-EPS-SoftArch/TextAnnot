@@ -70,7 +70,7 @@ import { LinguistService } from './user/linguist.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, ErrorMessageService, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
