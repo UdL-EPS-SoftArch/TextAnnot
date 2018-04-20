@@ -10,17 +10,24 @@ export class ErrorAlertComponent implements OnInit {
 
   closed: boolean;
   errorMessage: string;
+  timerId: number;
 
   constructor(private errorMessageService: ErrorMessageService) {
     this.errorMessageService.errorMessage$.subscribe(
       errorMessage => {
+        clearTimeout(this.timerId);
         this.errorMessage = errorMessage;
         this.closed = false;
-        setTimeout(() => this.closed = true, 10000);
+        this.timerId = setTimeout(() => this.closed = true, 10000);
       });
   }
 
   ngOnInit() {
     this.closed = true;
+  }
+
+  onClose() {
+    this.closed = true;
+    clearTimeout(this.timerId);
   }
 }
