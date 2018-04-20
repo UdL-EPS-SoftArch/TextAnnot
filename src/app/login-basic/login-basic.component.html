@@ -24,7 +24,7 @@
     </div>
     <form class="form-signin" (submit)="login(username, password)">
       <div class="modal-body">
-        <ngb-alert *ngIf="errorMessage" type="danger" (close)="errorMessage=''">{{ errorMessage }}</ngb-alert>
+        <app-error-alert></app-error-alert>
         <label for="username" class="sr-only">User</label>
         <input type="text" id="username" class="form-control" placeholder="username" required #username>
         <label for="password" class="sr-only">Password</label>
