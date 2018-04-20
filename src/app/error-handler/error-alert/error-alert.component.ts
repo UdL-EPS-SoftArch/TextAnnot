@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ErrorMessageService } from '../error-message.service';
 
 @Component({
@@ -8,17 +8,26 @@ import { ErrorMessageService } from '../error-message.service';
 })
 export class ErrorAlertComponent implements OnInit {
 
+  private ALERT_TIMEOUT = 7000;
   closed: boolean;
   errorMessage: string;
   timerId: number;
 
-  constructor(private errorMessageService: ErrorMessageService) {
+  constructor(private errorMessageService: ErrorMessageService,
+              private ngZone: NgZone) {
     this.errorMessageService.errorMessage$.subscribe(
       errorMessage => {
         clearTimeout(this.timerId);
         this.errorMessage = errorMessage;
         this.closed = false;
-        this.timerId = setTimeout(() => this.closed = true, 10000);
+
+        this.ngZone.runOutsideAngular(() => {
+          this.timerId = setTimeout(() => {
+            this.ngZone.run(() => {
+              this.closed = true;
+            });
+          }, this.ALERT_TIMEOUT);
+        });
       });
   }
 
