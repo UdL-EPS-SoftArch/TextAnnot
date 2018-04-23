@@ -38,6 +38,7 @@ import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.comp
 import { LinguistService } from './user/linguist.service';
 import {MetadataValueService} from './metadataValue/metadataValue.service';
 import {MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {MetadataValueListComponent} from './metadataValue/metadata-value-list/me
     LinguistSearchComponent,
     LinguistDeleteComponent,
     MetadataValueListComponent,
+    MetadataValueDetailComponent,
   ],
   imports: [
     BrowserModule,

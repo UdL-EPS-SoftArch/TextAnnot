@@ -13,7 +13,8 @@ import { LinguistCreateComponent } from './user/user-create/linguist-create.comp
 import { LinguistEditComponent } from './user/user-edit/linguist-edit.component';
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
-import {MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -29,4 +30,5 @@ export const routes: Routes = [
   { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues', component: MetadataValueListComponent},
+  { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
 ];
