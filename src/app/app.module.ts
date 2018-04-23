@@ -10,7 +10,6 @@ import { ExternalConfigurationService } from './external-configuration-service';
 
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpErrorInterceptor } from './error-handler/http-error-interceptor';
-import { ErrorMessageService } from './error-handler/error-message.service';
 
 import { LoginBasicModule } from './login-basic/login-basic.module';
 import { AuthenticationBasicService } from './login-basic/authentication-basic.service';
@@ -37,6 +36,9 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
+import {MetadataValueService} from './metadataValue/metadataValue.service';
+import {MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { LinguistService } from './user/linguist.service';
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    MetadataValueListComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ import { LinguistService } from './user/linguist.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, MetadataValueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

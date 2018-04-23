@@ -1,0 +1,32 @@
+<h4>MetadataValues</h4>
+<p class="lead">Administer the registered users with role linguist</p>
+
+<div class="row justify-content-between">
+  <div class="col mb-3">
+    <!-- <app-linguist-search (emitResults)="showSearchResults($event)" [metadataValues]="metadataValues"></app-linguist-search> -->
+  </div>
+  <div class="col mb-3">
+    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/linguists/new']">Add MetadataValue</button>
+  </div>
+</div>
+
+<div class="card mb-1" *ngFor="let metadataValue of metadataValues">
+  <div class="card-block row m-1">
+    <h4 class="card-title col-md-12 p-1"><a routerLink="{{metadataValue.uri}}">{{metadataValue.id}}</a></h4>
+    <div class="col-md-4 p-1">
+      <h6 class="card-subtitle text-muted">Username</h6>
+      <p class="card-text">{{metadataValue.id}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <h6 class="card-subtitle text-muted">E-Mail</h6>
+      <p class="card-text">{{metadataValue.value}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <a class="card-link pull-right" routerLink="{{metadataValue.uri}}">Details</a>
+    </div>
+  </div>
+</div>
+
+<p i18n class="text-center">Showing {{metadataValues.length}} out of { totalLinguists, plural,
+  =1 {1 linguist}
+  other { {{totalmetadataValues}} linguists} }</p>
