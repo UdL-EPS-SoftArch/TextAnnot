@@ -37,6 +37,7 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
+import { SamplesComponent } from './samples/samples.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { LinguistService } from './user/linguist.service';
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    SamplesComponent,
   ],
   imports: [
     BrowserModule,
