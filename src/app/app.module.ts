@@ -40,6 +40,7 @@ import {MetadataValueService} from './metadataValue/metadataValue.service';
 import {MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
+import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { MetadataValueSearchComponent } from './metadataValue/metadata-value-sea
     MetadataValueListComponent,
     MetadataValueDetailComponent,
     MetadataValueSearchComponent,
+    MetadataValueDeleteComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ import { LinguistListComponent } from './user/user-list/linguist-list.component'
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
+import {MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -31,4 +32,5 @@ export const routes: Routes = [
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues', component: MetadataValueListComponent},
   { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
+  { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent},
 ];
