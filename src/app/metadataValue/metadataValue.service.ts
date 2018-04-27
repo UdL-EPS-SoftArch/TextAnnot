@@ -56,12 +56,19 @@ export class MetadataValueService {
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
   }
-/*
+
   // GET /admins/search/findByUsernameContaining?text={text}
-  getAdminsByUsername(text: string): Observable<Admin[]> {
-    return this.http.get(`${environment.API}/admins/search/findByUsernameContaining?text=${text}`).pipe(
-      map((res: any) => res._embedded.admins),
-      catchError((error: HttpErrorResponse) => new ErrorObservable(error))
-    );
-  }*/
+  getMetadataValuesByUsername(value: string): Observable<MetadataValue[]> {
+     return this.http.get(`${environment.API}/metadataValues/search/findByValueContaining?value=${value}`).pipe(
+       map((res: any) => res._embedded.metadataValues),
+       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
+     );
+   }
+  /* method for get the reference of MetadataFields from path _links
+    // new line to get get the link of MetadataField
+   getMetadataFieldsLink(link: string): Observable<MetadataField> {
+     return this.http.get(`${link}`).pipe(
+        catchError((error: HttpErrorResponse) => new ErrorObservable(error))
+     );
+   }*/
 }
