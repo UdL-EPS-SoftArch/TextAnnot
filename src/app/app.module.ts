@@ -8,7 +8,7 @@ import { routes } from './app.routing';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import { AngularHalModule } from 'angular4-hal';
+import { AngularHalModule } from 'angular4-hal-aot';
 import { ExternalConfigurationService } from './external-configuration-service';
 
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
