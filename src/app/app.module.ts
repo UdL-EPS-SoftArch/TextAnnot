@@ -5,12 +5,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
-import { AngularHalModule } from 'angular4-hal';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+import { AngularHalModule } from 'angular4-hal-aot';
 import { ExternalConfigurationService } from './external-configuration-service';
 
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
 import { HttpErrorInterceptor } from './error-handler/http-error-interceptor';
-import { ErrorMessageService } from './error-handler/error-message.service';
 
 import { LoginBasicModule } from './login-basic/login-basic.module';
 import { AuthenticationBasicService } from './login-basic/authentication-basic.service';
@@ -65,6 +67,7 @@ import { LinguistService } from './user/linguist.service';
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
