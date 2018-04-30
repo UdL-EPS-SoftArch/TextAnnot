@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e
-config_file="/etc/nginx/conf.d/default.conf"
+config_file="/etc/nginx/nginx.conf"
 
 if [[ -z "$PORT" ]] ; then
   echo "Error: PORT not defined!"
