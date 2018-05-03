@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ListSamplesService} from './list-samples.service';
+import {SamplesService} from './sample.service';
 import {AuthenticationBasicService} from '../login-basic/authentication-basic.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class SamplesComponent implements OnInit {
   public title = 'TextAnnot - Written Corpus Annotation';
 
   constructor(private auth: AuthenticationBasicService,
-              private list_samples: ListSamplesService) { }
+              private list_samples: SamplesService) { }
 
   ngOnInit() {
     // this.list_samples.getSamples();

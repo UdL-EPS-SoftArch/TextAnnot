@@ -40,6 +40,7 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 import { SamplesComponent } from './samples/samples.component';
+import { SampleListComponent } from './samples/sample-list/sample-list.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SamplesComponent } from './samples/samples.component';
     LinguistSearchComponent,
     LinguistDeleteComponent,
     SamplesComponent,
+    SampleListComponent,
   ],
   imports: [
     BrowserModule,
