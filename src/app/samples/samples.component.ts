@@ -14,8 +14,7 @@ export class SamplesComponent implements OnInit {
               private list_samples: ListSamplesService) { }
 
   ngOnInit() {
-    this.list_samples.getSamples()
-    ;
+    // this.list_samples.getSamples();
   }
 
 }
