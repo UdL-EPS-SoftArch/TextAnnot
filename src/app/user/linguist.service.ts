@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Linguist } from './linguist';
-import { RestService } from 'angular4-hal';
+import { RestService } from 'angular4-hal-aot';
 
 @Injectable()
 export class LinguistService extends RestService<Linguist> {
