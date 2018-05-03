@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SamplesService} from '../sample.service';
-import {Sample} from '../sample';
+import { SampleService} from '../sample.service';
+import { Sample } from '../sample';
 
 @Component({
   selector: 'app-sample-list',
@@ -11,7 +11,7 @@ export class SampleListComponent implements OnInit {
 
   public samples: Sample[] = [];
 
-  constructor(private sampleService: SamplesService) { }
+  constructor(private sampleService: SampleService) { }
 
   ngOnInit() {
     this.sampleService.getAll().subscribe(

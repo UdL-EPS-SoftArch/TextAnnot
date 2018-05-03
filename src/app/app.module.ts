@@ -39,8 +39,8 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
-import { SamplesComponent } from './samples/samples.component';
 import { SampleListComponent } from './samples/sample-list/sample-list.component';
+import { SampleService } from './samples/sample.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,6 @@ import { SampleListComponent } from './samples/sample-list/sample-list.component
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
-    SamplesComponent,
     SampleListComponent,
   ],
   imports: [
@@ -77,7 +76,7 @@ import { SampleListComponent } from './samples/sample-list/sample-list.component
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

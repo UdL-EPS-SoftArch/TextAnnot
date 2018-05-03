@@ -5,10 +5,10 @@ import { RestService } from 'angular4-hal-aot';
 
 
 @Injectable()
-export class SamplesService extends RestService<Sample> {
+export class SampleService extends RestService<Sample> {
 
   constructor(injector: Injector) {
-    super(Sample, 'sample', injector);
+    super(Sample, 'samples', injector);
 
   }
 
