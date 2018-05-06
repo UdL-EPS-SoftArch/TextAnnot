@@ -19,7 +19,7 @@ export class SampleSearchComponent{
   }
 
   performSearch(searchTerm: string): void {
-    this.sampleService.findByDescribedByName(searchTerm).subscribe(
+    this.sampleService.findByTextContaining(searchTerm).subscribe(
       samples => { this.emitResults.emit(samples); });
   }
 }
