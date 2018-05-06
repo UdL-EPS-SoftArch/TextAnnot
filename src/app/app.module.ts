@@ -40,6 +40,8 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
+import { SampleService } from "./sample/sample.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +75,7 @@ import { LinguistService } from './user/linguist.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
