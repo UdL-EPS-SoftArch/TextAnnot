@@ -6,19 +6,15 @@
     <app-sample-search (emitResults)="showSearchResults($event)" [samples]="samples"></app-sample-search>
   </div>
   <div class="col mb-3">
-    <button id="addBtn" class="btn btn-primary pull-right" type="button">Add Linguist(Not implemented)</button>
+    <button id="addBtn" class="btn btn-primary pull-right" type="button">Add Sample(Not implemented)</button>
   </div>
 </div>
 
 <div class="card mb-1" *ngFor="let sample of samples">
   <div class="card-block row m-1">
-    <h4 class="card-title col-md-12 p-1"><a routerLink="{{sample.uri}}">{{sample.id}}</a></h4>
+    <h4 class="card-title col-md-12 p-1"><a routerLink="{{sample.uri}}">{{sample.uri}}</a></h4>
     <div class="col-md-4 p-1">
-      <h6 class="card-subtitle text-muted">Id</h6>
-      <p class="card-text">{{sample.id}}</p>
-    </div>
-    <div class="col-md-4 p-1">
-      <h6 class="card-subtitle text-muted">Content</h6>
+      <h6 class="card-subtitle text-muted">Sample Text</h6>
       <p class="card-text">{{sample.text}}</p>
     </div>
     <div class="col-md-4 p-1">

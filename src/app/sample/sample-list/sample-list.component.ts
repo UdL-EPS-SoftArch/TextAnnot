@@ -10,14 +10,15 @@ import { Sample } from '../sample';
 export class SampleListComponent implements OnInit {
 
   public samples: Sample[] = [];
-
+  public totalSamples = 0;
+  public errorMessage = '';
   constructor(private sampleService: SampleService) { }
 
   ngOnInit() {
     this.sampleService.getAll().subscribe(
       (samples: Sample[]) => {
         this.samples = samples;
-      });
+        this.totalSamples = samples.length; });
   }
   showSearchResults(samples) {
     this.samples = samples;
