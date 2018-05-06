@@ -41,6 +41,7 @@ import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.comp
 import { LinguistService } from './user/linguist.service';
 
 import { SampleService } from "./sample/sample.service";
+import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SampleService } from "./sample/sample.service";
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    SampleSearchComponent,
   ],
   imports: [
     BrowserModule,
