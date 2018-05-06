@@ -10,9 +10,9 @@ export class SampleService extends RestService<Sample> {
     super(Sample, 'samples', injector);
   }
 
-  public findByDescribedByName(text: string): Observable<Sample[]> {
+  public findByTextContaining(text: string): Observable<Sample[]> {
     const options: any = {params: [{key: 'text', value: text}]};
-    return this.search('findByDescribedByName', options);
+    return this.search('findByTextContaining', options);
   }
 }
 
