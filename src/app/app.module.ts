@@ -41,6 +41,11 @@ import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.comp
 import { LinguistService } from './user/linguist.service';
 import { SampleListComponent } from './samples/sample-list/sample-list.component';
 import { SampleService } from './samples/sample.service';
+import { MetadataValueService} from './metadataValue/metadataValue.service';
+import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
+import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
+import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,10 @@ import { SampleService } from './samples/sample.service';
     LinguistSearchComponent,
     LinguistDeleteComponent,
     SampleListComponent,
+    MetadataValueListComponent,
+    MetadataValueDetailComponent,
+    MetadataValueSearchComponent,
+    MetadataValueDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +85,7 @@ import { SampleService } from './samples/sample.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, MetadataValueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
