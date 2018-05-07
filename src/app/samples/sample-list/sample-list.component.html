@@ -1,6 +1,23 @@
 <h4>Samples</h4>
 
-<div *ngFor="let sample of samples">
-<p> Id: {{sample.id}} <br> </p>
-<p>    Text: {{sample.text}} <br> </p>
+<div class="card mb-1" *ngFor="let sample of samples">
+  <div class="card-block row m-1">
+    <div class="col-md-3 p-1">
+      <h6 class="card-subtitle text-muted">ID</h6>
+      <p class="card-text">{{sample.id}}</p>
+    </div>
+	<div class="col-md-3 p-1">
+      <h6 class="card-subtitle text-muted">Text</h6>
+      <p class="card-text">{{sample.text}}</p>
+    </div>
+	<div class="col-md-3 p-1">
+      <h6 class="card-subtitle text-muted">Described By</h6>
+      <p class="card-text">{{sample.describedBy}}</p>
+    </div>
+	<div class="col-md-3 p-1">
+      <h6 class="card-subtitle text-muted">Has</h6>
+      <p class="card-text">{{sample.has}}</p>
+    </div>
+  </div>
 </div>
+
