@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SampleService} from '../sample.service';
 import { Sample } from '../sample';
+import {MetadataValue} from '../../metadataValue/metadataValue';
 
 @Component({
   selector: 'app-sample-list',
@@ -17,6 +18,16 @@ export class SampleListComponent implements OnInit {
     this.sampleService.getAll().subscribe(
       (samples: Sample[]) => {
         this.samples = samples;
+        this.samples.map(
+          (sample: Sample) => {
+            sample.getRelationArray(MetadataValue, 'has').subscribe(
+              (values: MetadataValue[]) => {
+                sample.has = values;
+                console.log(values);
+              }
+            );
+          }
+        );
       });
   }
 

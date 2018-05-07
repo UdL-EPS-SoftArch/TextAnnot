@@ -12,11 +12,13 @@
     </div>
 	<div class="col-md-3 p-1">
       <h6 class="card-subtitle text-muted">Described By</h6>
-      <p class="card-text">{{sample.describedBy}}</p>
+      <!--<p class="card-text">{{sample.describedBy.uri}}</p>-->
     </div>
 	<div class="col-md-3 p-1">
       <h6 class="card-subtitle text-muted">Has</h6>
-      <p class="card-text">{{sample.has}}</p>
+        <ul>
+          <li *ngFor="let h of sample.has">Metadata value #{{h.id}}</li>
+        </ul>
     </div>
   </div>
 </div>
