@@ -42,6 +42,8 @@ import { LinguistService } from './user/linguist.service';
 
 import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
 import { SampleService } from './sample/sample.service';
+import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
+import { SampleListComponent } from './sample/sample-list/sample-list.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { SampleService } from './sample/sample.service';
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
-    SampleCreateComponent
+    SampleCreateComponent,
+    SampleSearchComponent,
+    SampleListComponent,
   ],
   imports: [
     BrowserModule,
