@@ -40,7 +40,7 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
-import { SampleService } from "./sample/sample.service";
+import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
 

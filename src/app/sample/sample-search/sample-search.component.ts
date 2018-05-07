@@ -1,6 +1,6 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { Sample } from "../sample";
-import { SampleService} from "../sample.service";
+import { Sample } from '../sample';
+import { SampleService} from '../sample.service';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { SampleService} from "../sample.service";
   templateUrl: './sample-search.component.html',
   styleUrls: ['./sample-search.component.css']
 })
-export class SampleSearchComponent{
+export class SampleSearchComponent {
   @Input()
   samples: Sample[];
   @Output()

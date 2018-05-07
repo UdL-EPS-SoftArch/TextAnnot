@@ -13,7 +13,7 @@ import { LinguistCreateComponent } from './user/user-create/linguist-create.comp
 import { LinguistEditComponent } from './user/user-edit/linguist-edit.component';
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
-import {SampleListComponent} from "./sample/sample-list/sample-list.component";
+import {SampleListComponent} from './sample/sample-list/sample-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
