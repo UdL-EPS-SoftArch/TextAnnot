@@ -1,0 +1,28 @@
+<h4>Sample</h4>
+<p class="lead">Administer the samples</p>
+
+<div class="row justify-content-between">
+  <div class="col mb-3">
+    <app-sample-search (emitResults)="showSearchResults($event)" [samples]="samples"></app-sample-search>
+  </div>
+  <div class="col mb-3">
+    <button id="addBtn" class="btn btn-primary pull-right" type="button">Add Sample(Not implemented)</button>
+  </div>
+</div>
+
+<div class="card mb-1" *ngFor="let sample of samples">
+  <div class="card-block row m-1">
+    <h6 class="card-title col-md-12 p-1"><a routerLink="{{sample.uri}}">{{sample.uri}}</a></h6>
+    <div class="col-md-4 p-1">
+      <h4 class="card-subtitle text-muted">Sample Text</h4>
+      <p class="card-text">{{sample.text}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <a class="card-link pull-right" routerLink="{{sample.uri}}">Details(Not implemented)</a>
+    </div>
+  </div>
+</div>
+
+<p i18n class="text-center">Showing {{samples.length}} out of { totalSamples, plural,
+  =1 {1 samples}
+  other { {{totalSamples}} samples} }</p>

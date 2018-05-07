@@ -40,6 +40,10 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
+import { SampleService } from './sample/sample.service';
+import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
+import { SampleListComponent } from './sample/sample-list/sample-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +61,8 @@ import { LinguistService } from './user/linguist.service';
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    SampleSearchComponent,
+    SampleListComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,7 @@ import { LinguistService } from './user/linguist.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
