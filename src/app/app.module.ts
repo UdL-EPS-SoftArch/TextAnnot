@@ -39,6 +39,7 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
+import { ListMetadataTemplatesComponent } from './list-metadata-templates/list-metadata-templates.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { LinguistService } from './user/linguist.service';
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    ListMetadataTemplatesComponent,
   ],
   imports: [
     BrowserModule,
