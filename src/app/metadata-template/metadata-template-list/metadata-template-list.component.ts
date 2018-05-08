@@ -17,7 +17,7 @@ export class MetadataTemplateListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.metadataTemplateService.getAll().subscribe(
+    this.metadataTemplateService.getAllMetadataTemplates().subscribe(
       (metadataTemplates: MetadataTemplate[]) => {
         this.metadataTemplates = metadataTemplates;
         this.totalMetadataTemplates = metadataTemplates.length;
