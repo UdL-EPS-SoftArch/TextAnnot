@@ -25,6 +25,6 @@ export class MetadataTemplateFormComponent implements OnInit {
   onSubmit(): void {
     this.metadataTemplateService.addMetadataTemplate(this.metadataTemplate)
       .subscribe(
-        metadataTemplate => this.router.navigate([metadataTemplate.uri]));
+        metadataTemplate => this.router.navigate(['/metadataTemplates']));
   }
 }
