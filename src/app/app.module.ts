@@ -46,6 +46,7 @@ import { MetadataValueListComponent} from './metadataValue/metadata-value-list/m
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
 import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-del
     LinguistSearchComponent,
     LinguistDeleteComponent,
     SampleListComponent,
+    SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,
     MetadataValueSearchComponent,
