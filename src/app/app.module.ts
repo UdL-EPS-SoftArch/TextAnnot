@@ -43,6 +43,7 @@ import { LinguistService } from './user/linguist.service';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
+import { MetadataTemplateComponent } from './metadata-template/metadata-template.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
     LinguistDeleteComponent,
     SampleSearchComponent,
     SampleListComponent,
+    MetadataTemplateComponent,
   ],
   imports: [
     BrowserModule,
