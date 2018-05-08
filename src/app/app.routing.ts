@@ -15,7 +15,7 @@ import { LinguistListComponent } from './user/user-list/linguist-list.component'
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
 import {SampleListComponent} from './sample/sample-list/sample-list.component';
-import {MetadataTemplateListComponent} from "./metadata-template/metadata-template-list/metadata-template-list.component";
+import {MetadataTemplateListComponent} from './metadata-template/metadata-template-list/metadata-template-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
