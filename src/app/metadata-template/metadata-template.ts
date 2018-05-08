@@ -1,4 +1,4 @@
-import { Resource} from 'angular4-hal-aot';
+import {Resource} from 'angular4-hal-aot';
 import {Sample} from "../sample/sample";
 
 
