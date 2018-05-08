@@ -1,9 +1,9 @@
 import {Observable} from "rxjs/Observable";
-import {Injector} from "@angular/core";
+import {Injectable, Injector} from "@angular/core";
 import {RestService} from "angular4-hal-aot";
 import {MetadataTemplate} from "./metadata-template";
 
-
+@Injectable()
 export class MetadataTemplateService extends RestService<MetadataTemplate> {
 
   constructor(injector: Injector) {
