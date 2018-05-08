@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { XMLSample } from '../XMLsample';
 import { XMLSampleService } from '../XMLsample.service';
-import { Linguist } from '../../user/linguist';
 
 @Component({
   selector: 'app-XMLsample-create',

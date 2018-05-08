@@ -44,6 +44,9 @@ import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
 
+import { XMLSampleService } from './XMLsample/XMLsample.service';
+import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,7 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
     LinguistDeleteComponent,
     SampleSearchComponent,
     SampleListComponent,
+    XMLSampleCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,7 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, XMLSampleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
