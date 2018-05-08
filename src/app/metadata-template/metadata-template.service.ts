@@ -3,7 +3,6 @@ import {Injectable, Injector} from '@angular/core';
 import {RestService} from 'angular4-hal-aot';
 import {MetadataTemplate} from './metadata-template';
 import {environment} from '../../environments/environment';
-import {HttpErrorResponse} from '@angular/common/http';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
