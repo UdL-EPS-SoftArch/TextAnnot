@@ -46,6 +46,7 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
 import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
+import { XMLSampleFormComponent} from "./XMLsample/XMLsample-form/XMLSample-form.component";
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample
     SampleSearchComponent,
     SampleListComponent,
     XMLSampleCreateComponent,
+    XMLSampleFormComponent,
   ],
   imports: [
     BrowserModule,
