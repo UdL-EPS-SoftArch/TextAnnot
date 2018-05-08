@@ -43,9 +43,10 @@ import { LinguistService } from './user/linguist.service';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
+
+import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
-import {MetadataTemplateService} from './metadata-template/metadata-template.service';
 
 @NgModule({
   declarations: [

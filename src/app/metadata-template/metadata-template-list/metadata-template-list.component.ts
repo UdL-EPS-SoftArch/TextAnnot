@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {SampleService} from "../../sample/sample.service";
-import {Sample} from "../../sample/sample";
 import {MetadataTemplate} from "../metadata-template";
 import {MetadataTemplateService} from "../metadata-template.service";
 
