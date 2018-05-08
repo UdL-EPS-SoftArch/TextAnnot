@@ -44,6 +44,9 @@ import { SampleCreateComponent } from './sample/sample-create/sample-create.comp
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
+import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
+import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import {MetadataTemplateService} from './metadata-template/metadata-template.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,8 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
     SampleCreateComponent,
     SampleSearchComponent,
     SampleListComponent,
+    MetadataTemplateFormComponent,
+    MetadataTemplateListComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +86,7 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, MetadataTemplateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
