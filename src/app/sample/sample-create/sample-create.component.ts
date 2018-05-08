@@ -15,15 +15,15 @@ export class SampleCreateComponent implements OnInit {
   public formSubtitle = 'Creates a new sample';
 
   constructor(private router: Router,
-              private SampleService: SampleService) { }
+              private sampleService: SampleService) { }
 
   ngOnInit() {
     this.sample = new Sample();
   }
 
   onSubmit(): void {
-    this.SampleService.create(this.sample)
+    this.sampleService.create(this.sample)
         .subscribe(
-          Sample => this.router.navigate([Sample.uri]));
+          sample => this.router.navigate([sample.uri]));
   }
 }
