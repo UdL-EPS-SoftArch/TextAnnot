@@ -23,5 +23,4 @@ export class SampleListComponent implements OnInit {
   showSearchResults(samples) {
     this.samples = samples;
   }
-
 }

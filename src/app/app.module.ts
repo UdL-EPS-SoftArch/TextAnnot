@@ -39,6 +39,11 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
+import { SampleService } from './sample/sample.service';
+import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
+import { SampleListComponent } from './sample/sample-list/sample-list.component';
+import { MetadataTemplateService} from './metadata-templates/metadata-template.service';
+import { ListMetadataTemplateComponent} from './metadata-templates/list-metadata-template/list-metadata-template.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +62,9 @@ import { LinguistService } from './user/linguist.service';
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    ListMetadataTemplateComponent,
+    SampleSearchComponent,
+    SampleListComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +81,7 @@ import { LinguistService } from './user/linguist.service';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, MetadataTemplateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

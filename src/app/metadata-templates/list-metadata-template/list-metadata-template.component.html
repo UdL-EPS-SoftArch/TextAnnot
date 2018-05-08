@@ -1,0 +1,21 @@
+<h4>MetadaTemplates</h4>
+<p class="lead">List of metadata temlates</p>
+
+<div class="row justify-content-between">
+  <div class="col mb-3">
+
+  </div>
+  <div class="col mb-3">
+    <button id="addBtn" class="btn btn-primary pull-right" type="button" >Add MetadataTemplate (Not implemented)</button>
+  </div>
+</div>
+
+<div class="card mb-1" *ngFor="let metadatatemplate of metadatatemplates">
+  <div class="card-block row m-1">
+    <h4 class="card-title col-md-12 p-1">{{metadatatemplate.name}}</h4>
+  </div>
+</div>
+
+<p i18n class="text-center">Showing {{metadatatemplates.length}} out of { totalmetadatatemplate, plural,
+  =1 {1 metadatatemplate}
+  other { {{totalMetadatatemplate}} admins} }</p>
