@@ -15,7 +15,7 @@ export class MetadataValueListComponent implements OnInit {
   constructor(private metadataValueService: MetadataValueService) {}
 
   ngOnInit() {
-    this.metadataValueService.getAllMetadataValues()
+    this.metadataValueService.getAll()
       .subscribe(
         (metadataValues: MetadataValue[]) => {
           this.metadataValues = metadataValues;

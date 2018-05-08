@@ -1,5 +1,6 @@
+import {Resource} from "angular4-hal";
 
-export class MetadataValue {
+export class MetadataValue extends Resource {
   uri: string;
   _links: any = {};
   id: string;
@@ -9,7 +10,4 @@ export class MetadataValue {
   // This would be the value when the classes of the other objects would be finished
   // forA: Sample;
   // valued: MetadataField;
-  constructor(values: Object = {}) {
-    Object.assign(this, values);
-  }
 }

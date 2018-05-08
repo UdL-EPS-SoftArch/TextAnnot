@@ -21,12 +21,12 @@ export class MetadataValueDeleteComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.metadataValueService.getMetadataValue(id).subscribe(
+    this.metadataValueService.get(id).subscribe(
       metaValue => this.metaValue = metaValue);
   }
 
   delete() {
-    this.metadataValueService.deleteMetadataValue(this.metaValue).subscribe(
+    this.metadataValueService.delete(this.metaValue).subscribe(
       () => this.router.navigate(['metadataValues']));
   }
 }

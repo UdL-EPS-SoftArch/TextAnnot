@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
 import { AngularHalModule } from 'angular4-hal';
@@ -41,6 +41,8 @@ import {MetadataValueListComponent} from './metadataValue/metadata-value-list/me
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
 import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
+import { MetadataValueFormComponent } from './metadataValue/metadata-value-form/metadata-value-form.component';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-del
     MetadataValueDetailComponent,
     MetadataValueSearchComponent,
     MetadataValueDeleteComponent,
+    MetadataValueCreateComponent,
+    MetadataValueFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,7 @@ import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-del
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

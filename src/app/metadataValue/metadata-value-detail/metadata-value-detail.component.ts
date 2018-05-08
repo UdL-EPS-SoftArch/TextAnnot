@@ -21,7 +21,7 @@ export class MetadataValueDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.metadataValueService.getMetadataValue(id).subscribe(
+    this.metadataValueService.get(id).subscribe(
       metadataValue => this.metaValue = metadataValue);
   }
 }
