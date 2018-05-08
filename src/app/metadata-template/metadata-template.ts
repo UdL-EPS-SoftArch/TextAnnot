@@ -6,4 +6,5 @@ export class MetadataTemplate extends Resource {
   name: string;
   defines: [{}];
   describes: Sample[];
+  uri: string;
 }

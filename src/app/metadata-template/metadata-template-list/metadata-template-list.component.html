@@ -1,3 +1,25 @@
-<p>
-  metadata-template-list works!
-</p>
+<h4>Sample</h4>
+<p class="lead">Administer the metadata templates</p>
+
+<div class="row justify-content-between">
+  <div class="col mb-3">
+    <button id="addBtn" class="btn btn-primary pull-right" type="button">Add Metadata template(Not implemented)</button>
+  </div>
+</div>
+
+<div class="card mb-1" *ngFor="let metadataTemplate of metadataTemplates">
+  <div class="card-block row m-1">
+    <h6 class="card-title col-md-12 p-1"><a routerLink="{{metadataTemplate.uri}}">{{metadataTemplate.uri}}</a></h6>
+    <div class="col-md-4 p-1">
+      <h4 class="card-subtitle text-muted">Metadata Name</h4>
+      <p class="card-text">{{metadataTemplate.name}}</p>
+    </div>
+    <div class="col-md-4 p-1">
+      <a class="card-link pull-right" routerLink="{{metadataTemplate.uri}}">Details(Not implemented)</a>
+    </div>
+  </div>
+</div>
+
+<p i18n class="text-center">Showing {{metadataTemplates.length}} out of { totalMetadataTemplates, plural,
+  =1 {1 metadata template}
+  other { {{totalMetadataTemplates}} metadata templates} }</p>
