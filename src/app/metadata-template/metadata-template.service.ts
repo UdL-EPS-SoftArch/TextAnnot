@@ -1,18 +1,22 @@
-import {Observable} from "rxjs/Observable";
-import {Injector} from "@angular/core";
-import {RestService} from "angular4-hal-aot";
-import {MetadataTemplate} from "./metadata-template";
+import {Observable} from 'rxjs/Observable';
+import {MetadataTemplate} from './metadata-template';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {catchError, map} from 'rxjs/operators';
+import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 
 
-export class MetadataTemplateService extends RestService<MetadataTemplate> {
+export class MetadataTemplateService {
 
-  constructor(injector: Injector) {
-    super(MetadataTemplate, 'metadataTemplates', injector);
+  constructor(private http: HttpClient) {
   }
 
-  public findByDefinesName(name: string): Observable<MetadataTemplate[]> {
-    const options: any = {params: [{key: 'name', value: name}]};
-    return this.search('findByDefinesName', options);
+  public getAllMetadataTemplates(): Observable<MetadataTemplate[]> {
+    return this.http.get(`${environment.API}/metadataTemplates`).pipe(
+      map((res: any) => res._embedded.metadataTemplates),
+      catchError((error: HttpErrorResponse) => new ErrorObservable(error))
+    );
   }
+
 }
 
