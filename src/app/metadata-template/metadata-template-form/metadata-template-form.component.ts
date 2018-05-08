@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MetadataTemplate} from '../metadata-template';
-import {MetadataTemplateService} from "../metadata-template.service";
+import {MetadataTemplateService} from '../metadata-template.service';
 
 @Component({
   selector: 'app-metadata-template-form',

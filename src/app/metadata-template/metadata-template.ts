@@ -1,5 +1,5 @@
 import {Resource} from 'angular4-hal-aot';
-import {Sample} from "../sample/sample";
+import {Sample} from '../sample/sample';
 
 
 export class MetadataTemplate extends Resource {

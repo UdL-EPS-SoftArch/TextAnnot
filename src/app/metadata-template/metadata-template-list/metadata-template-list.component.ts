@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MetadataTemplate} from "../metadata-template";
-import {MetadataTemplateService} from "../metadata-template.service";
+import {MetadataTemplate} from '../metadata-template';
+import {MetadataTemplateService} from '../metadata-template.service';
 
 @Component({
   selector: 'app-metadata-template-list',
