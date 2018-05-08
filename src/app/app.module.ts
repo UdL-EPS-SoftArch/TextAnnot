@@ -43,8 +43,8 @@ import { LinguistService } from './user/linguist.service';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
-import { MetadataTemplateComponent } from './metadata-template/metadata-template.component';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
+import { MetadataTemplateSearchComponent } from './metadata-template/metadata-template-search/metadata-template-search.component';
 
 @NgModule({
   declarations: [
@@ -65,8 +65,8 @@ import { MetadataTemplateFormComponent } from './metadata-template/metadata-temp
     LinguistDeleteComponent,
     SampleSearchComponent,
     SampleListComponent,
-    MetadataTemplateComponent,
     MetadataTemplateFormComponent,
+    MetadataTemplateSearchComponent,
   ],
   imports: [
     BrowserModule,

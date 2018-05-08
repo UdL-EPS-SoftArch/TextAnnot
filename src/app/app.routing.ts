@@ -29,6 +29,5 @@ export const routes: Routes = [
   { path: 'linguists', component: LinguistListComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
-  { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] },
-  { path: 'metadataTemplates', component: MetadataTemplateComponent, canActivate: [AdministratorGuard] },
+  { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] }
 ];
