@@ -1,6 +1,6 @@
 
-import { Resource} from 'angular4-hal-aot';
-import {MetadataValue} from '../metadataValue/metadataValue';
+import { Resource } from 'angular4-hal-aot';
+import { MetadataValue } from '../metadataValue/metadataValue';
 
 
 export class Sample extends Resource {
