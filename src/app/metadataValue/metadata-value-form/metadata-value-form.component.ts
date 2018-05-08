@@ -1,8 +1,8 @@
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {MetadataValueService} from "../metadataValue.service";
-import {MetadataValue} from "../metadataValue";
-import {Component, OnInit} from "@angular/core";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MetadataValueService} from '../metadataValue.service';
+import {MetadataValue} from '../metadataValue';
+import {Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -10,33 +10,33 @@ import {Component, OnInit} from "@angular/core";
   templateUrl: './metadata-value-form.component.html'
 })
 export class MetadataValueFormComponent implements OnInit {
-  public MetadataValue: MetadataValue;
-  public MetadataValueForm: FormGroup;
+  public metadataValue: MetadataValue;
+  public metadataValueForm: FormGroup;
   public errorMessage: string;
 
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
-              private MetadataValueService: MetadataValueService) {
-    this.MetadataValueForm = fb.group({
+              private metadataValueService: MetadataValueService) {
+    this.metadataValueForm = fb.group({
       'value': [{value: '', disabled: true}, Validators.required],
     });
   }
 
   ngOnInit() {
-    this.MetadataValue = new MetadataValue();
+    this.metadataValue = new MetadataValue();
     this.route.params
       .map(params => params['id'])
       .subscribe((id) =>
-        this.MetadataValueService.get(id).subscribe(
-          MetadataValue => this.MetadataValue = MetadataValue,
+        this.metadataValueService.get(id).subscribe(
+          metadataValue => this.metadataValue = metadataValue,
           error => this.errorMessage = <any>error.message));
   }
 
   onSubmit(): void {
-    this.MetadataValueService.update(this.MetadataValue)
+    this.metadataValueService.update(this.metadataValue)
       .subscribe(
-        MetadataValue => this.router.navigate([MetadataValue.uri]),
+        metadataValue => this.router.navigate([metadataValue.uri]),
         error => this.errorMessage =
           error.errors ? <any>error.errors[0].message : <any>error.message);
   }
