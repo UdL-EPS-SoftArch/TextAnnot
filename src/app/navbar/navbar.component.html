@@ -8,10 +8,10 @@
   <div class="collapse navbar-collapse" id="navbarContent" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/samples']">Samples</a>
+        <a class="nav-link" [routerLink]="['/about']"><span class="fa fa-question-circle"></span> About</a>
       </li>
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/about']"><span class="fa fa-question-circle"></span> About</a>
+        <a class="nav-link" [routerLink]="['/samples']"><span class="fa fa-file-text"></span> Samples</a>
       </li>
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -21,11 +21,9 @@
              [routerLink]="['/admins']"><span class="fa fa-user"></span> Admins</a>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
              [routerLink]="['/linguists']"><span class="fa fa-user"></span> Linguists</a>
-          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/metadataValues']"><span class="fa fa-pencil-square"></span> MetadataValues</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/samples']"><span class="fa fa-file-text"></span> Samples</a>
+             [routerLink]="['/metadataValues']"><span class="fa fa-pencil-square"></span> MetadataValues</a>
           <a class="dropdown-item" href="#">Administer other entities...</a>
         </div>
       </li>
