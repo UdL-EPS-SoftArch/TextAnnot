@@ -10,6 +10,9 @@
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/about']"><span class="fa fa-question-circle"></span> About</a>
       </li>
+      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/samples']"><span class="fa fa-file-text"></span> Samples</a>
+      </li>
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Administration</a>
@@ -22,7 +25,9 @@
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
              [routerLink]="['/samples']"><span class="fa fa-file-textng "></span> Samples</a>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/metadataTemplates']"><span class="fa fa-file-textng "></span> Metadata Templates</a>
+             [routerLink]="['/metadataTemplates']"><span class="fa fa-clipboard"></span> Templates</a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/metadataValues']"><span class="fa fa-list-alt"></span> Values</a>
           <a class="dropdown-item" href="#">Administer other entities...</a>
         </div>
       </li>

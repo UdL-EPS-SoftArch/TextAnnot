@@ -1,20 +1,33 @@
 import {Observable} from 'rxjs/Observable';
+import {Injectable, Injector} from '@angular/core';
+import {RestService} from 'angular4-hal-aot';
 import {MetadataTemplate} from './metadata-template';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
-import { Injectable, Injector } from '@angular/core';
 
 @Injectable()
-export class MetadataTemplateService {
+export class MetadataTemplateService extends RestService<MetadataTemplate> {
 
-  constructor(private http: HttpClient) {
+  constructor(injector: Injector, private http: HttpClient) {
+    super(MetadataTemplate, 'metadataTemplates', injector);
   }
 
-  public getAllMetadataTemplates(): Observable<MetadataTemplate[]> {
-    return this.http.get(`${environment.API}/metadataTemplates`).pipe(
-      map((res: any) => res._embedded.metadataTemplates),
+  private getHttpOptions() {
+    return {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+  }
+
+  public findByDefinesName(name: string): Observable<MetadataTemplate[]> {
+    const options: any = {params: [{key: 'name', value: name}]};
+    return this.search('findByDefinesName', options);
+  }
+
+  public addMetadataTemplate(metadataTemplate: MetadataTemplate) {
+    const body = JSON.stringify(metadataTemplate);
+    return this.http.post(`${environment.API}/metadataTemplates`, body, this.getHttpOptions()).pipe(
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
   }

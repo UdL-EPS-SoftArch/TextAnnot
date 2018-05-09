@@ -22,7 +22,7 @@ export class SampleCreateComponent implements OnInit {
 
   ngOnInit() {
     this.sample = new Sample();
-    this.metadataTemplateService.getAllMetadataTemplates().subscribe(
+    this.metadataTemplateService.getAll().subscribe(
       (metadataTemplates: MetadataTemplate[]) => {
         this.metadataTemplates = metadataTemplates;
       }
