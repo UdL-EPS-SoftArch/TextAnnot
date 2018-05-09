@@ -10,6 +10,9 @@
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/about']"><span class="fa fa-question-circle"></span> About</a>
       </li>
+      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/samples']"><span class="fa fa-file-text"></span> Samples</a>
+      </li>
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Administration</a>
@@ -20,7 +23,7 @@
              [routerLink]="['/linguists']"><span class="fa fa-user"></span> Linguists</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/samples']"><span class="fa fa-file-text"></span> Samples</a>
+             [routerLink]="['/metadataValues']"><span class="fa fa-pencil-square"></span> MetadataValues</a>
           <a class="dropdown-item" href="#">Administer other entities...</a>
         </div>
       </li>
