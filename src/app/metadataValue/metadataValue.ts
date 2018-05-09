@@ -1,8 +1,9 @@
-import {Resource} from 'angular4-hal-aot';
+import { Injectable } from '@angular/core';
+import { Resource } from 'angular4-hal-aot';
 
+@Injectable()
 export class MetadataValue extends Resource {
   uri: string;
-  _links: any = {};
   id: string;
   value: string;
   forA: string;
