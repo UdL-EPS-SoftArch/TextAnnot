@@ -17,6 +17,8 @@ import { MetadataValueListComponent } from './metadataValue/metadata-value-list/
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
+import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -35,4 +37,6 @@ export const routes: Routes = [
   { path: 'metadataValues', component: MetadataValueListComponent},
   { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
   { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent},
+  { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataTemplates/new', component: MetadataTemplateFormComponent, canActivate: [AdministratorGuard] },
 ];
