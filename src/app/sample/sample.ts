@@ -1,9 +1,11 @@
-import { Resource} from 'angular4-hal-aot';
+import { Injectable } from '@angular/core';
+import { Resource } from 'angular4-hal-aot';
+import { MetadataValue } from '../metadataValue/metadataValue';
 
-
+@Injectable()
 export class Sample extends Resource {
-  uri: string;
+  id: number;
   text: string;
-  describedBy: any;
-  has: any;
+  // describedBy: any;
+  has: MetadataValue[];
 }

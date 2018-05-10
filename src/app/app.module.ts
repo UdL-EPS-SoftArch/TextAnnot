@@ -39,11 +39,21 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
+
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
 import { MetadataTemplateService} from './metadata-template/metadata-template.service';
 import { ListMetadataTemplateComponent} from './metadata-template/metadata-template-list/metadata-template-list.component';
+
+import { MetadataValueService} from './metadataValue/metadataValue.service';
+import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
+import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
+import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+
+import { MetadataTemplateService } from './metadata-template/metadata-template.service';
+import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +75,12 @@ import { ListMetadataTemplateComponent} from './metadata-template/metadata-templ
     ListMetadataTemplateComponent,
     SampleSearchComponent,
     SampleListComponent,
+    SampleSearchComponent,
+    MetadataValueListComponent,
+    MetadataValueDetailComponent,
+    MetadataValueSearchComponent,
+    MetadataValueDeleteComponent,
+    MetadataTemplateFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +97,8 @@ import { ListMetadataTemplateComponent} from './metadata-template/metadata-templ
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
+    MetadataValueService, MetadataTemplateService],
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, MetadataTemplateService],
   bootstrap: [AppComponent]
 })
