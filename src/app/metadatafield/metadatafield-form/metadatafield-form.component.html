@@ -22,19 +22,11 @@
       <div class="invalid-feedback">The text is required</div>
     </div>
 
-    <!-- values -->
-    <div class="form-group" [class.was-validated]="values.dirty || values.touched">
-      <label class="control-label" for="values">Values*</label>
-      <input id="values" name="values" type="text" class="form-control" required
-             [(ngModel)]="metadatafield.values" #values="ngModel">
-      <div class="invalid-feedback">The described By field is required</div>
-    </div>
-
     <!-- definedIn -->
     <div class="form-group" [class.was-validated]="definedIn.dirty || definedIn.touched">
       <label class="control-label" for="definedIn">definedIn*</label>
       <select id="definedIn" name="definedIn" type="text" class="form-control" required
-              [(ngModel)]="metadatafield.definedIn" #describedBy="ngModel">
+              [(ngModel)]="metadatafield.definedIn" #definedIn="ngModel">
         <option *ngFor="let metadataTemplate of metadataTemplates" [ngValue]="metadataTemplate.uri">{{metadataTemplate.name}}</option>
       </select>
       <div class="invalid-feedback">The described By field is required</div>
