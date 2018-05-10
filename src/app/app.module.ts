@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,28 +11,40 @@ import { environment } from '../environments/environment';
 
 import { AngularHalModule } from 'angular4-hal-aot';
 import { ExternalConfigurationService } from './external-configuration-service';
+=======
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {routes} from './app.routing';
+import {AngularHalModule} from 'angular4-hal';
+import {ExternalConfigurationService} from './external-configuration-service';
+>>>>>>> df490554205c66bb79c57c340585fd848d9e1e68
 
-import { ErrorHandlerModule } from './error-handler/error-handler.module';
-import { HttpErrorInterceptor } from './error-handler/http-error-interceptor';
+import {ErrorHandlerModule} from './error-handler/error-handler.module';
+import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 
-import { LoginBasicModule } from './login-basic/login-basic.module';
-import { AuthenticationBasicService } from './login-basic/authentication-basic.service';
-import { LoggedInGuard } from './login-basic/loggedin.guard';
-import { AdministratorGuard } from './login-basic/administrator.guard';
-import { AuthInterceptor } from './login-basic/auth-interceptor';
+import {LoginBasicModule} from './login-basic/login-basic.module';
+import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
+import {LoggedInGuard} from './login-basic/loggedin.guard';
+import {AdministratorGuard} from './login-basic/administrator.guard';
+import {AuthInterceptor} from './login-basic/auth-interceptor';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AboutComponent } from './about/about.component';
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {AboutComponent} from './about/about.component';
 
-import { AdminListComponent } from './user/user-list/admin-list.component';
-import { AdminDetailComponent } from './user/user-detail/admin-detail.component';
-import { AdminService } from './user/admin.service';
-import { AdminCreateComponent } from './user/user-create/admin-create.component';
-import { AdminEditComponent } from './user/user-edit/admin-edit.component';
-import { AdminSearchComponent } from './user/user-search/admin-search.component';
-import { AdminDeleteComponent } from './user/user-delete/admin-delete.component';
+import {AdminListComponent} from './user/user-list/admin-list.component';
+import {AdminDetailComponent} from './user/user-detail/admin-detail.component';
+import {AdminService} from './user/admin.service';
+import {AdminCreateComponent} from './user/user-create/admin-create.component';
+import {AdminEditComponent} from './user/user-edit/admin-edit.component';
+import {AdminSearchComponent} from './user/user-search/admin-search.component';
+import {AdminDeleteComponent} from './user/user-delete/admin-delete.component';
 
+<<<<<<< HEAD
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import { LinguistCreateComponent } from './user/user-create/linguist-create.component';
@@ -49,6 +62,22 @@ import { MetadataValueListComponent} from './metadataValue/metadata-value-list/m
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
 import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+=======
+import {LinguistListComponent} from './user/user-list/linguist-list.component';
+import {LinguistDetailComponent} from './user/user-detail/linguist-detail.component';
+import {LinguistCreateComponent} from './user/user-create/linguist-create.component';
+import {LinguistEditComponent} from './user/user-edit/linguist-edit.component';
+import {LinguistSearchComponent} from './user/user-search/linguist-search.component';
+import {LinguistDeleteComponent} from './user/user-delete/linguist-delete.component';
+import {LinguistService} from './user/linguist.service';
+import {MetadataValueService} from './metadataValue/metadataValue.service';
+import {MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+import {MetadataValueDetailComponent} from './metadataValue/metadata-value-detail/metadata-value-detail.component';
+import {MetadataValueSearchComponent} from './metadataValue/metadata-value-search/metadata-value-search.component';
+import {MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+import {MetadataValueCreateComponent} from './metadataValue/metadata-value-create/metadata-value-create.component';
+import {MetadataValueEditComponent} from './metadataValue/metadata-value-edit/metadata-value-edit.component';
+>>>>>>> df490554205c66bb79c57c340585fd848d9e1e68
 
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
@@ -77,8 +106,13 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     MetadataValueDetailComponent,
     MetadataValueSearchComponent,
     MetadataValueDeleteComponent,
+<<<<<<< HEAD
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
+=======
+    MetadataValueCreateComponent,
+    MetadataValueEditComponent,
+>>>>>>> df490554205c66bb79c57c340585fd848d9e1e68
   ],
   imports: [
     BrowserModule,
@@ -89,6 +123,7 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
+<<<<<<< HEAD
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
@@ -97,6 +132,16 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
     MetadataValueService, MetadataTemplateService],
+=======
+    ReactiveFormsModule,
+  ],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
+    {provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService},
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, MetadataValueService],
+>>>>>>> df490554205c66bb79c57c340585fd848d9e1e68
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

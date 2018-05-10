@@ -1,3 +1,4 @@
-import { User } from '../login-basic/user';
+import {User} from '../login-basic/user';
 
-export class Admin extends User {}
+export class Admin extends User {
+}

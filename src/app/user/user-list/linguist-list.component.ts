@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { LinguistService } from '../linguist.service';
-import { Linguist } from '../linguist';
+import {Component, OnInit} from '@angular/core';
+import {LinguistService} from '../linguist.service';
+import {Linguist} from '../linguist';
 
 @Component({
   selector: 'app-linguist-list',
@@ -11,14 +11,16 @@ export class LinguistListComponent implements OnInit {
   public totalLinguists = 0;
   public errorMessage = '';
 
-  constructor(private linguistService: LinguistService) {}
+  constructor(private linguistService: LinguistService) {
+  }
 
   ngOnInit() {
     this.linguistService.getAll()
       .subscribe(
         (linguists: Linguist[]) => {
           this.linguists = linguists;
-          this.totalLinguists = linguists.length; });
+          this.totalLinguists = linguists.length;
+        });
   }
 
   showSearchResults(linguists) {

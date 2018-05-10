@@ -1,6 +1,6 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { Linguist } from '../linguist';
-import { LinguistService } from '../linguist.service';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {Linguist} from '../linguist';
+import {LinguistService} from '../linguist.service';
 
 @Component({
   selector: 'app-linguist-search',
@@ -14,12 +14,15 @@ export class LinguistSearchComponent {
   emitResults: EventEmitter<any> = new EventEmitter();
 
   public errorMessage: string;
+
   constructor(private linguistService: LinguistService) {
   }
 
   performSearch(searchTerm: string): void {
     this.linguistService.findByUsernameContaining(searchTerm).subscribe(
-      linguists => { this.emitResults.emit(linguists); });
+      linguists => {
+        this.emitResults.emit(linguists);
+      });
   }
 }
 

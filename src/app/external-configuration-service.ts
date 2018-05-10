@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import { Injectable} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { ExternalConfigurationHandlerInterface, ExternalConfiguration} from 'angular4-hal-aot';
 import { environment } from '../environments/environment';
+=======
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ExternalConfigurationHandlerInterface, ExternalConfiguration} from 'angular4-hal';
+import {environment} from '../environments/environment';
+>>>>>>> df490554205c66bb79c57c340585fd848d9e1e68
 
 @Injectable()
 export class ExternalConfigurationService implements ExternalConfigurationHandlerInterface {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getRootUri(): string {
     return environment.API;
@@ -16,13 +24,20 @@ export class ExternalConfigurationService implements ExternalConfigurationHandle
     return this.http;
   }
 
-  getProxyUri(): string { return null; }
+  getProxyUri(): string {
+    return null;
+  }
 
-  getExternalConfiguration(): ExternalConfiguration { return null; }
+  getExternalConfiguration(): ExternalConfiguration {
+    return null;
+  }
 
-  setExternalConfiguration(externalConfiguration: ExternalConfiguration) { }
+  setExternalConfiguration(externalConfiguration: ExternalConfiguration) {
+  }
 
-  serialize() { }
+  serialize() {
+  }
 
-  deserialize() { }
+  deserialize() {
+  }
 }

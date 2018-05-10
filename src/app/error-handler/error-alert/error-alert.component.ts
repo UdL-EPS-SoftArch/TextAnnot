@@ -1,5 +1,5 @@
-import { Component, NgZone, OnInit } from '@angular/core';
-import { ErrorMessageService } from '../error-message.service';
+import {Component, NgZone, OnInit} from '@angular/core';
+import {ErrorMessageService} from '../error-message.service';
 
 @Component({
   selector: 'app-error-alert',
