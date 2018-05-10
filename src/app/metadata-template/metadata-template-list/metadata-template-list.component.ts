@@ -4,8 +4,8 @@ import { MetadataTemplate } from '../metadata-template';
 
 @Component({
   selector: 'app-list-metadata-templates',
-  templateUrl: './list-metadata-template.component.html',
-  styleUrls: ['./list-metadata-template.component.css']
+  templateUrl: './metadata-template-list.component.html',
+  styleUrls: ['./metadata-template-list.component.css']
 })
 export class ListMetadataTemplateComponent implements OnInit {
 
