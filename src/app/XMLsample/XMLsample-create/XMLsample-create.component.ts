@@ -23,6 +23,6 @@ export class XMLSampleCreateComponent implements OnInit {
   onSubmit(): void {
     this.XMLSampleService.create(this.XMLsample)
       .subscribe(
-        XMLSample => this.router.navigate([XMLSample.uri]));
+        XMLSample => this.router.navigate(['/samples']));
   }
 }

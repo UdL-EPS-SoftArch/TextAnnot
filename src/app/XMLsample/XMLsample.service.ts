@@ -11,7 +11,7 @@ import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 export class XMLSampleService extends RestService<XMLSample> {
 
   constructor(injector: Injector, private http: HttpClient) {
-    super(XMLSample, 'XMLSamples', injector);
+    super(XMLSample, 'xmlSamples', injector);
   }
 
   private getHttpOptions() {
@@ -27,7 +27,7 @@ export class XMLSampleService extends RestService<XMLSample> {
 
   public addXMLSample(XMLSample: XMLSample) {
     const body = JSON.stringify(XMLSample);
-    return this.http.post(`${environment.API}/XMLSamples`, body, this.getHttpOptions()).pipe(
+    return this.http.post(`${environment.API}/xmlSamples`, body, this.getHttpOptions()).pipe(
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
   }
