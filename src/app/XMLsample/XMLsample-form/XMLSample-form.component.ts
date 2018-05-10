@@ -4,7 +4,7 @@ import {XMLSample} from "../XMLsample";
 import {XMLSampleService} from "../XMLsample.service";
 
 @Component({
-  selector: 'app-XMLSample-form',
+  selector: 'app-XMLsample-form',
   templateUrl: './XMLsample-form.component.html',
   styleUrls: ['./XMLSample-form.component.css']
 })
