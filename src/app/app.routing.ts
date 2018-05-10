@@ -14,6 +14,8 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import {SampleListComponent} from './sample/sample-list/sample-list.component';
+import {MetadataFieldListComponent} from './metadatafield/metadatafield-list/metadatafield-list.component';
+import {MetadafieldCreateComponent} from './metadatafield/metadatafield-create/metadafield-create.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -29,4 +31,6 @@ export const routes: Routes = [
   { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataField', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataField/new', component: MetadafieldCreateComponent, canActivate: [AdministratorGuard] },
 ];
