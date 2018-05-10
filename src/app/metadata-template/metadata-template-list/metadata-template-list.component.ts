@@ -7,7 +7,7 @@ import { MetadataTemplate } from '../metadata-template';
   templateUrl: './metadata-template-list.component.html',
   styleUrls: ['./metadata-template-list.component.css']
 })
-export class ListMetadataTemplateComponent implements OnInit {
+export class MetadataTemplateListComponent implements OnInit {
 
   public metadataTemplates: MetadataTemplate[] = [];
   public totalMetadataTemplates = 0;

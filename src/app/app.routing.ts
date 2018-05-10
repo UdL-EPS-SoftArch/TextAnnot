@@ -14,11 +14,10 @@ import { LinguistEditComponent } from './user/user-edit/linguist-edit.component'
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import {SampleListComponent} from './sample/sample-list/sample-list.component';
-import {ListMetadataTemplateComponent} from './metadata-template/metadata-template-list/metadata-template-list.component';
+import {MetadataTemplateListComponent} from './metadata-template/metadata-template-list/metadata-template-list.component';
 import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
-import { SampleListComponent } from './sample/sample-list/sample-list.component';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 
 export const routes: Routes = [
@@ -35,7 +34,7 @@ export const routes: Routes = [
   { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] },
-  { path: 'metadatatemplate', component: ListMetadataTemplateComponent, canActivate: [LoggedInGuard]},
+  { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [LoggedInGuard]},
   { path: 'samples', component: SampleListComponent, canActivate: [LoggedInGuard] },
   { path: 'metadataValues', component: MetadataValueListComponent},
   { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
