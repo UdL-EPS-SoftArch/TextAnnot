@@ -9,15 +9,15 @@ import { MetadataTemplate } from '../metadata-template';
 })
 export class ListMetadataTemplateComponent implements OnInit {
 
-  public metadatatemplates: MetadataTemplate[] = [];
-  public totalMetadatatemplate = 0;
+  public metadataTemplates: MetadataTemplate[] = [];
+  public totalMetadataTemplate = 0;
   public errorMessage = '';
-  constructor(private sampleService: MetadataTemplateService) { }
+  constructor(private templateService: MetadataTemplateService) { }
 
   ngOnInit() {
-    this.sampleService.getAll().subscribe(
-      (samples: MetadataTemplate[]) => {
-        this.metadatatemplates = samples;
-        this.totalMetadatatemplate = this.metadatatemplates.length; });
+    this.templateService.getAll().subscribe(
+      (templates: MetadataTemplate[]) => {
+        this.metadataTemplates = templates;
+        this.totalMetadataTemplate = this.metadataTemplates.length; });
   }
 }
