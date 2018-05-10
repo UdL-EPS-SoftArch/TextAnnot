@@ -14,7 +14,8 @@
     <!-- Password input -->
     <div class="form-group" [class.was-validated]="password.dirty || password.touched">
       <label class="control-label" for="password">Password*</label>
-      <input id="password" name="password" type="password" class="form-control" required minlength="8" maxlength="256" #password>
+      <input id="password" name="password" type="password" class="form-control" required minlength="8" maxlength="256"
+             #password>
       <div class="invalid-feedback">A password longer than 8 characters is required</div>
     </div>
 

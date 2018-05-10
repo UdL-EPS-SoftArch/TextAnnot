@@ -1,4 +1,3 @@
-import { Linguist } from '../../user/linguist';
 import {MetadataValue} from '../metadataValue';
 import {MetadataValueService} from '../metadataValue.service';
 import {Component, OnInit} from "@angular/core";
@@ -15,7 +14,8 @@ export class MetadataValueCreateComponent implements OnInit {
   public formSubtitle = 'Creates a new MetadataValue';
 
   constructor(private router: Router,
-              private MetadataValueService: MetadataValueService) { }
+              private MetadataValueService: MetadataValueService) {
+  }
 
   ngOnInit() {
     this.MetadataValue = new MetadataValue();

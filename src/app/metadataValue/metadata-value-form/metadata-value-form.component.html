@@ -1,28 +1,20 @@
-<h2>Edit metadataValue</h2>
-<form id="MetadataValueForm-form" [formGroup]="MetadataValueForm" (ngSubmit)="onSubmit()">
+<h4>{{formTitle}}</h4>
+<p class="lead">{{formSubtitle}}</p>
+
+<form id="metadata-value-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
 
-    <div class="form-group row">
-      <label class="col-md-3 control-label" for="value">Is the metadataValue available?</label>
-      <input id="value" type="text" class="form-control input-md"
-             [ngModel]="MetadataValue.value"/>
-      <div class="col-md-9">
-      </div>
-    </div>
-
-    <div *ngIf="errorMessage" class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="label-danger col-md-9">{{ errorMessage }}</div>
+    <!-- value input -->
+    <div class="form-group" [class.was-validated]="value.dirty || value.touched">
+      <label class="control-label" for="value">value*</label>
+      <input id="value" name="value" type="text" class="form-control" required
+             [(ngModel)]="MetadataValue.value" #value="ngModel">
+      <div class="invalid-feedback">A value is required</div>
     </div>
 
     <!-- Button -->
-    <div class="form-group row">
-      <div class="col-md-3"></div>
-      <div class="col-md-9">
-        <button id="createAdmin" type="submit"
-                class="btn btn-success pull-right" [disabled]="!metadataValueForm.valid">Edit
-        </button>
-      </div>
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
     </div>
 
   </fieldset>

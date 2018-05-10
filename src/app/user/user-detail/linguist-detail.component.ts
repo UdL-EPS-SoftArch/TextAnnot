@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { LinguistService } from '../linguist.service';
-import { Linguist } from '../linguist';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {LinguistService} from '../linguist.service';
+import {Linguist} from '../linguist';
 
 @Component({
   selector: 'app-linguist-detail',
@@ -14,11 +14,12 @@ export class LinguistDetailComponent implements OnInit {
   public detailsPageSubtitle = 'Details about a registered user with role linguist';
 
   constructor(private route: ActivatedRoute,
-              private linguistService: LinguistService) { }
+              private linguistService: LinguistService) {
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.linguistService.get(id).subscribe(
-          linguist => this.user = linguist);
+      linguist => this.user = linguist);
   }
 }

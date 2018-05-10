@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { AuthenticationBasicService } from './authentication-basic.service';
+import {Injectable} from '@angular/core';
+import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {AuthenticationBasicService} from './authentication-basic.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authentication: AuthenticationBasicService) {}
+  constructor(private authentication: AuthenticationBasicService) {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     if (this.authentication.isLoggedIn()) {

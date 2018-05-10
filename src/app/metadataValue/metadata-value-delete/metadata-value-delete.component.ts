@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LinguistService} from '../../user/linguist.service';
-import {Linguist} from '../../user/linguist';
 import {MetadataValue} from '../metadataValue';
 import {MetadataValueService} from '../metadataValue.service';
 
 @Component({
   selector: 'app-metadata-value-delete',
-  templateUrl: './metadata-value-delete.component.html',
-  styleUrls: ['./metadata-value-delete.component.css']
+  templateUrl: './metadata-value-delete.component.html'
 })
 export class MetadataValueDeleteComponent implements OnInit {
   public metaValue: MetadataValue = new MetadataValue();

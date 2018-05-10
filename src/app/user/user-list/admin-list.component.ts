@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../admin.service';
-import { Admin } from '../admin';
+import {Component, OnInit} from '@angular/core';
+import {AdminService} from '../admin.service';
+import {Admin} from '../admin';
 
 @Component({
   selector: 'app-admin-list',
@@ -11,14 +11,16 @@ export class AdminListComponent implements OnInit {
   public totalAdmins = 0;
   public errorMessage = '';
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) {
+  }
 
   ngOnInit() {
     this.adminService.getAllAdmins()
       .subscribe(
         (admins: Admin[]) => {
           this.admins = admins;
-          this.totalAdmins = admins.length; });
+          this.totalAdmins = admins.length;
+        });
   }
 
   showSearchResults(admins) {

@@ -6,7 +6,9 @@
     <app-admin-search (emitResults)="showSearchResults($event)" [admins]="admins"></app-admin-search>
   </div>
   <div class="col mb-3">
-    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/admins/new']">Add Administrator</button>
+    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/admins/new']">Add
+      Administrator
+    </button>
   </div>
 </div>
 
@@ -28,5 +30,5 @@
 </div>
 
 <p i18n class="text-center">Showing {{admins.length}} out of { totalAdmins, plural,
-    =1 {1 admin}
-    other { {{totalAdmins}} admins} }</p>
+  =1 {1 admin}
+  other { {{totalAdmins}} admins} }</p>

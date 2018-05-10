@@ -8,7 +8,7 @@
     <div class="form-group" [class.was-validated]="username.dirty || username.touched">
       <label class="control-label" for="username">Username*</label>
       <input id="username" name="username" type="text" class="form-control" required
-           [(ngModel)]="user.username" #username="ngModel">
+             [(ngModel)]="user.username" #username="ngModel">
       <div class="invalid-feedback">A username is required</div>
     </div>
 
