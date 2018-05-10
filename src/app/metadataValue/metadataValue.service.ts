@@ -1,7 +1,8 @@
 import {Observable} from 'rxjs/Observable';
 import {Injectable, Injector} from '@angular/core';
 import {MetadataValue} from './metadataValue';
-import {RestService} from 'angular4-hal';
+import {RestService} from 'angular4-hal-aot';
+
 
 @Injectable()
 export class MetadataValueService extends RestService<MetadataValue> {

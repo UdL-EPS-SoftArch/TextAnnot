@@ -9,26 +9,26 @@ import {MetadataValueService} from '../metadataValue.service';
   templateUrl: '../metadata-value-form/metadata-value-form.component.html'
 })
 export class MetadataValueEditComponent implements OnInit {
-  public MetadataValue: MetadataValue;
+  public metadataValue: MetadataValue;
   public errorMessage: string;
   public formTitle = 'Edit MetadataValue';
   public formSubtitle = 'Edit the value of a MetadataValue';
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private MetadataValueService: MetadataValueService) {
+              private metadataValueService: MetadataValueService) {
   }
 
   ngOnInit() {
-    this.MetadataValue = new MetadataValue();
+    this.metadataValue = new MetadataValue();
     const id = this.route.snapshot.paramMap.get('id');
-    this.MetadataValueService.get(id).subscribe(
-      MetadataValue => this.MetadataValue = MetadataValue);
+    this.metadataValueService.get(id).subscribe(
+      metadataValue => this.metadataValue = metadataValue);
   }
 
   onSubmit(): void {
-    this.MetadataValueService.update(this.MetadataValue)
+    this.metadataValueService.update(this.metadataValue)
       .subscribe(
-        MetadataValue => this.router.navigate([MetadataValue.uri]));
+        metadataValue => this.router.navigate([metadataValue.uri]));
   }
 }

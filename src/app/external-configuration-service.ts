@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import { Injectable} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { ExternalConfigurationHandlerInterface, ExternalConfiguration} from 'angular4-hal-aot';
 import { environment } from '../environments/environment';
-=======
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {ExternalConfigurationHandlerInterface, ExternalConfiguration} from 'angular4-hal';
-import {environment} from '../environments/environment';
->>>>>>> df490554205c66bb79c57c340585fd848d9e1e68
 
 @Injectable()
 export class ExternalConfigurationService implements ExternalConfigurationHandlerInterface {
