@@ -101,7 +101,7 @@ import { XMLSampleFormComponent} from "./XMLsample/XMLsample-form/XMLSample-form
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, XMLSampleService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, XMLSampleService,
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
     MetadataValueService, MetadataTemplateService],
   bootstrap: [AppComponent]
