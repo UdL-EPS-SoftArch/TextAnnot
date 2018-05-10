@@ -56,7 +56,7 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
 import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
-import { XMLSampleFormComponent} from "./XMLsample/XMLsample-form/XMLSample-form.component";
+import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
 @NgModule({
   declarations: [

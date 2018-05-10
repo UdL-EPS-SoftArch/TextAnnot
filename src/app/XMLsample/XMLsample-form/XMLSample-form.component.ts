@@ -1,30 +1,30 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {XMLSample} from "../XMLsample";
-import {XMLSampleService} from "../XMLsample.service";
+import {XMLSample} from '../XMLsample';
+import {XMLSampleService} from '../XMLsample.service';
 
 @Component({
-  selector: 'app-XMLsample-form',
+  selector: 'app-xml-sample-form',
   templateUrl: './XMLsample-form.component.html',
   styleUrls: ['./XMLSample-form.component.css']
 })
 export class XMLSampleFormComponent implements OnInit {
 
-  public XMLSample: XMLSample;
+  public xmlSample: XMLSample;
   public errorMessage: string;
   public formTitle = 'Upload XML Samples';
   public formSubtitle = 'Upload XML Samples';
 
   constructor(private router: Router,
-              private XMLSampleService: XMLSampleService) { }
+              private xmlSampleService: XMLSampleService) { }
 
   ngOnInit() {
-    this.XMLSample = new XMLSample();
+    this.xmlSample = new XMLSample();
   }
 
   onSubmit(): void {
-    this.XMLSampleService.addXMLSample(this.XMLSample)
+    this.xmlSampleService.addXMLSample(this.xmlSample)
       .subscribe(
-        XMLSample => this.router.navigate(['/XMLSamples']));
+        xmlSample => this.router.navigate(['/XMLSamples']));
   }
 }

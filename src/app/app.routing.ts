@@ -13,7 +13,7 @@ import { LinguistCreateComponent } from './user/user-create/linguist-create.comp
 import { LinguistEditComponent } from './user/user-edit/linguist-edit.component';
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
-import {XMLSampleCreateComponent} from "./XMLsample/XMLsample-create/XMLsample-create.component";
+import {XMLSampleCreateComponent} from './XMLsample/XMLsample-create/XMLsample-create.component';
 import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';

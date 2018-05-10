@@ -4,25 +4,25 @@ import { XMLSample } from '../XMLsample';
 import { XMLSampleService } from '../XMLsample.service';
 
 @Component({
-  selector: 'app-XMLsample-create',
+  selector: 'app-xml-sample-create',
   templateUrl: '../XMLsample-form/XMLsample-form.component.html'
 })
 export class XMLSampleCreateComponent implements OnInit {
-  public XMLsample: XMLSample;
+  public xmlSample: XMLSample;
   public errorMessage: string;
   public formTitle = 'Create XMLSample';
   public formSubtitle = 'Creates a new XMLsample';
 
   constructor(private router: Router,
-              private XMLSampleService: XMLSampleService) { }
+              private xmlSampleService: XMLSampleService) { }
 
   ngOnInit() {
-    this.XMLsample = new XMLSample();
+    this.xmlSample = new XMLSample();
   }
 
   onSubmit(): void {
-    this.XMLSampleService.create(this.XMLsample)
+    this.xmlSampleService.create(this.xmlSample)
       .subscribe(
-        XMLSample => this.router.navigate(['/samples']));
+        xmlSample => this.router.navigate(['/samples']));
   }
 }

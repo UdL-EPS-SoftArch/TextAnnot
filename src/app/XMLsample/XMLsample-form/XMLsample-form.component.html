@@ -1,14 +1,14 @@
 <h4>{{formTitle}}</h4>
 <p class="lead">{{formSubtitle}}</p>
 
-<form id="XMLsample-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="xml-sample-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
 
     <!-- Text input -->
     <div class="form-group" [class.was-validated]="text.dirty || text.touched">
       <label class="control-label" for="text">Text*</label>
       <input id="text" name="text" type="text" class="form-control" required
-             [(ngModel)]="XMLsample.text" #text="ngModel">
+             [(ngModel)]='xmlSample.text' #text="ngModel">
       <div class="invalid-feedback">The text is required</div>
     </div>
 
@@ -16,7 +16,7 @@
     <div class="form-group" [class.was-validated]="xml.dirty || xml.touched">
       <label class="control-label" for="xml">XML</label>
       <input id="xml" name="xml" type="text" class="form-control" required
-             [(ngModel)]="XMLsample.xml" #xml="ngModel">
+             [(ngModel)]='xmlSample.xml' #xml="ngModel">
       <div class="invalid-feedback">The XML field is required</div>
     </div>
 
