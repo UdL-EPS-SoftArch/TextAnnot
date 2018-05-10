@@ -40,9 +40,19 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
+import { SampleListComponent } from './sample/sample-list/sample-list.component';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
-import { SampleListComponent } from './sample/sample-list/sample-list.component';
+
+import { MetadataValueService} from './metadataValue/metadataValue.service';
+import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
+import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
+import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+
+import { MetadataTemplateService } from './metadata-template/metadata-template.service';
+import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
+import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
 import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
@@ -65,10 +75,16 @@ import { XMLSampleFormComponent} from "./XMLsample/XMLsample-form/XMLSample-form
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
-    SampleSearchComponent,
     SampleListComponent,
     XMLSampleCreateComponent,
     XMLSampleFormComponent,
+    SampleSearchComponent,
+    MetadataValueListComponent,
+    MetadataValueDetailComponent,
+    MetadataValueSearchComponent,
+    MetadataValueDeleteComponent,
+    MetadataTemplateFormComponent,
+    MetadataTemplateListComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +102,8 @@ import { XMLSampleFormComponent} from "./XMLsample/XMLsample-form/XMLSample-form
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, XMLSampleService],
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
+    MetadataValueService, MetadataTemplateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

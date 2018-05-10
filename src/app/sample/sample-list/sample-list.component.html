@@ -15,12 +15,27 @@
 <div class="card mb-1" *ngFor="let sample of samples">
   <div class="card-block row m-1">
     <h6 class="card-title col-md-12 p-1"><a routerLink="{{sample.uri}}">{{sample.uri}}</a></h6>
-    <div class="col-md-4 p-1">
-      <h4 class="card-subtitle text-muted">Sample Text</h4>
+    <div class="col-md-1 p-1">
+      <h6 class="card-subtitle text-muted">ID</h6>
+      <p class="card-text">{{sample.id}}</p>
+    </div>
+    <div class="col-md-5 p-1">
+      <h6 class="card-subtitle text-muted">Text</h6>
       <p class="card-text">{{sample.text}}</p>
     </div>
-    <div class="col-md-4 p-1">
-      <a class="card-link pull-right" routerLink="{{sample.uri}}">Details(Not implemented)</a>
+    <div class="col-md-2 p-1">
+      <h6 class="card-subtitle text-muted">Described By</h6>
+      <p class="card-text">(Not implemented yet)</p>
+      <!--<p class="card-text">{{sample.describedBy.uri}}</p>-->
+    </div>
+    <div class="col-md-2 p-1">
+      <h6 class="card-subtitle text-muted">Has</h6>
+      <ul>
+        <li *ngFor="let h of sample.has">Metadata value #{{h.id}}</li>
+      </ul>
+    </div>
+    <div class="col-md-2 p-1">
+      <a class="card-link pull-right" routerLink="{{sample.uri}}">Details (Not implemented yet)</a>
     </div>
   </div>
 </div>

@@ -15,6 +15,12 @@ import { LinguistListComponent } from './user/user-list/linguist-list.component'
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import {SampleListComponent} from './sample/sample-list/sample-list.component';
 import {XMLSampleCreateComponent} from "./XMLsample/XMLsample-create/XMLsample-create.component";
+import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
+import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
+import { MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+import { SampleListComponent } from './sample/sample-list/sample-list.component';
+import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -31,4 +37,10 @@ export const routes: Routes = [
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] },
   { path: 'samples/upload', component: XMLSampleCreateComponent, canActivate: [AdministratorGuard]}
+  { path: 'samples', component: SampleListComponent, canActivate: [LoggedInGuard] },
+  { path: 'metadataValues', component: MetadataValueListComponent},
+  { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
+  { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent},
+  { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataTemplates/new', component: MetadataTemplateFormComponent, canActivate: [AdministratorGuard] },
 ];
