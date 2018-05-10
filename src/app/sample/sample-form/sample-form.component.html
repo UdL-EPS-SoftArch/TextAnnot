@@ -22,13 +22,7 @@
       <div class="invalid-feedback">The described By field is required</div>
     </div>
 
-    <!-- has -->
-    <div class="form-group" [class.was-validated]="has.dirty || has.touched">
-        <label class="control-label" for="has">Has</label>
-        <input id="has" name="has" type="text" class="form-control"
-               [(ngModel)]="sample.has" #has="ngModel">
-      </div>
-
+   
     <!-- Button -->
     <div class="form-group">
       <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>

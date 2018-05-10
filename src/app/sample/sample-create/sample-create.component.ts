@@ -32,7 +32,7 @@ export class SampleCreateComponent implements OnInit {
   onSubmit(): void {
     this.sampleService.create(this.sample)
         .subscribe(
-          sample => this.router.navigate([sample.uri]));
+          sample => this.router.navigate(["/samples"]));
   }
 
 }
