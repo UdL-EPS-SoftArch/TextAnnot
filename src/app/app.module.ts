@@ -47,8 +47,8 @@ import {MetadataValueEditComponent} from './metadataValue/metadata-value-edit/me
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
-import {ServiceWorkerModule} from "@angular/service-worker";
-import {environment} from "../environments/environment";
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -87,7 +87,7 @@ import {environment} from "../environments/environment";
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
-
+    ReactiveFormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
