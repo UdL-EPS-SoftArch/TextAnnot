@@ -1,13 +1,12 @@
-
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {routes} from './app.routing';
 import {AngularHalModule} from 'angular4-hal-aot';
-import {ExternalConfigurationService} from './external-configuration-service'
+import {ExternalConfigurationService} from './external-configuration-service';
 import {ErrorHandlerModule} from './error-handler/error-handler.module';
 import {HttpErrorInterceptor} from './error-handler/http-error-interceptor';
 
@@ -87,7 +86,6 @@ import {environment} from '../environments/environment';
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
-    ReactiveFormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
@@ -98,5 +96,4 @@ import {environment} from '../environments/environment';
     MetadataValueService, MetadataTemplateService],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
