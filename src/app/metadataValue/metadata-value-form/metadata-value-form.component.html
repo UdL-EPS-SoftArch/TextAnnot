@@ -8,7 +8,7 @@
     <div class="form-group" [class.was-validated]="value.dirty || value.touched">
       <label class="control-label" for="value">value*</label>
       <input id="value" name="value" type="text" class="form-control" required
-             [(ngModel)]="MetadataValue.value" #value="ngModel">
+             [(ngModel)]="metadataValue.value" #value="ngModel">
       <div class="invalid-feedback">A value is required</div>
     </div>
 
