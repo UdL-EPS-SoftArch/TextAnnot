@@ -1,5 +1,6 @@
 import { Resource} from 'angular4-hal-aot';
-import {MetadataValue} from '../metadataValue/metadataValue';
+import { MetadataValue } from '../metadataValue/metadataValue';
+import { MetadataTemplate } from '../metadata-template/metadata-template';
 
 
 export class Metadatafield extends Resource {
@@ -7,5 +8,6 @@ export class Metadatafield extends Resource {
   uri: string;
   name: string;
   type: string;
-  definedIn: MetadataValue[];
+  definedIn: MetadataTemplate;
+  has: MetadataValue[];
 }
