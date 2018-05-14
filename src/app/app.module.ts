@@ -59,6 +59,11 @@ import { XMLSampleService } from './XMLsample/XMLsample.service';
 import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
 import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
+import { MetadatafieldService } from './metadatafield/metadatafield.service';
+import { MetadataFieldListComponent } from './metadatafield/metadatafield-list/metadatafield-list.component';
+import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create/metadafield-create.component';
+import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +86,9 @@ import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form
     SampleListComponent,
     XMLSampleCreateComponent,
     XMLSampleFormComponent,
+    MetadataFieldListComponent,
+    MetadafieldCreateComponent,
+    MetadatafieldSearchComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,
@@ -104,9 +112,8 @@ import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, XMLSampleService,
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    MetadataValueService, MetadataTemplateService],
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
