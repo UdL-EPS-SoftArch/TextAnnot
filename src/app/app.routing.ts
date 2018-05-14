@@ -13,7 +13,8 @@ import { LinguistCreateComponent } from './user/user-create/linguist-create.comp
 import { LinguistEditComponent } from './user/user-edit/linguist-edit.component';
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
-import {XMLSampleCreateComponent} from './XMLsample/XMLsample-create/XMLsample-create.component';
+import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
+import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
 import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
@@ -26,20 +27,20 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'admins/new', component: AdminCreateComponent, canActivate: [AdministratorGuard] },
   { path: 'admins/:id/edit', component: AdminEditComponent, canActivate: [AdministratorGuard] },
-  { path: 'admins', component: AdminListComponent, canActivate: [AdministratorGuard] },
-  { path: 'admins/:id', component: AdminDetailComponent, canActivate: [AdministratorGuard] },
   { path: 'admins/:id/delete', component: AdminDeleteComponent, canActivate: [AdministratorGuard] },
+  { path: 'admins/:id', component: AdminDetailComponent, canActivate: [AdministratorGuard] },
+  { path: 'admins', component: AdminListComponent, canActivate: [AdministratorGuard] },
   { path: 'linguists/new', component: LinguistCreateComponent, canActivate: [AdministratorGuard] },
   { path: 'linguists/:id/edit', component: LinguistEditComponent, canActivate: [AdministratorGuard] },
-  { path: 'linguists', component: LinguistListComponent, canActivate: [LoggedInGuard] },
-  { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists/:id/delete', component: LinguistDeleteComponent, canActivate: [AdministratorGuard] },
-  { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] },
+  { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
+  { path: 'linguists', component: LinguistListComponent, canActivate: [LoggedInGuard] },
+  { path: 'samples/new', component: SampleCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'samples/upload', component: XMLSampleCreateComponent, canActivate: [AdministratorGuard]},
-  { path: 'samples', component: SampleListComponent, canActivate: [LoggedInGuard] },
-  { path: 'metadataValues', component: MetadataValueListComponent},
-  { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
+  { path: 'samples', component: SampleListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent},
-  { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataValues/:id', component: MetadataValueDetailComponent},
+  { path: 'metadataValues', component: MetadataValueListComponent},
   { path: 'metadataTemplates/new', component: MetadataTemplateFormComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [AdministratorGuard] },
 ];
