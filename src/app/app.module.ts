@@ -40,6 +40,7 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
+import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
@@ -54,11 +55,14 @@ import { MetadataTemplateService } from './metadata-template/metadata-template.s
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
 
+import { XMLSampleService } from './XMLsample/XMLsample.service';
+import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
+import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
 import { MetadatafieldService } from './metadatafield/metadatafield.service';
-import { MetadataFieldListComponent} from './metadatafield/metadatafield-list/metadatafield-list.component';
-import {MetadafieldCreateComponent} from './metadatafield/metadatafield-create/metadafield-create.component';
-import {MetadatafieldSearchComponent} from './metadatafield/metadatafield-search/metadatafield-search.component';
+import { MetadataFieldListComponent } from './metadatafield/metadatafield-list/metadatafield-list.component';
+import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create/metadafield-create.component';
+import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,11 @@ import {MetadatafieldSearchComponent} from './metadatafield/metadatafield-search
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    SampleCreateComponent,
+    SampleSearchComponent,
     SampleListComponent,
+    XMLSampleCreateComponent,
+    XMLSampleFormComponent,
     MetadataFieldListComponent,
     MetadafieldCreateComponent,
     MetadatafieldSearchComponent,
@@ -105,8 +113,7 @@ import {MetadatafieldSearchComponent} from './metadatafield/metadatafield-search
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    MetadataValueService, MetadataTemplateService, MetadatafieldService],
-
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
