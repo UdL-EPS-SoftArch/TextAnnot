@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LinguistService} from '../../user/linguist.service';
-import {Linguist} from '../../user/linguist';
 import {MetadataValue} from '../metadataValue';
 import {MetadataValueService} from '../metadataValue.service';
 
 @Component({
   selector: 'app-metadata-value-delete',
-  templateUrl: './metadata-value-delete.component.html',
-  styleUrls: ['./metadata-value-delete.component.css']
+  templateUrl: './metadata-value-delete.component.html'
 })
 export class MetadataValueDeleteComponent implements OnInit {
   public metaValue: MetadataValue = new MetadataValue();
@@ -21,12 +18,12 @@ export class MetadataValueDeleteComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.metadataValueService.getMetadataValue(id).subscribe(
+    this.metadataValueService.get(id).subscribe(
       metaValue => this.metaValue = metaValue);
   }
 
   delete() {
-    this.metadataValueService.deleteMetadataValue(this.metaValue).subscribe(
+    this.metadataValueService.delete(this.metaValue).subscribe(
       () => this.router.navigate(['metadataValues']));
   }
 }

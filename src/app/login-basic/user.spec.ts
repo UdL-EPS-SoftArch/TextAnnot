@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { User } from './user';
+import {User} from './user';
 
 describe('User', () => {
   it('should create an instance', () => {
@@ -10,7 +10,7 @@ describe('User', () => {
   it('should accept values in the constructor', () => {
     const user = new User({
       username: 'user',
-      authorities: [ { authority: 'ROLE_USER' } ],
+      authorities: [{authority: 'ROLE_USER'}],
       password: 'password',
     });
     expect(user.username).toEqual('user');

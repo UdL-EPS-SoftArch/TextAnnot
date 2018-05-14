@@ -50,6 +50,8 @@ import { MetadataValueListComponent} from './metadataValue/metadata-value-list/m
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
 import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+import {MetadataValueCreateComponent} from './metadataValue/metadata-value-create/metadata-value-create.component';
+import {MetadataValueEditComponent} from './metadataValue/metadata-value-edit/metadata-value-edit.component';
 
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
@@ -96,6 +98,8 @@ import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-sear
     MetadataValueDeleteComponent,
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
+    MetadataValueCreateComponent,
+    MetadataValueEditComponent,
   ],
   imports: [
     BrowserModule,

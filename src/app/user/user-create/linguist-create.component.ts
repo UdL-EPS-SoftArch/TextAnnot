@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Linguist } from '../linguist';
-import { LinguistService } from '../linguist.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Linguist} from '../linguist';
+import {LinguistService} from '../linguist.service';
 
 @Component({
   selector: 'app-linguist-create',
@@ -14,7 +14,8 @@ export class LinguistCreateComponent implements OnInit {
   public formSubtitle = 'Register a new user with role linguist';
 
   constructor(private router: Router,
-              private linguistService: LinguistService) { }
+              private linguistService: LinguistService) {
+  }
 
   ngOnInit() {
     this.user = new Linguist();
@@ -22,7 +23,7 @@ export class LinguistCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.linguistService.create(this.user)
-        .subscribe(
-          linguist => this.router.navigate([linguist.uri]));
+      .subscribe(
+        linguist => this.router.navigate([linguist.uri]));
   }
 }

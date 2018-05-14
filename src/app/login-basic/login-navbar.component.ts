@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationBasicService } from './authentication-basic.service';
-import { User } from './user';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationBasicService} from './authentication-basic.service';
+import {User} from './user';
 
 @Component({
   selector: 'app-login-navbar,[app-login-navbar]',
@@ -9,9 +9,11 @@ import { User } from './user';
 })
 export class LoginNavbarComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationBasicService) { }
+  constructor(private authenticationService: AuthenticationBasicService) {
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   logout(): void {
     this.authenticationService.logout();

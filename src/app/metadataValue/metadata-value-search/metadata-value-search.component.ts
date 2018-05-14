@@ -14,11 +14,14 @@ export class MetadataValueSearchComponent {
   emitResults: EventEmitter<any> = new EventEmitter();
 
   public errorMessage: string;
+
   constructor(private metadataValueService: MetadataValueService) {
   }
 
   performSearch(searchTerm: string): void {
     this.metadataValueService.getMetadataValuesByUsername(searchTerm).subscribe(
-      metadata => { this.emitResults.emit(metadata); });
+      metadata => {
+        this.emitResults.emit(metadata);
+      });
   }
 }

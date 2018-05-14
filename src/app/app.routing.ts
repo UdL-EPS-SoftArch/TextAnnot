@@ -21,6 +21,8 @@ import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create
 import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueDeleteComponent} from './metadataValue/metadata-value-delete/metadata-value-delete.component';
+import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/metadata-value-edit.component';
+import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 
@@ -40,7 +42,9 @@ export const routes: Routes = [
   { path: 'samples/new', component: SampleCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'samples/upload', component: XMLSampleCreateComponent, canActivate: [AdministratorGuard] },
   { path: 'samples', component: SampleListComponent, canActivate: [LoggedInGuard] },
+  { path: 'metadataValues/new', component: MetadataValueCreateComponent },
   { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataValues/:id/edit', component: MetadataValueEditComponent },
   { path: 'metadataValues/:id', component: MetadataValueDetailComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues', component: MetadataValueListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataTemplates/new', component: MetadataTemplateFormComponent, canActivate: [AdministratorGuard] },

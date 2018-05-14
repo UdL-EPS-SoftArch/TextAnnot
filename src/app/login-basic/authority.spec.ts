@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { Authority } from './authority';
+import {Authority} from './authority';
 
 describe('Authority', () => {
 
