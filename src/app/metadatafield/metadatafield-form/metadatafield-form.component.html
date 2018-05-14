@@ -1,0 +1,41 @@
+<h4>{{formTitle}}</h4>
+<p class="lead">{{formSubtitle}}</p>
+
+<form id="metadatafield-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+
+    <!-- name input -->
+    <div class="form-group" [class.was-validated]="name.dirty || name.touched">
+      <label class="control-label" for="name">Name*</label>
+      <input id="name" name="name" type="text" class="form-control" required
+             [(ngModel)]="metadatafield.name" #name="ngModel">
+      <div class="invalid-feedback">The text is required</div>
+    </div>
+
+
+    <!-- type input -->
+    <div class="form-group" [class.was-validated]="type.dirty || type.touched">
+      <label class="control-label" for="type">Type*</label>
+      <input id="type" name="type" type="text" class="form-control" required
+             [(ngModel)]="metadatafield.type" #type="ngModel">
+      <div class="invalid-feedback">The text is required</div>
+    </div>
+
+    <!-- definedIn -->
+    <div class="form-group" [class.was-validated]="definedIn.dirty || definedIn.touched">
+      <label class="control-label" for="definedIn">definedIn*</label>
+      <select id="definedIn" name="definedIn" type="text" class="form-control" required
+              [(ngModel)]="metadatafield.definedIn" #definedIn="ngModel">
+        <option *ngFor="let metadataTemplate of metadataTemplates" [ngValue]="metadataTemplate.uri">{{metadataTemplate.name}}</option>
+      </select>
+      <div class="invalid-feedback">The described By field is required</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+    </div>
+
+  </fieldset>
+</form>
