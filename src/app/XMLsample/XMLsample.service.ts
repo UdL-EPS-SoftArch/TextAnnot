@@ -1,18 +1,17 @@
-
 import {Observable} from 'rxjs/Observable';
 import {Injectable, Injector} from '@angular/core';
 import {RestService} from 'angular4-hal-aot';
-import {MetadataTemplate} from './metadata-template';
+import {XMLSample} from './XMLsample';
 import {environment} from '../../environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
-export class MetadataTemplateService extends RestService<MetadataTemplate> {
+export class XMLSampleService extends RestService<XMLSample> {
 
   constructor(injector: Injector, private http: HttpClient) {
-    super(MetadataTemplate, 'metadataTemplates', injector);
+    super(XMLSample, 'xmlSamples', injector);
   }
 
   private getHttpOptions() {
@@ -21,14 +20,14 @@ export class MetadataTemplateService extends RestService<MetadataTemplate> {
     };
   }
 
-  public findByDefinesName(name: string): Observable<MetadataTemplate[]> {
+  public findByDefinesName(name: string): Observable<XMLSample[]> {
     const options: any = {params: [{key: 'name', value: name}]};
     return this.search('findByDefinesName', options);
   }
 
-  public addMetadataTemplate(metadataTemplate: MetadataTemplate) {
-    const body = JSON.stringify(metadataTemplate);
-    return this.http.post(`${environment.API}/metadataTemplates`, body, this.getHttpOptions()).pipe(
+  public addXMLSample(xmlSample: XMLSample) {
+    const body = JSON.stringify(xmlSample);
+    return this.http.post(`${environment.API}/xmlSamples`, body, this.getHttpOptions()).pipe(
       catchError((error: HttpErrorResponse) => new ErrorObservable(error))
     );
   }
