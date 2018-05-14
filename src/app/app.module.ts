@@ -40,6 +40,7 @@ import { LinguistSearchComponent } from './user/user-search/linguist-search.comp
 import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
+import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
@@ -71,6 +72,8 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     LinguistEditComponent,
     LinguistSearchComponent,
     LinguistDeleteComponent,
+    SampleCreateComponent,
+    SampleSearchComponent,
     SampleListComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
