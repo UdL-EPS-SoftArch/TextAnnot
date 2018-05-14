@@ -55,6 +55,10 @@ import { MetadataTemplateService } from './metadata-template/metadata-template.s
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
 
+import { XMLSampleService } from './XMLsample/XMLsample.service';
+import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
+import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +79,8 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     SampleCreateComponent,
     SampleSearchComponent,
     SampleListComponent,
+    XMLSampleCreateComponent,
+    XMLSampleFormComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,
@@ -98,6 +104,7 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
+    AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService, XMLSampleService,
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
     MetadataValueService, MetadataTemplateService],
   bootstrap: [AppComponent]
