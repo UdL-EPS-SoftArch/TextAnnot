@@ -4,6 +4,7 @@
 Class project for the Enterprise Software Architecture 2017-18 Course, Polytechnic School, University of Lleida
 
 [![Build Status](https://travis-ci.org/UdL-EPS-SoftArch/TextAnnot.svg?branch=master)](https://travis-ci.org/UdL-EPS-SoftArch/TextAnnot/branches) 
+[![codebeat badge](https://codebeat.co/badges/cc6c346e-9b1b-4a48-aa61-e9973d4c9f52)](https://codebeat.co/projects/github-com-udl-eps-softarch-textannot-master)
 <a href="https://zenhub.com"><img src="https://cdn.rawgit.com/ZenHubIO/support/master/zenhub-badge.svg"></a>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
