@@ -25,6 +25,7 @@ import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/
 import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
+import {SampleDeleteComponent} from './sample/sample-delete/sample-delete.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -42,6 +43,7 @@ export const routes: Routes = [
   { path: 'samples/new', component: SampleCreateComponent, canActivate: [LoggedInGuard] },
   { path: 'samples/upload', component: XMLSampleCreateComponent, canActivate: [AdministratorGuard] },
   { path: 'samples', component: SampleListComponent, canActivate: [LoggedInGuard] },
+  { path: 'samples/:id/delete', component: SampleDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues/new', component: MetadataValueCreateComponent },
   { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues/:id/edit', component: MetadataValueEditComponent },
