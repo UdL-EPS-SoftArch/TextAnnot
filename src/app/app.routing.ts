@@ -27,6 +27,7 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import {MetadatafieldEditComponent} from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import {MetadatafieldDetailComponent} from './metadatafield/metadatafield-detail/metadatafield-detail.component';
+import {MetadatafieldDeleteComponent} from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -55,4 +56,5 @@ export const routes: Routes = [
   { path: 'metadataFields/:id/edit', component: MetadatafieldEditComponent },
   { path: 'metadataFields/:id', component: MetadatafieldDetailComponent},
   { path: 'metadataFields', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataFields/:id/delete', component: MetadatafieldDeleteComponent, canActivate: [AdministratorGuard] },
 ];
