@@ -24,6 +24,6 @@ export class SampleDeleteComponent implements OnInit {
 
   delete() {
     this.sampleService.delete(this.mSample).subscribe(
-      () => this.router.navigate(['sample']));
+      () => this.router.navigate(['samples']));
   }
 }
