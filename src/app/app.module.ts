@@ -65,6 +65,9 @@ import { MetadatafieldService } from './metadatafield/metadatafield.service';
 import { MetadataFieldListComponent } from './metadatafield/metadatafield-list/metadatafield-list.component';
 import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create/metadafield-create.component';
 import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
+import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/metadatafield-edit.component';
+import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
+import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +94,9 @@ import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-sear
     MetadataFieldListComponent,
     MetadafieldCreateComponent,
     MetadatafieldSearchComponent,
+    MetadatafieldEditComponent,
+    MetadatafieldDetailComponent,
+    MetadatafieldDeleteComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,

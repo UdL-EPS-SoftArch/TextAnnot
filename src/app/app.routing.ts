@@ -25,6 +25,9 @@ import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/
 import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
+import {MetadatafieldEditComponent} from './metadatafield/metadatafield-edit/metadatafield-edit.component';
+import {MetadatafieldDetailComponent} from './metadatafield/metadatafield-detail/metadatafield-detail.component';
+import {MetadatafieldDeleteComponent} from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -49,6 +52,9 @@ export const routes: Routes = [
   { path: 'metadataValues', component: MetadataValueListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataTemplates/new', component: MetadataTemplateFormComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [AdministratorGuard] },
-  { path: 'metadataField/new', component: MetadafieldCreateComponent, canActivate: [AdministratorGuard] },
-  { path: 'metadataField', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataFields/new', component: MetadafieldCreateComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataFields/:id/edit', component: MetadatafieldEditComponent },
+  { path: 'metadataFields/:id', component: MetadatafieldDetailComponent},
+  { path: 'metadataFields', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataFields/:id/delete', component: MetadatafieldDeleteComponent, canActivate: [AdministratorGuard] },
 ];
