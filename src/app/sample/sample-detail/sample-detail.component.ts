@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Sample} from '../sample';
 import {SampleService} from '../sample.service';
+import {MetadataTemplate} from "../../metadata-template/metadata-template";
 
 @Component({
   selector: 'app-sample-detail',
@@ -21,5 +22,6 @@ export class SampleDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.sampleService.get(id).subscribe(
       sample => this.sample = sample);
+
   }
 }
