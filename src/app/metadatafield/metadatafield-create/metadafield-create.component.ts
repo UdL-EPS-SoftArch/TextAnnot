@@ -33,7 +33,7 @@ export class MetadafieldCreateComponent implements OnInit {
   onSubmit(): void {
     this.metadataField.create(this.metadatafield)
       .subscribe(
-        metadafield => this.router.navigate(['/metadataField']));
+        metadatafield => this.router.navigate(['/metadataFields']));
 
   }
 }
