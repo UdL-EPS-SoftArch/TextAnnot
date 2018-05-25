@@ -44,6 +44,9 @@ import { SampleCreateComponent } from './sample/sample-create/sample-create.comp
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
+import { SampleDeleteComponent } from './sample/sample-delete/sample-delete.component';
+import {SampleDetailComponent} from './sample/sample-detail/sample-detail.component';
+import {SampleEditComponent} from './sample/sample-edit/sample-edit.component';
 
 import { MetadataValueService} from './metadataValue/metadataValue.service';
 import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
@@ -69,6 +72,7 @@ import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/m
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +93,9 @@ import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-dele
     SampleCreateComponent,
     SampleSearchComponent,
     SampleListComponent,
+    SampleDeleteComponent,
+    SampleDetailComponent,
+    SampleEditComponent,
     XMLSampleCreateComponent,
     XMLSampleFormComponent,
     MetadataFieldListComponent,

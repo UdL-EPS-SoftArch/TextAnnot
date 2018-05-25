@@ -5,6 +5,7 @@ import { SampleService } from '../sample.service';
 import { Linguist } from '../../user/linguist';
 import { MetadataTemplate } from '../../metadata-template/metadata-template';
 import { MetadataTemplateService } from '../../metadata-template/metadata-template.service';
+import {MetadataValue} from '../../metadataValue/metadataValue';
 
 @Component({
   selector: 'app-sample-create',
@@ -30,6 +31,7 @@ export class SampleCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
+
     this.sampleService.create(this.sample)
         .subscribe(
           sample => this.router.navigate(['/samples']));
