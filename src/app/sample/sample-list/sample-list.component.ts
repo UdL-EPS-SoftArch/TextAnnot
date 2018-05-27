@@ -24,6 +24,7 @@ export class SampleListComponent implements OnInit {
         this.totalSamples = samples.length;
 
         // Get the related field data.
+        // Doesn't work
         this.samples.map(
           (sample: Sample) => {
             sample.getRelationArray(MetadataValue, 'has').subscribe(
