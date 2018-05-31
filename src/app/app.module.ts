@@ -53,6 +53,7 @@ import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-del
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import {TemplateSearchComponent} from "./metadata-template/metadata-template-search/template-search.component";
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
     MetadataValueDeleteComponent,
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
+    TemplateSearchComponent,
   ],
   imports: [
     BrowserModule,
