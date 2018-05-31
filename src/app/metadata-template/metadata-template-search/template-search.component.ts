@@ -4,13 +4,13 @@ import { MetadataTemplateService} from '../metadata-template.service';
 
 
 @Component({
-  selector: 'app-sample-search',
+  selector: 'app-template-search',
   templateUrl: './template-search.component.html',
   styleUrls: ['./template-search.component.css']
 })
 export class TemplateSearchComponent {
   @Input()
-  samples: MetadataTemplate[];
+  metadataTemplates: MetadataTemplate[];
   @Output()
   emitResults: EventEmitter<any> = new EventEmitter();
 
@@ -18,7 +18,7 @@ export class TemplateSearchComponent {
   constructor(private templateService: MetadataTemplateService) {
   }
 
-  performSearch(searchTerm: string): void {
+  doSearch(searchTerm: string): void {
     this.templateService.findByDefinesName(searchTerm).subscribe(
       templates => { this.emitResults.emit(templates); });
   }
