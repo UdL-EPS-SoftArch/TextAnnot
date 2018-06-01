@@ -16,10 +16,9 @@ export class SampleEditComponent implements OnInit {
   public formTitle = 'Edit Sample';
   public formSubtitle = 'Edit the value of a Sample';
   public metadataTemplates: MetadataTemplate[] = [];
+  public uriMetadataTemplate: string;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private sampleService: SampleService,
+  constructor(private route: ActivatedRoute, private router: Router, private sampleService: SampleService,
               private metadataTemplateService: MetadataTemplateService) {
   }
 
@@ -27,8 +26,10 @@ export class SampleEditComponent implements OnInit {
     this.sample = new Sample();
     const id = this.route.snapshot.paramMap.get('id');
     this.sampleService.get(id).subscribe(
-     sample => this.sample = sample);
-
+     sample => {this.sample = sample;
+       this.sample.getRelation(MetadataTemplate, 'describedBy')
+         .subscribe((mfields: MetadataTemplate) => this.uriMetadataTemplate = mfields.uri);
+     });
     this.metadataTemplateService.getAll().subscribe(
       (metadataTemplates: MetadataTemplate[]) => {
         this.metadataTemplates = metadataTemplates;
