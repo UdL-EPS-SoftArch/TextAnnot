@@ -17,7 +17,7 @@
         <label class="control-label" for="describedBy">Described By*</label>
         <select id="describedBy" name="describedBy" type="text" class="form-control" required
                [(ngModel)]="uriMetadataTemplate" #describedBy="ngModel" >
-          <option  *ngFor="let metadataTemplate of metadataTemplates"  value="{{metadataTemplate.uri}}">{{metadataTemplate.name}}</option>
+          <option *ngFor="let metadataTemplate of metadataTemplates"  value="{{metadataTemplate.uri}}">{{metadataTemplate.name}}</option>
         </select>
         </div>
 
