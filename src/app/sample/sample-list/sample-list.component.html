@@ -6,7 +6,8 @@
     <app-sample-search (emitResults)="showSearchResults($event)" [samples]="samples"></app-sample-search>
   </div>
   <div class="col mb-3">
-    <button id="addBtn" class="btn btn-primary pull-right" type="button">Add Sample (Not implemented yet)</button>
+    <a routerLink="/samples/new"><button id="addBtn" class="btn btn-primary pull-right" type="button">Add Sample</button></a>
+    <button id="addBtnXML" class="btn btn-primary pull-right mr-2" type="button" [routerLink]="['/samples/upload']">Add XML Sample</button>
   </div>
 </div>
 
@@ -23,17 +24,18 @@
     </div>
     <div class="col-md-2 p-1">
       <h6 class="card-subtitle text-muted">Described By</h6>
-      <p class="card-text">(Not implemented yet)</p>
+      <p class="card-text">Not implemented yet</p>
       <!--<p class="card-text">{{sample.describedBy.uri}}</p>-->
     </div>
     <div class="col-md-2 p-1">
       <h6 class="card-subtitle text-muted">Has</h6>
+      <p class="card-text">Not implemented yet</p>
       <ul>
         <li *ngFor="let h of sample.has">Metadata value #{{h.id}}</li>
       </ul>
     </div>
     <div class="col-md-2 p-1">
-      <a class="card-link pull-right" routerLink="{{sample.uri}}">Details (Not implemented yet)</a>
+      <a class="card-link pull-right" routerLink="{{sample.uri}}">Details</a>
     </div>
   </div>
 </div>

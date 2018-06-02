@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Linguist } from '../linguist';
-import { ActivatedRoute, Router } from '@angular/router';
-import { LinguistService } from '../linguist.service';
+import {Component, OnInit} from '@angular/core';
+import {Linguist} from '../linguist';
+import {ActivatedRoute, Router} from '@angular/router';
+import {LinguistService} from '../linguist.service';
 
 @Component({
   selector: 'app-linguist-delete',
@@ -19,7 +19,7 @@ export class LinguistDeleteComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.linguistService.get(id).subscribe(
-          linguist => this.user = linguist);
+      linguist => this.user = linguist);
   }
 
   delete() {

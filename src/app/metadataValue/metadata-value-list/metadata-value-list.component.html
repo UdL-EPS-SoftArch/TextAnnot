@@ -1,12 +1,14 @@
 <h4>MetadataValues</h4>
-<p class="lead">Administer the registered users with role linguist</p>
+<p class="lead">Administer the MetadataValues</p>
 
 <div class="row justify-content-between">
   <div class="col mb-3">
     <app-metadata-value-search (emitResults)="showSearchResults($event)" [metadata]="metadataValues"></app-metadata-value-search>
-  </div>
+ </div>
   <div class="col mb-3">
-    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/linguists/new']">Add MetadataValue</button>
+    <button id="addBtn" class="btn btn-primary pull-right" type="button" [routerLink]="['/metadataValues/new']">Add
+      MetadataValue
+    </button>
   </div>
 </div>
 
@@ -27,6 +29,6 @@
   </div>
 </div>
 
-<p i18n class="text-center">Showing {{metadataValues.length}} out of { totalmetadataValues, plural,
-  =1 {1 linguist}
-  other { {{totalmetadataValues}} linguists} }</p>
+<p i18n class="text-center">Showing {{metadataValues.length}} out of { totalMetadataValues, plural,
+  =1 {1 MetadataValue}
+  other { {{totalMetadataValues}} MetadataValues} }</p>

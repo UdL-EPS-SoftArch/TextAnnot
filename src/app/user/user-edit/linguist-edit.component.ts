@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { Linguist } from '../linguist';
-import { LinguistService } from '../linguist.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
+import {Linguist} from '../linguist';
+import {LinguistService} from '../linguist.service';
 
 @Component({
   selector: 'app-linguist-edit',
@@ -16,19 +16,20 @@ export class LinguistEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private linguistService: LinguistService) { }
+              private linguistService: LinguistService) {
+  }
 
   ngOnInit() {
     this.user = new Linguist();
     const id = this.route.snapshot.paramMap.get('id');
     this.linguistService.get(id).subscribe(
-          linguist => this.user = linguist);
+      linguist => this.user = linguist);
   }
 
   onSubmit(): void {
     this.user.authorities = [];
     this.linguistService.update(this.user)
-        .subscribe(
-          linguist => this.router.navigate([linguist.uri]));
+      .subscribe(
+        linguist => this.router.navigate([linguist.uri]));
   }
 }

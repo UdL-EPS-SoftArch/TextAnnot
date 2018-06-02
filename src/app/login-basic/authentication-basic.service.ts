@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
-import { User } from './user';
-import { Observable } from 'rxjs/Observable';
-import { environment } from '../../environments/environment';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import {Injectable} from '@angular/core';
+import {User} from './user';
+import {Observable} from 'rxjs/Observable';
+import {environment} from '../../environments/environment';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {map, catchError} from 'rxjs/operators';
+import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class AuthenticationBasicService {
 
-  constructor (private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   login(username: string, password: string): Observable<User> {
     const authorization = this.generateAuthorization(username, password);

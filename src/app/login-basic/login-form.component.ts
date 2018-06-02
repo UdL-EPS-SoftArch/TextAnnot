@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationBasicService } from './authentication-basic.service';
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationBasicService} from './authentication-basic.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-login-form',
@@ -10,9 +10,11 @@ import { Location } from '@angular/common';
 export class LoginFormComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationBasicService,
-              private location: Location) { }
+              private location: Location) {
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   onSubmit(userInput: HTMLInputElement, passwordInput: HTMLInputElement): void {
     this.authenticationService.login(userInput.value, passwordInput.value)

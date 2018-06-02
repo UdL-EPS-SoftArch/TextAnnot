@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Admin } from '../admin';
-import { AdminService } from '../admin.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Admin} from '../admin';
+import {AdminService} from '../admin.service';
 
 @Component({
   selector: 'app-admin-delete',
@@ -19,7 +19,7 @@ export class AdminDeleteComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.adminService.getAdmin(id).subscribe(
-          linguist => this.user = linguist);
+      linguist => this.user = linguist);
   }
 
   delete() {
