@@ -45,20 +45,21 @@ import { SampleListComponent } from './sample/sample-list/sample-list.component'
 import { SampleService } from './sample/sample.service';
 import { SampleSearchComponent } from './sample/sample-search/sample-search.component';
 import { SampleDeleteComponent } from './sample/sample-delete/sample-delete.component';
-import {SampleDetailComponent} from './sample/sample-detail/sample-detail.component';
-import {SampleEditComponent} from './sample/sample-edit/sample-edit.component';
+import { SampleDetailComponent } from './sample/sample-detail/sample-detail.component';
+import { SampleEditComponent } from './sample/sample-edit/sample-edit.component';
 
 import { MetadataValueService} from './metadataValue/metadataValue.service';
 import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
 import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
-import {MetadataValueCreateComponent} from './metadataValue/metadata-value-create/metadata-value-create.component';
-import {MetadataValueEditComponent} from './metadataValue/metadata-value-edit/metadata-value-edit.component';
+import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
+import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/metadata-value-edit.component';
 
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import { TemplateSearchComponent } from './metadata-template/metadata-template-search/template-search.component';
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
 import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
@@ -111,6 +112,7 @@ import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-dele
     MetadataValueDeleteComponent,
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
+    TemplateSearchComponent,
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
   ],
