@@ -13,17 +13,15 @@
     </div>
 
     <!-- describedBy -->
-    <div class="form-group" [class.was-validated]="describedBy.dirty || describedBy.touched">
-      <label class="control-label" for="describedBy">Described By*</label>
-      <select id="describedBy" name="describedBy" type="text" class="form-control" required
-             [(ngModel)]="sample.describedBy" #describedBy="ngModel">
-        <option *ngFor="let metadataTemplate of metadataTemplates" [ngValue]="metadataTemplate.uri">{{metadataTemplate.name}}</option>      
-      </select>
-      <div class="invalid-feedback">The described By field is required</div>
-    </div>
+      <div class="form-group" [class.was-validated]="describedBy.dirty || describedBy.touched">
+        <label class="control-label" for="describedBy">Described By*</label>
+        <select id="describedBy" name="describedBy" type="text" class="form-control" required
+               [(ngModel)]="uriMetadataTemplate" #describedBy="ngModel" >
+          <option *ngFor="let metadataTemplate of metadataTemplates"  value="{{metadataTemplate.uri}}">{{metadataTemplate.name}}</option>
+        </select>
+        </div>
 
-   
-    <!-- Button -->
+        <!-- Button -->
     <div class="form-group">
       <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
     </div>
