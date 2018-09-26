@@ -15,7 +15,6 @@ import { LinguistListComponent } from './user/user-list/linguist-list.component'
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
 import { SampleListComponent } from './sample/sample-list/sample-list.component';
-import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
 import { MetadataFieldListComponent } from './metadatafield/metadatafield-list/metadatafield-list.component';
 import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create/metadafield-create.component';
 import { MetadataValueListComponent } from './metadataValue/metadata-value-list/metadata-value-list.component';
@@ -33,6 +32,7 @@ import {SampleEditComponent} from './sample/sample-edit/sample-edit.component';
 import {MetadatafieldEditComponent} from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import {MetadatafieldDetailComponent} from './metadatafield/metadatafield-detail/metadatafield-detail.component';
 import {MetadatafieldDeleteComponent} from './metadatafield/metadatafield-delete/metadatafield-delete.component';
+import {XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
 
 export const routes: Routes = [
@@ -49,11 +49,11 @@ export const routes: Routes = [
   { path: 'linguists/:id', component: LinguistDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'linguists', component: LinguistListComponent, canActivate: [LoggedInGuard] },
   { path: 'samples/new', component: SampleCreateComponent, canActivate: [LoggedInGuard] },
-  { path: 'samples/upload', component: XMLSampleCreateComponent, canActivate: [AdministratorGuard] },
+  { path: 'samples/upload', component: XMLSampleFormComponent, canActivate: [LoggedInGuard] },
   { path: 'samples', component: SampleListComponent, canActivate: [LoggedInGuard] },
-  { path: 'samples/:id/edit' , component: SampleEditComponent,  canActivate: [AdministratorGuard]},
-  { path: 'samples/:id/delete', component: SampleDeleteComponent, canActivate: [AdministratorGuard] },
-  { path: 'samples/:id', component: SampleDetailComponent, canActivate: [AdministratorGuard] },
+  { path: 'samples/:id/edit' , component: SampleEditComponent,  canActivate: [LoggedInGuard]},
+  { path: 'samples/:id/delete', component: SampleDeleteComponent, canActivate: [LoggedInGuard] },
+  { path: 'samples/:id', component: SampleDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'metadataValues/new', component: MetadataValueCreateComponent },
   { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues/:id/edit', component: MetadataValueEditComponent },

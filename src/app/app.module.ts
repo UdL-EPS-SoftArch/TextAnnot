@@ -62,7 +62,6 @@ import { MetadataTemplateListComponent } from './metadata-template/metadata-temp
 import { TemplateSearchComponent } from './metadata-template/metadata-template-search/template-search.component';
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
-import { XMLSampleCreateComponent } from './XMLsample/XMLsample-create/XMLsample-create.component';
 import { XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
 import { MetadatafieldService } from './metadatafield/metadatafield.service';
@@ -72,6 +71,7 @@ import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-sear
 import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -97,7 +97,6 @@ import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-dele
     SampleDeleteComponent,
     SampleDetailComponent,
     SampleEditComponent,
-    XMLSampleCreateComponent,
     XMLSampleFormComponent,
     MetadataFieldListComponent,
     MetadafieldCreateComponent,
@@ -125,6 +124,7 @@ import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-dele
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
+    FileUploadModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
