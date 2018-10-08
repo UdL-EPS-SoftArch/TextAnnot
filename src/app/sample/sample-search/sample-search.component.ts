@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Sample } from '../sample';
 import { SampleService} from '../sample.service';
+import { MetadataTemplate } from '../../metadata-template/metadata-template';
 
 
 @Component({
@@ -20,6 +21,16 @@ export class SampleSearchComponent {
 
   performSearch(searchTerm: string): void {
     this.sampleService.findByTextContaining(searchTerm).subscribe(
-      samples => { this.emitResults.emit(samples); });
+      samples => {
+        // Get the metadata template for each sample
+        samples.map(
+          (sample: Sample) => {
+            sample.getRelation(MetadataTemplate, 'describedBy').subscribe(
+              (metadataTemplate: MetadataTemplate) => sample.describedBy = metadataTemplate
+            );
+          }
+        );
+        this.emitResults.emit(samples);
+      });
   }
 }
