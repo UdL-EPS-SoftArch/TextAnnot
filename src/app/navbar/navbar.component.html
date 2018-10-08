@@ -10,13 +10,22 @@
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/about']"><span class="fa fa-question-circle"></span> About</a>
       </li>
-      <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" [routerLink]="['/samples']"><span class="fa fa-file-text"></span> Samples</a>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="samplesDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Samples</a>
+        <div class="dropdown-menu" aria-labelledby="samplesDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/samples']"><span class="fa fa-list"></span> List</a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/samples/new']"><span class="fa fa-save"></span> New</a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/samples/upload']"><span class="fa fa-upload"></span> Upload</a>
+        </div>
       </li>
       <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" id="adminDropdown" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Administration</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+        <div class="dropdown-menu" aria-labelledby="adiminDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
              [routerLink]="['/admins']"><span class="fa fa-user"></span> Admins</a>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"

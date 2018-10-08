@@ -3,32 +3,27 @@
 
 <div class="card">
   <div class="card-block">
-    <h4 class="card-title col-md-12 p-3">{{sample.id}}</h4>
+    <h4 class="card-title col-md-12 p-3">Sample</h4>
     <div class="p-3">
-      <h6 class="card-subtitle text-muted">ID</h6>
-      <p class="card-text">{{sample.id}}</p>
+      <h6 class="card-subtitle text-muted">Metadata Template</h6>
+      <p class="card-text">{{sample?.describedBy?.name}}</p>
+    </div>
+    <div class="p-3">
+      <h6 class="card-subtitle text-muted">Metadata Values</h6>
+      <p *ngFor="let value of sample.has" class="card-text"><b>{{value?.fieldCategory}} - {{value?.fieldName}}</b>: {{value?.value}}</p>
     </div>
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Text</h6>
       <p class="card-text">{{sample.text}}</p>
     </div>
-    <div class="p-3">
-      <h6 class="card-subtitle text-muted">Described by</h6>
-      <p class="card-text">Not implemented yet</p>
-    </div>
-    <!--
-    <div class="p-3">
-      <h6 class="card-subtitle text-muted">Role</h6>
-      <p class="card-text">{{user.authorities[0]?.authority.split('_')[1]}}</p>
-    </div> -->
     <div class="card-footer text-center">
-      <button id="listBtn" type="button" [routerLink]="['..']"
+      <button id="listBtn" type="button" [routerLink]="['/samples']"
               class="btn btn-primary">Back to List
       </button>
-      <button id="editBtn" type="button" [routerLink]="['edit']"
+      <button id="editBtn" type="button" [routerLink]="sample?.uri+'/edit'"
               class="btn btn-success">Edit
       </button>
-      <button id="deleteBtn" type="button" [routerLink]="['delete']"
+      <button id="deleteBtn" type="button" [routerLink]="sample?.uri+'/delete'"
               class="btn btn-danger">Delete
       </button>
     </div>

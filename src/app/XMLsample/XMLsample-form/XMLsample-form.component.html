@@ -1,29 +1,84 @@
-<h4>{{formTitle}}</h4>
-<p class="lead">{{formSubtitle}}</p>
+<h4>Upload Samples</h4>
+<p class="lead">Upload one or more XML files </p>
 
-<form id="xml-sample-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="xml-sample-form" #form="ngForm">
   <fieldset>
 
+    <!-- Template input -->
+    <div class="form-group" [class.was-validated]="describedBy.dirty || describedBy.touched">
+      <label class="control-label" for="describedBy">Metadata Template*</label>
+      <select id="describedBy" name="describedBy" type="text" class="form-control" required
+              [(ngModel)]="metadataTemplateUri" (change)="setTemplate()" #describedBy="ngModel" >
+        <option *ngFor="let metadataTemplate of metadataTemplates"  value="{{metadataTemplate.uri}}">{{metadataTemplate.name}}</option>
+      </select>
+    </div>
+
     <!-- Text input -->
-    <div class="form-group" [class.was-validated]="text.dirty || text.touched">
-      <label class="control-label" for="text">Text*</label>
-      <input id="text" name="text" type="text" class="form-control" required
-             [(ngModel)]='xmlSample.text' #text="ngModel">
-      <div class="invalid-feedback">The text is required</div>
-    </div>
-
-    <!-- XML -->
-    <div class="form-group" [class.was-validated]="xml.dirty || xml.touched">
-      <label class="control-label" for="xml">XML</label>
-      <input id="xml" name="xml" type="text" class="form-control" required
-             [(ngModel)]='xmlSample.xml' #xml="ngModel">
-      <div class="invalid-feedback">The XML field is required</div>
-    </div>
-
-    <!-- Button -->
     <div class="form-group">
-      <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+      <label class="control-label" for="files">XML Files to Upload*</label>
+      <input id="files" name="files" type="file" class="form-control" ng2FileSelect [uploader]="uploader"
+             required multiple [disabled]="metadataTemplateUri == null">
+      <div class="invalid-feedback">Select one or more file to proceed to upload</div>
+      <div [hidden]="metadataTemplateUri != null" class="invalid-feedback" style="display:block">
+        Select the metadata template to be used with the uploaded files</div>
     </div>
 
   </fieldset>
 </form>
+
+<h5>Upload queue</h5>
+<p>Queue length: {{ uploader?.queue?.length }}</p>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th width="50%">Name</th>
+    <th>Size</th>
+    <th>Progress</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of uploader?.queue">
+    <td><strong>{{ item?.file?.name }}</strong></td>
+    <td nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+    <td>
+      <div class="progress" style="margin-bottom: 0;">
+        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+      </div>
+    </td>
+    <td class="text-center">
+      <span *ngIf="item.isSuccess"><i class="fa fa-check-circle text-success"></i></span>
+      <span *ngIf="item.isUploading"><i class="fa fa-clock-o text-warning"></i></span>
+      <span *ngIf="item.isCancel"><i class="fa fa-warning text-warning"></i></span>
+      <span *ngIf="item.isError"><i class="fa fa-exclamation-circle text-danger"></i></span>
+    </td>
+    <td nowrap>
+      <button type="button" class="btn btn-success btn-sm"
+              (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+        <span class="fa fa-upload"></span> Upload
+      </button>
+      <button type="button" class="btn btn-warning btn-sm"
+              (click)="item.cancel()" [disabled]="!item.isUploading">
+        <span class="fa fa-stop-circle"></span> Cancel
+      </button>
+      <button type="button" class="btn btn-danger btn-sm"
+              (click)="item.remove()">
+        <span class="fa fa-trash"></span> Remove
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+  Queue progress:
+  <div class="progress" style="">
+    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader?.progress + '%' }"></div>
+  </div>
+</div>
+
+<div class="row pull-right mt-3 mb-3 mr-0">
+  <button type="button" class="btn btn-primary btn-sm" (click)="clearCompleted()">Clear Completed Uploads</button>
+</div>
