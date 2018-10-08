@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SampleService} from '../sample.service';
 import {Sample} from '../sample';
-import {MetadataValue} from '../../metadataValue/metadataValue';
+import { MetadataTemplate } from '../../metadata-template/metadata-template';
 
 @Component({
   selector: 'app-sample-list',
@@ -23,14 +23,11 @@ export class SampleListComponent implements OnInit {
         this.samples = samples;
         this.totalSamples = samples.length;
 
-        // Get the related field data.
+        // Get the metadata template for each sample
         this.samples.map(
           (sample: Sample) => {
-            sample.getRelationArray(MetadataValue, 'has').subscribe(
-              (values: MetadataValue[]) => {
-                sample.has = values;
-                console.log(values);
-              }
+            sample.getRelation(MetadataTemplate, 'describedBy').subscribe(
+              (metadataTemplate: MetadataTemplate) => sample.describedBy = metadataTemplate
             );
           }
         );

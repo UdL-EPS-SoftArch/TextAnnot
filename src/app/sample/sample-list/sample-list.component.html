@@ -9,33 +9,20 @@
 
 <div class="card mb-1" *ngFor="let sample of samples">
   <div class="card-block row m-1">
-    <h6 class="card-title col-md-12 p-1"><a routerLink="{{sample.uri}}">{{sample.uri}}</a></h6>
-    <div class="col-md-1 p-1">
-      <h6 class="card-subtitle text-muted">ID</h6>
-      <p class="card-text">{{sample.id}}</p>
-    </div>
-    <div class="col-md-5 p-1">
+    <div class="col-md-8 p-1">
       <h6 class="card-subtitle text-muted">Text</h6>
-      <p class="card-text">{{sample.text}}</p>
+      <p class="card-text">{{sample?.text | slice:0:80}}...</p>
     </div>
-    <div class="col-md-2 p-1">
-      <h6 class="card-subtitle text-muted">Described By</h6>
-      <p class="card-text">Not implemented yet</p>
-      <!--<p class="card-text">{{sample.describedBy.uri}}</p>-->
+    <div class="col-md-3 p-1">
+      <h6 class="card-subtitle text-muted">Metadata Template</h6>
+      <p class="card-text">{{sample?.describedBy?.name}}</p>
     </div>
-    <div class="col-md-2 p-1">
-      <h6 class="card-subtitle text-muted">Has</h6>
-      <p class="card-text">Not implemented yet</p>
-      <ul>
-        <li *ngFor="let h of sample.has">Metadata value #{{h.id}}</li>
-      </ul>
-    </div>
-    <div class="col-md-2 p-1">
-      <a class="card-link pull-right" routerLink="{{sample.uri}}">Details</a>
+    <div class="col-md-1 p-1">
+      <a class="card-link pull-right" routerLink="{{sample?.uri}}">Details</a>
     </div>
   </div>
 </div>
 
-<p i18n class="text-center">Showing {{samples.length}} out of { totalSamples, plural,
+<p i18n class="text-center">Showing {{samples?.length}} out of { totalSamples, plural,
   =1 {1 samples}
   other { {{totalSamples}} samples} }</p>
