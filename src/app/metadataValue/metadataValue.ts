@@ -8,6 +8,8 @@ export class MetadataValue extends Resource {
   uri: string;
   id: string;
   value: string;
+  fieldName: string;
+  fieldCategory: string;
   forA: Sample;
   valued: Metadatafield;
 }
