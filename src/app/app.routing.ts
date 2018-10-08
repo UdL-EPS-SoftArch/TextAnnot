@@ -54,6 +54,7 @@ export const routes: Routes = [
   { path: 'samples/:id/edit' , component: SampleEditComponent,  canActivate: [LoggedInGuard]},
   { path: 'samples/:id/delete', component: SampleDeleteComponent, canActivate: [LoggedInGuard] },
   { path: 'samples/:id', component: SampleDetailComponent, canActivate: [LoggedInGuard] },
+  { path: 'xmlSamples/:id', component: SampleDetailComponent, canActivate: [LoggedInGuard] },
   { path: 'metadataValues/new', component: MetadataValueCreateComponent },
   { path: 'metadataValues/:id/delete', component: MetadataValueDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues/:id/edit', component: MetadataValueEditComponent },
