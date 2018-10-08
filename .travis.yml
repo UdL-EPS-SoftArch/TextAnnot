@@ -38,6 +38,7 @@ script:
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u $DOCKER_USER -p $DOCKER_PASS;
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin;
       export REPO=udlepssoftarch/textannot;
       export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`;
       docker build -f Dockerfile -t $REPO:$TRAVIS_COMMIT .;
@@ -46,6 +47,8 @@ after_success:
       docker login --username=_ --password=$HEROKU_TOKEN registry.heroku.com;
       docker tag $REPO:$TRAVIS_COMMIT registry.heroku.com/textannot/web;
       docker push registry.heroku.com/textannot/web;
+      wget -qO- https://toolbelt.heroku.com/install.sh | sh;
+      heroku container:release web --app textannot;
     fi
 
 notifications:
