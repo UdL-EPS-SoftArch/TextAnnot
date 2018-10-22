@@ -1,4 +1,4 @@
-import { Resource} from 'angular4-hal-aot';
+import { Resource} from 'angular4-hal';
 import { MetadataValue } from '../metadataValue/metadataValue';
 import { MetadataTemplate } from '../metadata-template/metadata-template';
 

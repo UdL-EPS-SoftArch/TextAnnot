@@ -30,6 +30,6 @@ export class LinguistEditComponent implements OnInit {
     this.user.authorities = [];
     this.linguistService.update(this.user)
       .subscribe(
-        linguist => this.router.navigate([linguist.uri]));
+        (linguist: Linguist) => this.router.navigate([linguist.uri]));
   }
 }

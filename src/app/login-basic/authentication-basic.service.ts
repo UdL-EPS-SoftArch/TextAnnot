@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {User} from './user';
-import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {map, catchError} from 'rxjs/operators';
-import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs/internal/Observable';
 
 @Injectable()
 export class AuthenticationBasicService {
@@ -25,8 +24,7 @@ export class AuthenticationBasicService {
         user.authorization = authorization;
         user.password = password;
         return user;
-      }),
-      catchError((error: HttpErrorResponse) => new ErrorObservable(error))
+      })
     );
   }
 

@@ -8,7 +8,7 @@ import { routes } from './app.routing';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import { AngularHalModule } from 'angular4-hal-aot';
+import { AngularHalModule } from 'angular4-hal';
 import { ExternalConfigurationService } from './external-configuration-service';
 
 import { ErrorHandlerModule } from './error-handler/error-handler.module';
@@ -120,7 +120,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgbModule.forRoot(),
+    NgbModule,
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,

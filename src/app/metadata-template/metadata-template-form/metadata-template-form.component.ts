@@ -23,8 +23,8 @@ export class MetadataTemplateFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.metadataTemplateService.addMetadataTemplate(this.metadataTemplate)
+    this.metadataTemplateService.create(this.metadataTemplate)
       .subscribe(
-        metadataTemplate => this.router.navigate(['/metadataTemplates']));
+        () => this.router.navigate(['/metadataTemplates']));
   }
 }

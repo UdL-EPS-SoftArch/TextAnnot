@@ -6,7 +6,7 @@ export class ErrorAlert {
   private errorAlertClose: ElementFinder;
 
   constructor() {
-    this.errorAlert = element(by.css('div.alert'));
+    this.errorAlert = element(by.css('.alert'));
     this.errorAlertClose = this.errorAlert.element(by.css('button.close'));
   }
 

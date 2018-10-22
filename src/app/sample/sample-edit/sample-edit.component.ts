@@ -40,6 +40,6 @@ export class SampleEditComponent implements OnInit {
   onSubmit(): void {
     this.sampleService.update(this.sample)
       .subscribe(
-        sample => this.router.navigate([sample.uri]));
+        (sample: Sample) => this.router.navigate([sample.uri]));
   }
 }

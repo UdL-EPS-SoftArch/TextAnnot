@@ -40,6 +40,6 @@ export class MetadatafieldEditComponent implements OnInit {
   onSubmit(): void {
     this.metadatafieldService.update(this.metadatafield)
       .subscribe(
-        metadatafield => this.router.navigate([metadatafield.uri]));
+        (metadatafield: Metadatafield) => this.router.navigate([metadatafield.uri]));
   }
 }

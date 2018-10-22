@@ -24,6 +24,6 @@ export class MetadataValueCreateComponent implements OnInit {
   onSubmit(): void {
     this.metadataValueService.create(this.metadataValue)
       .subscribe(
-        metadataValue => this.router.navigate([metadataValue.uri]));
+        (metadataValue: MetadataValue) => this.router.navigate([metadataValue.uri]));
   }
 }

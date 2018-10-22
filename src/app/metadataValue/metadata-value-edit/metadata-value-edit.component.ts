@@ -29,6 +29,6 @@ export class MetadataValueEditComponent implements OnInit {
   onSubmit(): void {
     this.metadataValueService.update(this.metadataValue)
       .subscribe(
-        metadataValue => this.router.navigate([metadataValue.uri]));
+        (metadataValue: MetadataValue) => this.router.navigate([metadataValue.uri]));
   }
 }

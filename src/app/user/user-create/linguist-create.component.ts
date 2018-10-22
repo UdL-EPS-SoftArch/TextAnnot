@@ -24,6 +24,6 @@ export class LinguistCreateComponent implements OnInit {
   onSubmit(): void {
     this.linguistService.create(this.user)
       .subscribe(
-        linguist => this.router.navigate([linguist.uri]));
+        (linguist: Linguist) => this.router.navigate([linguist.uri]));
   }
 }

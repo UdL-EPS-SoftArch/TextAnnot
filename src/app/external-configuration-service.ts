@@ -1,6 +1,6 @@
 import { Injectable} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { ExternalConfigurationHandlerInterface, ExternalConfiguration} from 'angular4-hal-aot';
+import { ExternalConfigurationHandlerInterface, ExternalConfiguration} from 'angular4-hal';
 import { environment } from '../environments/environment';
 
 @Injectable()
