@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resource } from 'angular4-hal';
+import { Resource } from 'angular4-hal-aot';
 import {Sample} from '../sample/sample';
 import {Metadatafield} from '../metadatafield/metadatafield';
 

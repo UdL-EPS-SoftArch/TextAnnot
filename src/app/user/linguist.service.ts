@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Linguist } from './linguist';
-import { RestService } from 'angular4-hal';
+import { RestService } from 'angular4-hal-aot';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()

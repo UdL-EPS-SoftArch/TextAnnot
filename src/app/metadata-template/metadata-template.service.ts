@@ -1,5 +1,5 @@
 import {Injectable, Injector} from '@angular/core';
-import {RestService} from 'angular4-hal';
+import {RestService} from 'angular4-hal-aot';
 import {MetadataTemplate} from './metadata-template';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';

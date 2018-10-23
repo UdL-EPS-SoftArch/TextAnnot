@@ -1,4 +1,4 @@
-import { Resource} from 'angular4-hal';
+import { Resource} from 'angular4-hal-aot';
 
 export class XMLSample extends Resource {
   uri: string;

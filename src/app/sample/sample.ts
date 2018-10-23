@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resource } from 'angular4-hal';
+import { Resource } from 'angular4-hal-aot';
 import { MetadataValue } from '../metadataValue/metadataValue';
 import { MetadataTemplate } from '../metadata-template/metadata-template';
 
