@@ -1,14 +1,14 @@
 <h4>{{formTitle}}</h4>
 <p class="lead">{{formSubtitle}}</p>
 
-<form id="metadata-template-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="tag-hierarchy-form" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
 
     <!-- Name input -->
     <div class="form-group" [class.was-validated]="name.dirty || name.touched">
       <label class="control-label" for="name">Name</label>
       <input id="name" name="name" type="text" class="form-control" required
-             [(ngModel)]="metadataTemplate.name" #name="ngModel">
+             [(ngModel)]="tagHierarchy.name" #name="ngModel">
       <div class="invalid-feedback">A name is required</div>
     </div>
 

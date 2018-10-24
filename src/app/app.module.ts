@@ -73,9 +73,10 @@ import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-deta
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
-import { TagHierarchyFormComponent } from './tag-hierarchy-form/tag-hierarchy-form.component';
-import { TagHierarchyListComponent } from './tag-hierarchy-list/tag-hierarchy-list.component';
-import { TagHierarchySearchComponent } from './tag-hierarchy-search/tag-hierarchy-search.component';
+import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
+import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/tag-hierarchy-list.component';
+import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
+import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 
 
 @NgModule({
@@ -140,7 +141,7 @@ import { TagHierarchySearchComponent } from './tag-hierarchy-search/tag-hierarch
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService],
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
