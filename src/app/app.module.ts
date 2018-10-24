@@ -73,6 +73,9 @@ import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-deta
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
+import { TagHierarchyFormComponent } from './tag-hierarchy-form/tag-hierarchy-form.component';
+import { TagHierarchyListComponent } from './tag-hierarchy-list/tag-hierarchy-list.component';
+import { TagHierarchySearchComponent } from './tag-hierarchy-search/tag-hierarchy-search.component';
 
 
 @NgModule({
@@ -116,6 +119,9 @@ import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
     TagHierarchyComponent,
+    TagHierarchyFormComponent,
+    TagHierarchyListComponent,
+    TagHierarchySearchComponent,
   ],
   imports: [
     BrowserModule,

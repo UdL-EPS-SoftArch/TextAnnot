@@ -17,3 +17,7 @@
 @-webkit-keyframes spin {
   to { -webkit-transform: rotate(360deg); }
 }
+
+.nav-link{
+  cursor: pointer;
+}
