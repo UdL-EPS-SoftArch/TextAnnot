@@ -34,6 +34,7 @@ import {MetadatafieldDetailComponent} from './metadatafield/metadatafield-detail
 import {MetadatafieldDeleteComponent} from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import {XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
+import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -67,4 +68,5 @@ export const routes: Routes = [
   { path: 'metadataFields/:id', component: MetadatafieldDetailComponent},
   { path: 'metadataFields', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataFields/:id/delete', component: MetadatafieldDeleteComponent, canActivate: [AdministratorGuard] },
+  { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]}
 ];
