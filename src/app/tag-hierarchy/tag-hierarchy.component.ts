@@ -1,4 +1,3 @@
-import { TagHierarchyService } from './tag-hierarchy.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TagHierarchyComponent implements OnInit {
 
-  constructor(private tagHierarchyService: TagHierarchyService) { }
+  constructor() { }
 
   ngOnInit() {
 
