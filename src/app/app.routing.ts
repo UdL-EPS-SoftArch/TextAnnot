@@ -1,3 +1,4 @@
+import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
 import { Routes } from '@angular/router';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
 import { AdministratorGuard } from './login-basic/administrator.guard';
@@ -68,5 +69,6 @@ export const routes: Routes = [
   { path: 'metadataFields/:id', component: MetadatafieldDetailComponent},
   { path: 'metadataFields', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataFields/:id/delete', component: MetadatafieldDeleteComponent, canActivate: [AdministratorGuard] },
-  { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]}
+  { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]},
+  { path: 'tagHierarchies/new', component: TagHierarchyFormComponent, canActivate: [AdministratorGuard]}
 ];
