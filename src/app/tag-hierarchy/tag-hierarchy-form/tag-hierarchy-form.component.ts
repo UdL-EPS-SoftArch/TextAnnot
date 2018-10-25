@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TagHierarchy } from '../tag-hierarchy';
 import { Router } from '@angular/router';
+import { TagHierarchyService } from '../tag-hierarchy.service';
 
 @Component({
   selector: 'app-tag-hierarchy-form',
@@ -15,10 +16,16 @@ export class TagHierarchyFormComponent implements OnInit {
   public formSubtitle = 'Register a new TagHierarchy';
 
   constructor(private router: Router,
-              /* private tagHierarchyService: TagHierarchyService */) { }
+              private tagHierarchyService: TagHierarchyService) { }
 
   ngOnInit() {
     this.tagHierarchy = new TagHierarchy();
+  }
+
+  onSubmit(): void {
+    this.tagHierarchyService.create(this.tagHierarchy)
+      .subscribe(
+        () => this.router.navigate(['/tagHierarchies']));
   }
 
 }
