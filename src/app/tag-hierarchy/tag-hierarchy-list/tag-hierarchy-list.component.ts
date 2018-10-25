@@ -1,4 +1,6 @@
+import { TagHierarchyService } from './../tag-hierarchy.service';
 import { Component, OnInit } from '@angular/core';
+import { TagHierarchy } from '../tag-hierarchy';
 
 @Component({
   selector: 'app-tag-hierarchy-list',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tag-hierarchy-list.component.css']
 })
 export class TagHierarchyListComponent implements OnInit {
+  public tagHierarchies: TagHierarchy[] = [];
 
-  constructor() { }
+  constructor(private tagHierararchyService: TagHierarchyService) { }
 
   ngOnInit() {
+    this.tagHierararchyService.getAll().subscribe(
+      res => this.tagHierarchies = res,
+      err => alert(err)
+    );
   }
 
 }
