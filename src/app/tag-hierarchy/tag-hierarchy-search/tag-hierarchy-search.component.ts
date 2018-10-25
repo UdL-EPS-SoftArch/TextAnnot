@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { TagHierarchyService } from './../tag-hierarchy.service';
+import { TagHierarchy } from './../tag-hierarchy';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tag-hierarchy-search',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TagHierarchySearchComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  emitResults: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit() {
+  public errorMessage: string;
+  constructor(private tagHierarchyService: TagHierarchyService) {
   }
 
+  ngOnInit() {
+
+  }
+
+  doSearch(searchTerm: string): void {
+    this.tagHierarchyService.findByNameContaining(searchTerm).subscribe(
+      tagHierarchies => { this.emitResults.emit(tagHierarchies); });
+  }
 }
