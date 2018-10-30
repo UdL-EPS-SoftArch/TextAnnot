@@ -14,8 +14,7 @@ export class TagHierarchyListComponent implements OnInit {
 
   ngOnInit() {
     this.tagHierararchyService.getAll().subscribe(
-      res => this.tagHierarchies = res,
-      err => alert(err)
+      res => this.tagHierarchies = res
     );
   }
 

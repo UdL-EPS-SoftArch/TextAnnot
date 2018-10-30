@@ -129,7 +129,7 @@ import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgbModule,
+    NgbModule.forRoot(),
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
