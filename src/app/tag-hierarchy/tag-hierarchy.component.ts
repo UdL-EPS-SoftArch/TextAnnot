@@ -22,4 +22,9 @@ export class TagHierarchyComponent implements OnInit {
   onSearch(tagHierarchies: TagHierarchy[]) {
     this.tagHierarchies = tagHierarchies;
   }
+
+  onAdded(tagHierarchy: TagHierarchy) {
+    console.log("4");
+    this.tagHierarchies.push(tagHierarchy);
+  }
 }
