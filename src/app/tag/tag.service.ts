@@ -1,4 +1,4 @@
-// import { TagHierarchy } from 'src/app/tag-hierarchy';
+import { TagHierarchy } from 'src/app/tag-hierarchy/tag-hierarchy';
 import {Injectable, Injector} from '@angular/core';
 import {Tag} from './tag';
 import {RestService} from 'angular4-hal-aot';
@@ -20,8 +20,8 @@ export class TagService extends RestService<Tag> {
     return this.search('findByNameContaining', options);
   }
 
- /* public findByTagHierarchy(tagHierarchy: TagHierarchy): Observable<Tag[]> {
+ public findByTagHierarchy(tagHierarchy: TagHierarchy): Observable<Tag[]> {
     const options: any = {params: [{key: 'tagHierarchy', value: tagHierarchy}]};
     return this.search('findByTagHierarchy', options);
-  } */
+  }
 }
