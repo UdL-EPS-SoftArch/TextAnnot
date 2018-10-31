@@ -16,6 +16,7 @@ export class SampleCreateComponent implements OnInit {
   public formSubtitle = 'Creates a new sample';
   public metadataTemplates: MetadataTemplate[] = [];
   public uriMetadataTemplate: string;
+  public index: number;
   constructor(private router: Router,
               private sampleService: SampleService, private metadataTemplateService: MetadataTemplateService) { }
 
@@ -29,10 +30,11 @@ export class SampleCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-
+    //this.sample.describedBy = this.metadataTemplates[0];
     this.sampleService.create(this.sample)
         .subscribe(
           sample => this.router.navigate(['/samples']));
+    this.sample.text = this.uriMetadataTemplate;
   }
 
 }
