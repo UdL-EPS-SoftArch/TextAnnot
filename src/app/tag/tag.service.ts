@@ -1,4 +1,4 @@
-import { TagHierarchy } from 'src/app/tag-hierarchy/tag-hierarchy';
+import {TagHierarchy} from '../tag-hierarchy/tag-hierarchy';
 import {Injectable, Injector} from '@angular/core';
 import {Tag} from './tag';
 import {RestService} from 'angular4-hal-aot';
@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/internal/Observable';
 @Injectable()
 export class TagService extends RestService<Tag> {
   constructor(injector: Injector) {
-    super(Tag, 'tag', injector);
+    super(Tag, 'tags', injector);
   }
 
   public findByParent(parent: Tag): Observable<Tag> {

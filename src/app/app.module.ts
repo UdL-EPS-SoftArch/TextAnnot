@@ -1,3 +1,4 @@
+import { TagService } from './tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -152,7 +153,7 @@ import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService],
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService, TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
