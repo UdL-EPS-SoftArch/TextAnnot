@@ -36,6 +36,7 @@ import {MetadatafieldDeleteComponent} from './metadatafield/metadatafield-delete
 import {XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
+import { TagComponent } from './tag/tag.component';
 
 import { TagComponent } from './tag/tag.component';
 
@@ -75,5 +76,4 @@ export const routes: Routes = [
   { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/new', component: TagHierarchyFormComponent, canActivate: [AdministratorGuard]},
   { path: 'tags', component: TagComponent, canActivate: [AdministratorGuard]},
-
 ];
