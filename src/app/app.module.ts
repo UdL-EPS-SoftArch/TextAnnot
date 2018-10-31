@@ -77,6 +77,7 @@ import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/ta
 import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/tag-hierarchy-list.component';
 import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
 import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
+import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
 
 
 @NgModule({
@@ -123,6 +124,7 @@ import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
     TagHierarchyFormComponent,
     TagHierarchyListComponent,
     TagHierarchySearchComponent,
+    TagHierarchyEditComponent,
   ],
   imports: [
     BrowserModule,

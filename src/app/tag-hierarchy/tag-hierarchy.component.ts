@@ -24,7 +24,7 @@ export class TagHierarchyComponent implements OnInit {
   }
 
   onAdded(tagHierarchy: TagHierarchy) {
-    console.log("4");
     this.tagHierarchies.push(tagHierarchy);
+    console.log(this.tagHierarchies);
   }
 }

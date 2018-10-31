@@ -29,7 +29,7 @@ export class TagHierarchyFormComponent implements OnInit {
     this.tagHierarchyService.create(this.tagHierarchy)
       .subscribe(
         (res: TagHierarchy) => {
-          this.afterInsert.emit(res);
+          this.afterInsert.emit(Object.assign({}, res));
           this.tagHierarchy.name = '';
           this.modalService.dismissAll();
         },
