@@ -29,10 +29,10 @@ export class SampleCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-
     this.sampleService.create(this.sample)
         .subscribe(
           sample => this.router.navigate(['/samples']));
+    this.sample.text = this.uriMetadataTemplate;
   }
 
 }
