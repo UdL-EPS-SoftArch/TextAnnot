@@ -10,7 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TagHierarchySearchComponent implements OnInit {
 
   @Output()
-  emitResults: EventEmitter<any> = new EventEmitter();
+  emitResults: EventEmitter<TagHierarchy[]> = new EventEmitter();
 
   public errorMessage: string;
   constructor(private tagHierarchyService: TagHierarchyService) {
@@ -22,6 +22,6 @@ export class TagHierarchySearchComponent implements OnInit {
 
   doSearch(searchTerm: string): void {
     this.tagHierarchyService.findByNameContaining(searchTerm).subscribe(
-      tagHierarchies => { this.emitResults.emit(tagHierarchies); });
+      tagHierarchies => this.emitResults.emit(tagHierarchies));
   }
 }
