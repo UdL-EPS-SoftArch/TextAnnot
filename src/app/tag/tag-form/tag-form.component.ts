@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ErrorMessageService } from './../../error-handler/error-message.service';
+import { Component, OnInit } from '@angular/core';
 import { Tag } from '../tag';
+import { Router } from '@angular/router';
 import { TagService } from '../tag.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-tag-form',
@@ -13,13 +12,11 @@ export class TagFormComponent implements OnInit {
 
   public tag: Tag;
   public errorMessage: string;
-  public formTitle = 'Register Tags';
-  public formSubtitle = 'Register a new Tag';
-  @Output() public afterInsert: EventEmitter<Tag> = new EventEmitter<Tag>();
+  public formTitle = 'Create Tag';
+  public formSubtitle = 'Create a new Tag';
 
-  constructor(private tagService: TagService,
-              private modalService: NgbModal,
-              private errorService: ErrorMessageService) { }
+  constructor(private router: Router,
+              private tagService: TagService) { }
 
   ngOnInit() {
     this.tag = new Tag();
@@ -28,19 +25,7 @@ export class TagFormComponent implements OnInit {
   onSubmit(): void {
     this.tagService.create(this.tag)
       .subscribe(
-        (res: Tag) => {
-          this.afterInsert.emit(res);
-          this.tag.name = '';
-          this.modalService.dismissAll();
-        },
-        () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
-
-  }
-
-  open(content) {
-    this.modalService.open(content, {
-      ariaLabelledBy: 'modal-basic-title',
-    });
+        () => this.router.navigate(['/tags']));
   }
 
 }
