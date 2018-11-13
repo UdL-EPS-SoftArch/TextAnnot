@@ -39,7 +39,7 @@ export class TagHierarchyEditComponent implements OnInit {
   onSubmit(): void {
     this.tagHierarchyService.update(this.tagHierarchy)
       .subscribe(
-        (tagHierarchy: TagHierarchy) => this.router.navigate([tagHierarchy.uri]));
+        (tagHierarchy: TagHierarchy) => this.router.navigate(['tagHierarchies']));
   }
 
   goBack() {
