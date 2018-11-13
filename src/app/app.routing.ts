@@ -36,6 +36,7 @@ import {MetadatafieldDeleteComponent} from './metadatafield/metadatafield-delete
 import {XMLSampleFormComponent} from './XMLsample/XMLsample-form/XMLSample-form.component';
 
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
+import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
@@ -70,5 +71,6 @@ export const routes: Routes = [
   { path: 'metadataFields', component: MetadataFieldListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataFields/:id/delete', component: MetadatafieldDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]},
-  { path: 'tagHierarchies/new', component: TagHierarchyFormComponent, canActivate: [AdministratorGuard]}
+  { path: 'tagHierarchies/new', component: TagHierarchyFormComponent, canActivate: [AdministratorGuard]},
+  { path: 'tagHierarchies/:id/edit', component: TagHierarchyEditComponent, canActivate: [AdministratorGuard]},
 ];
