@@ -1,5 +1,4 @@
-import { TagHierarchyService } from './../tag-hierarchy.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TagHierarchy } from '../tag-hierarchy';
 
 @Component({
@@ -10,10 +9,14 @@ import { TagHierarchy } from '../tag-hierarchy';
 export class TagHierarchyListComponent implements OnInit {
   @Input() public tagHierarchies: TagHierarchy[] = [];
 
+  @Output() public deleteItem: EventEmitter<number> = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit() {
-
   }
 
+  delete(index: number): void {
+    this.deleteItem.emit(index);
+  }
 }
