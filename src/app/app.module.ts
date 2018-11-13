@@ -1,3 +1,4 @@
+import { TagService } from './tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -73,6 +74,18 @@ import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-deta
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
 
+import { TagComponent } from './tag/tag.component';
+import { TagFormComponent } from './tag/tag-form/tag-form.component';
+import { TagListComponent } from './tag/tag-list/tag-list.component';
+import { TagSearchComponent } from './tag/tag-search/tag-search.component';
+
+import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
+import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
+import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/tag-hierarchy-list.component';
+import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
+import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
+
+
 
 @NgModule({
   declarations: [
@@ -114,6 +127,14 @@ import { FileUploadModule } from 'ng2-file-upload';
     TemplateSearchComponent,
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
+    TagComponent,
+    TagFormComponent,
+    TagListComponent,
+    TagSearchComponent,
+    TagHierarchyComponent,
+    TagHierarchyFormComponent,
+    TagHierarchyListComponent,
+    TagHierarchySearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -132,7 +153,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService],
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService, TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
