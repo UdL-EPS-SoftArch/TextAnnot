@@ -2,7 +2,7 @@
 
 <p class="lead">List of tags</p>
 
+<app-tag-form></app-tag-form>
 <app-tag-search (emitResults)="onSearch($event)"></app-tag-search>
 <app-tag-list [tags]="tags" (deleteItem)="onDelete($event)"></app-tag-list>
 
-<a class="btn btn-primary btn-lg float-right circle fab" [routerLink]="['/tags/new']"><span class="fa fa-plus"></span></a>
