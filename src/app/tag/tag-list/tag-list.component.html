@@ -1,6 +1,6 @@
 <div class="card tag-list" *ngFor="let t of tags; let i = index">
   <div class="card-body">
-    <p><b>Hierarchy: </b>{{ t.name }}</p>
+    <p><b>Tag: </b>{{ t.name }}</p>
     <button type="button" class="btn btn-outline-danger right-side" (click)="delete(i)"><i class="fa fa-bomb"></i>
       Delete</button>
     <a routerLink="{{t.uri}}/edit" type="button" class="btn btn-outline-primary right-side"><i class="fa fa-pencil"></i>
