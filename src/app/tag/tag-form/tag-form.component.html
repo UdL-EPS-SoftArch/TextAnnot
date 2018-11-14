@@ -1,19 +1,27 @@
 <h4>{{formTitle}}</h4>
 <p class="lead">{{formSubtitle}}</p>
 <form id="tag-form" (ngSubmit)="onSubmit()" #form="ngForm">
+
   <fieldset>
     <!-- Name input -->
     <div class="form-group" [class.was-validated]="name.dirty || name.touched">
       <label class="control-label" for="name">Name</label>
-      <input id="name" name="name" type="text" class="form-control" required
-             [(ngModel)]="tag.name" #name="ngModel">
+      <input id="name" name="name" type="text" class="form-control" required [(ngModel)]="tag.name" #name="ngModel">
       <div class="invalid-feedback">A name is required</div>
     </div>
 
+    <div class="form-group">
+      <label for="tagHierarchySelect">Tag Hierarchy</label>
+      <select class="form-control" id="tagHierarchySelect" required
+      [(ngModel)]="uriTagHierarchy" #tagHierarchyselect="ngModel">
+        <option *ngFor="let th of tagHierarchy" [ngValue]="th.id">{{th.name}}</option>
+      </select>
+   </div>
+
     <!-- Submit & back buttons -->
-      <div class="form-group">
-        <button id="back" type="button" class="btn btn-outline-danger pull-right" [routerLink]='["/tags"]'>Back</button>
-        <button id="submit" type="submit" class="btn btn-outline-success btn-success pull-right marged-left" [disabled]="!form.form.valid">Submit</button>
-      </div>
+    <div class="form-group">
+      <button id="back" type="button" class="btn btn-outline-danger pull-right" [routerLink]='["/tags"]'>Back</button>
+      <button id="submit" type="submit" class="btn btn-outline-success btn-success pull-right marged-left" [disabled]="!form.form.valid">Submit</button>
+    </div>
   </fieldset>
 </form>

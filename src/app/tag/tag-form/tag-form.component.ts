@@ -1,3 +1,5 @@
+import { TagHierarchyService } from './../../tag-hierarchy/tag-hierarchy.service';
+import { TagHierarchy } from './../../tag-hierarchy/tag-hierarchy';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from '../tag';
 import { Router } from '@angular/router';
@@ -11,15 +13,23 @@ import { TagService } from '../tag.service';
 export class TagFormComponent implements OnInit {
 
   public tag: Tag;
+  public tagHierarchy: TagHierarchy[];
   public errorMessage: string;
   public formTitle = 'Create Tag';
   public formSubtitle = 'Create a new Tag';
+  public uriTagHierarchy: string;
 
   constructor(private router: Router,
-              private tagService: TagService) { }
+              private tagService: TagService,
+              private tagHierarchyService: TagHierarchyService) { }
 
   ngOnInit() {
     this.tag = new Tag();
+    this.tagHierarchyService.getAll().subscribe(
+      res => {
+        this.tagHierarchy = res;
+      }
+    );
   }
 
   onSubmit(): void {
