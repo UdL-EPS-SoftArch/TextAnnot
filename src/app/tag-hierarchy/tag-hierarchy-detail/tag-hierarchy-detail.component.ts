@@ -1,3 +1,4 @@
+import { TagTree } from './../tag-hierarchy-tree';
 import { Component, OnInit } from '@angular/core';
 import { TagHierarchy } from '../tag-hierarchy';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,6 +17,8 @@ export class TagHierarchyDetailComponent implements OnInit {
   public formTitle = ' details';
   public formSubtitle = 'Taghierarchy details page';
   public tagHierarchies: TagHierarchy[] = [];
+  public nodes: TagTree[];
+  public options = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +34,9 @@ export class TagHierarchyDetailComponent implements OnInit {
       tagHierarchyObj => {
         this.tagHierarchy = tagHierarchyObj;
         this.formTitle = tagHierarchyObj.name + this.formTitle;
+        this.tagHierarchyService.getTagHierarchyTree(this.tagHierarchy).subscribe(
+          res => this.nodes = res.roots
+        );
       }
     );
     this.tagHierarchyService.getAll().subscribe(

@@ -3,7 +3,7 @@ import {Injectable, Injector} from '@angular/core';
 import {TagHierarchy} from './tag-hierarchy';
 import {RestService} from 'angular4-hal-aot';
 import {Observable} from 'rxjs/internal/Observable';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { TagHierarchyTree } from './tag-hierarchy-tree';
 
 @Injectable()
