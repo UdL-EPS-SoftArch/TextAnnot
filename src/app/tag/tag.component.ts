@@ -2,6 +2,7 @@ import { TagService } from './tag.service';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from './tag';
 
+
 @Component({
   selector: 'app-tag',
   templateUrl: './tag.component.html',
@@ -9,7 +10,7 @@ import { Tag } from './tag';
 })
 export class TagComponent implements OnInit {
   public tags: Tag[] = [];
-  constructor( private tagService: TagService) { }
+  constructor( private tagService: TagService ) { }
 
   ngOnInit() {
     this.tagService.getAll().subscribe (
