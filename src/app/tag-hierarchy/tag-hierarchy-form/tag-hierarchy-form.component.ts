@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ErrorMessageService } from './../../error-handler/error-message.service';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TagHierarchy } from '../tag-hierarchy';
-import { Router } from '@angular/router';
 import { TagHierarchyService } from '../tag-hierarchy.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-tag-hierarchy-form',
@@ -14,9 +15,11 @@ export class TagHierarchyFormComponent implements OnInit {
   public errorMessage: string;
   public formTitle = 'Register Tag Hierarchies';
   public formSubtitle = 'Register a new TagHierarchy';
+  @Output() public afterInsert: EventEmitter<TagHierarchy> = new EventEmitter<TagHierarchy>();
 
-  constructor(private router: Router,
-              private tagHierarchyService: TagHierarchyService) { }
+  constructor(private tagHierarchyService: TagHierarchyService,
+              private modalService: NgbModal,
+              private errorService: ErrorMessageService) { }
 
   ngOnInit() {
     this.tagHierarchy = new TagHierarchy();
@@ -25,7 +28,19 @@ export class TagHierarchyFormComponent implements OnInit {
   onSubmit(): void {
     this.tagHierarchyService.create(this.tagHierarchy)
       .subscribe(
-        () => this.router.navigate(['/tagHierarchies']));
+        (res: TagHierarchy) => {
+          this.afterInsert.emit(Object.assign({}, res));
+          this.tagHierarchy.name = '';
+          this.modalService.dismissAll();
+        },
+        () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
+
+  }
+
+  open(content) {
+    this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+    });
   }
 
 }
