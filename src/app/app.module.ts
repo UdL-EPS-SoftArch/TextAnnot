@@ -78,7 +78,8 @@ import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/ta
 import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
 import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
-
+import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
+import { TreeModule } from 'angular-tree-component';
 
 @NgModule({
   declarations: [
@@ -125,6 +126,7 @@ import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/ta
     TagHierarchyListComponent,
     TagHierarchySearchComponent,
     TagHierarchyEditComponent,
+    TagHierarchyDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -136,7 +138,8 @@ import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/ta
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
     FileUploadModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    TreeModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

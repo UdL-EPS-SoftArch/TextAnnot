@@ -1,0 +1,9 @@
+<h4>TagHierarchy: {{formTitle}}</h4>
+<p class="lead">{{formSubtitle}}</p>
+<hr>
+<div>
+  <p>Name: {{tagHierarchy.name}}</p>
+  <p>Location: {{tagHierarchy.uri}}</p>
+  <p>Structure: </p>
+  <tree-root class="tabbed" [nodes]="nodes" [options]="options"></tree-root>
+</div>

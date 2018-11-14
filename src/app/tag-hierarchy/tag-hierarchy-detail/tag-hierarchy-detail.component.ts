@@ -1,20 +1,20 @@
-import { TagHierarchyService } from './../tag-hierarchy.service';
-import { TagHierarchy } from './../tag-hierarchy';
 import { Component, OnInit } from '@angular/core';
+import { TagHierarchy } from '../tag-hierarchy';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TagHierarchyService } from '../tag-hierarchy.service';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'app-tag-hierarchy-edit',
-  templateUrl: './tag-hierarchy-edit.component.html',
-  styleUrls: ['./tag-hierarchy-edit.component.css']
+  selector: 'app-tag-hierarchy-detail',
+  templateUrl: './tag-hierarchy-detail.component.html',
+  styleUrls: ['./tag-hierarchy-detail.component.css']
 })
-export class TagHierarchyEditComponent implements OnInit {
+export class TagHierarchyDetailComponent implements OnInit {
 
   public tagHierarchy: TagHierarchy;
   public errorMessage: string;
-  public formTitle = 'Edit taghierarchy';
-  public formSubtitle = 'Edit the value of a taghierarchy';
+  public formTitle = ' details';
+  public formSubtitle = 'Taghierarchy details page';
   public tagHierarchies: TagHierarchy[] = [];
 
   constructor(
@@ -28,7 +28,11 @@ export class TagHierarchyEditComponent implements OnInit {
     this.tagHierarchy = new TagHierarchy();
     const id = this.route.snapshot.paramMap.get('id');
     this.tagHierarchyService.get(id).subscribe(
-      tagHierarchyObj => this.tagHierarchy = tagHierarchyObj);
+      tagHierarchyObj => {
+        this.tagHierarchy = tagHierarchyObj;
+        this.formTitle = tagHierarchyObj.name + this.formTitle;
+      }
+    );
     this.tagHierarchyService.getAll().subscribe(
       (tagHierarchies: TagHierarchy[]) => {
         this.tagHierarchies = tagHierarchies;
@@ -36,15 +40,4 @@ export class TagHierarchyEditComponent implements OnInit {
     );
   }
 
-  onSubmit(): void {
-    this.tagHierarchyService.update(this.tagHierarchy)
-      .subscribe(
-        (tagHierarchy: TagHierarchy) => this.router.navigate(['tagHierarchies']));
-  }
-
-  goBack() {
-    this.location.back();
-  }
-
 }
-
