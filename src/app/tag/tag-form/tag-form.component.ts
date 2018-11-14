@@ -17,6 +17,7 @@ export class TagFormComponent implements OnInit {
   public errorMessage: string;
   public formTitle = 'Create Tag';
   public formSubtitle = 'Create a new Tag';
+  public uriTagHierarchy: string;
 
   constructor(private router: Router,
               private tagService: TagService,

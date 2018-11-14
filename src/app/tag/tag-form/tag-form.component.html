@@ -12,8 +12,9 @@
 
     <div class="form-group">
       <label for="tagHierarchySelect">Tag Hierarchy</label>
-      <select class="form-control" id="tagHierarchySelect" required>
-        <option *ngFor="let th of tagHierarchy" [value]="th.id">{{th.name}}</option>
+      <select class="form-control" id="tagHierarchySelect" required
+      [(ngModel)]="uriTagHierarchy" #tagHierarchyselect="ngModel">
+        <option *ngFor="let th of tagHierarchy" [ngValue]="th.id">{{th.name}}</option>
       </select>
    </div>
 
