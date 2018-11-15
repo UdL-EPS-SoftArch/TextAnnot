@@ -4,6 +4,14 @@
 <div>
   <p>Name: {{tagHierarchy.name}}</p>
   <p>Location: {{tagHierarchy.uri}}</p>
-  <p>Structure: </p>
-  <tree-root [nodes]="nodes" [options]="options"></tree-root>
+  <p style="display: inline">Structure: </p>
+  <p *ngIf="!structure" style="display: inline">Empty</p>
+  <div *ngIf="structure" class="tab">
+    <tree-root [nodes]="nodes" [options]="options">
+      <template #loadingTemplate>Loading, please hold....</template>
+      <ng-template #treeNodeTemplate let-node let-index="index">
+        <span>{{ node.data.name }}</span>
+      </ng-template>
+    </tree-root>
+  </div>
 </div>

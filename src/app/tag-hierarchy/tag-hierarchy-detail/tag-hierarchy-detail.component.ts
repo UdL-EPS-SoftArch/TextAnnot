@@ -4,6 +4,13 @@ import { TagHierarchy } from '../tag-hierarchy';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TagHierarchyService } from '../tag-hierarchy.service';
 import {Location} from '@angular/common';
+import { TREE_ACTIONS, KEYS, IActionMapping } from 'angular-tree-component';
+
+const actionMapping: IActionMapping = {
+  mouse: {
+    click: TREE_ACTIONS.TOGGLE_SELECTED,
+  }
+};
 
 @Component({
   selector: 'app-tag-hierarchy-detail',
@@ -18,7 +25,25 @@ export class TagHierarchyDetailComponent implements OnInit {
   public formSubtitle = 'Taghierarchy details page';
   public tagHierarchies: TagHierarchy[] = [];
   public nodes: TagTree[];
-  public options = {};
+  public structure: Boolean = false;
+  public options = {
+    animateExpand: true,
+    actionMapping: {
+      mouse: {
+        dblClick: (tree, node, $event) => {
+          if (node.hasChildren) {
+            TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
+          }
+        }
+      },
+      keys: {
+        [KEYS.ENTER]: (tree, node, $event) => {
+          node.expandAll();
+        }
+      }
+    },
+    scrollOnActivate: true,
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -35,7 +60,12 @@ export class TagHierarchyDetailComponent implements OnInit {
         this.tagHierarchy = tagHierarchyObj;
         this.formTitle = tagHierarchyObj.name + this.formTitle;
         this.tagHierarchyService.getTagHierarchyTree(this.tagHierarchy).subscribe(
-          res => this.nodes = res.roots
+          res => {
+            this.nodes = res.roots;
+            if (this.nodes.length > 0) {
+              this.structure = true;
+            }
+          }
         );
       }
     );

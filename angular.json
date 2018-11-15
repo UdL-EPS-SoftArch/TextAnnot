@@ -22,10 +22,10 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.css",
               "node_modules/bootstrap-css-only/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/angular-tree-component/dist/angular-tree-component.css"
+              "node_modules/angular-tree-component/dist/angular-tree-component.css",
+              "src/styles.css"
             ],
             "scripts": []
           },
