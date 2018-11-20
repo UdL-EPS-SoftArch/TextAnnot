@@ -23,13 +23,25 @@
       <div class="invalid-feedback">A name is required</div>
     </div>
 
+    <!-- Tag Hierarchy select -->
     <div class="form-group">
       <label for="tagHierarchySelect">Tag Hierarchy</label>
       <select class="form-control" id="tagHierarchySelect" required
-      [(ngModel)]="uriTagHierarchy" #tagHierarchyselect="ngModel">
-        <option *ngFor="let th of tagHierarchy" [ngValue]="th.id">{{th.name}}</option>
+      [(ngModel)]="uriTagHierarchy" #tagHierarchyselect name="tagHierarchyselect" (change)="optionSelectedth(tagHierarchyselect.value)">
+        <option *ngFor="let th of tagHierarchy;let i = index" [value]="i">{{th.name}}</option>
       </select>
    </div>
+
+    <!-- Parent Tag select -->
+    <div class="form-group">
+      <label for="parentSelect">Parent Tag</label>
+      <select class="form-control" id="parentSelect"
+      [(ngModel)]="uriTag" #parentSelect name="parentSelect"
+      (change)="optionSelectedt(parentSelect.value)">
+        <option selected>I'm a parent</option>
+        <option *ngFor="let t of tagParent;let i = index" [value]="i">{{t.name}}</option>
+      </select>
+    </div>
 
     <!-- Submit & back buttons -->
     <div class="form-group">
