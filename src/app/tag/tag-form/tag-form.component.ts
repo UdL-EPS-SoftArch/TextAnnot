@@ -64,13 +64,13 @@ export class TagFormComponent implements OnInit {
   }
 
   optionSelectedth(val: number) {
-    this.tagHierName = this.tagHierarchy[val].name;
+    this.tag.tagHierarchy = this.tagHierarchy[val];
   }
 
   optionSelectedt(val: number) {
     if (this.tagParent[val].name === 'undefined') {
       this.parentTagName = 'Im a parent';
     }
-    this.parentTagName = this.tagParent[val].name;
+    this.tag.parent = this.tagParent[val];
   }
 }

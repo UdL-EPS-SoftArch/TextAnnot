@@ -28,12 +28,12 @@
       <label for="tagHierarchySelect">Tag Hierarchy</label>
       <select class="form-control" id="tagHierarchySelect" required
       [(ngModel)]="uriTagHierarchy" #tagHierarchyselect name="tagHierarchyselect" (change)="optionSelectedth(tagHierarchyselect.value)">
-        <option *ngFor="let th of tagHierarchy;let i = index" [value]="i">{{th.name}}</option>
+        <option *ngFor="let th of tagHierarchy; let i = index" [value]="i">{{th.name}}</option>
       </select>
    </div>
 
     <!-- Parent Tag select -->
-    <div class="form-group">
+    <!--<div class="form-group">
       <label for="parentSelect">Parent Tag</label>
       <select class="form-control" id="parentSelect"
       [(ngModel)]="uriTag" #parentSelect name="parentSelect"
@@ -41,7 +41,7 @@
         <option selected>I'm a parent</option>
         <option *ngFor="let t of tagParent;let i = index" [value]="i">{{t.name}}</option>
       </select>
-    </div>
+    </div>-->
 
     <!-- Submit & back buttons -->
     <div class="form-group">

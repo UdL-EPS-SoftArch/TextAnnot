@@ -23,8 +23,8 @@ export class TagComponent implements OnInit {
     this.tags = tags;
   }
 
-  onAdded(tagHierarchy: Tag) {
-    this.tags.push(tagHierarchy);
+  onAdded(tag: Tag) {
+    this.tags.push(tag);
     console.log(this.tags);
   }
 
