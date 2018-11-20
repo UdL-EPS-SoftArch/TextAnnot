@@ -1,5 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Tag } from "../tag";
+import {Sample} from "../../sample/sample";
+import {MetadataTemplate} from "../../metadata-template/metadata-template";
+import {SampleService} from "../../sample/sample.service";
+import {TagService} from "../tag.service";
+import {TagHierarchy} from "../../tag-hierarchy/tag-hierarchy";
 
 @Component({
   selector: 'app-tag-list',
@@ -10,11 +15,26 @@ export class TagListComponent implements OnInit {
 
   @Input() public tags: Tag[] = [];
 
+  public totalTags = 0;
   @Output() public deleteItem: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private tagService: TagService) { }
 
   ngOnInit() {
+    this.tagService.getAll().subscribe(
+      (tags: Tag[]) => {
+        this.tags = tags;
+        this.totalTags = tags.length;
+
+        // Get the metadata template for each sample
+        this.tags.map(
+          (tag: Tag) => {
+            tag.getRelation(TagHierarchy, 'tagHierarchy').subscribe(
+              (tagHierarchy: TagHierarchy) => tag.tagHierarchy = tagHierarchy
+            );
+          }
+        );
+      });
   }
 
   delete(index: number): void {
