@@ -1,3 +1,4 @@
+import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarchy-quick-creation/tag-hierarchy-quick-creation.component';
 import { Routes } from '@angular/router';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
 import { AdministratorGuard } from './login-basic/administrator.guard';
@@ -74,6 +75,7 @@ export const routes: Routes = [
   { path: 'metadataFields/:id/delete', component: MetadatafieldDeleteComponent, canActivate: [AdministratorGuard] },
   { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/new', component: TagHierarchyFormComponent, canActivate: [AdministratorGuard]},
+  { path: 'tagHierarchies/quick-creation', component: TagHierarchyQuickCreationComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/edit', component: TagHierarchyEditComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/detail', component: TagHierarchyDetailComponent, canActivate: [AdministratorGuard]},
 ];
