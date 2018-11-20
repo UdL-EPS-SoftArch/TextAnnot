@@ -16,6 +16,8 @@ export class TagHierarchyQuickCreationComponent implements OnInit {
   public formSubtitle = 'Create TagHierarchy in a single shot';
   public tagHierarchyName = '';
 
+  private id = 0;
+
   public newNodes = [];
   public options = {
     animateExpand: true,
@@ -45,9 +47,10 @@ export class TagHierarchyQuickCreationComponent implements OnInit {
 
   ngOnInit() {
     this.newNodes = [];
+    this.tagHierarchyName = '';
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     const body = {
       name: this.tagHierarchyName,
       roots: this.newNodes
@@ -59,42 +62,33 @@ export class TagHierarchyQuickCreationComponent implements OnInit {
     );
   }
 
-  goBack() {
+  public goBack(): void {
     this.location.back();
   }
 
-  private generateId(length) {
-    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
-    if (! length) {
-      length = Math.floor(Math.random() * chars.length);
-    }
-
-    let str = '';
-    for (let i = 0; i < length; i++) {
-      str += chars[Math.floor(Math.random() * chars.length)];
-    }
-    return str;
-  }
-
-  addChildren(node) {
+  public addChildren(node): void {
     node.data.children.push({
-      id: this.generateId(10),
+      id: this.id,
       name: '',
       children: []
     });
     this.tree.treeModel.update();
+    const someNode = this.tree.treeModel.getNodeById(node.data.id);
+    someNode.expand();
+    this.id++;
   }
 
-  addRoot() {
+  public addRoot(): void {
     this.newNodes.push({
-      id: this.generateId(10),
+      id: this.id,
       name: 'new_root',
       children: []
     });
     this.tree.treeModel.update();
+    this.id++;
   }
 
-  deleteNode(id: string) {
+  public deleteNode(id: string): void {
     this.deleteNodesRec(this.newNodes, id);
     this.tree.treeModel.update();
   }
