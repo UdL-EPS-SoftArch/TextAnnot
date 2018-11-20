@@ -57,7 +57,7 @@ export class TagFormComponent implements OnInit {
          this.modalService.dismissAll();
         },
         () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
-
+        location.reload();
   }
   open(content) {
     this.modalService.open(content, {
