@@ -1,3 +1,5 @@
+import { ErrorMessageService } from './../../error-handler/error-message.service';
+import { TagHierarchyService } from './../tag-hierarchy.service';
 import { TagHierarchy } from './../tag-hierarchy';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {Location} from '@angular/common';
@@ -12,7 +14,7 @@ export class TagHierarchyQuickCreationComponent implements OnInit {
 
   public formTitle = 'Create TagHierarchy';
   public formSubtitle = 'Create TagHierarchy in a single shot';
-  public tagHierarchy: TagHierarchy = <TagHierarchy>{};
+  public tagHierarchyName = '';
 
   public newNodes = [];
   public options = {
@@ -37,13 +39,24 @@ export class TagHierarchyQuickCreationComponent implements OnInit {
   @ViewChild(TreeComponent)
   private tree: TreeComponent;
 
-  constructor(private location: Location) { }
+  constructor(private location: Location,
+    private tagHierarchyService: TagHierarchyService,
+    private errorService: ErrorMessageService) { }
 
   ngOnInit() {
+    this.newNodes = [];
   }
 
   onSubmit() {
+    const body = {
+      name: this.tagHierarchyName,
+      roots: this.newNodes
+    };
 
+    this.tagHierarchyService.createTagHierarchyInASingleShot(body).subscribe(
+      () => this.location.back(),
+      err => this.errorService.showErrorMessage(err)
+    );
   }
 
   goBack() {

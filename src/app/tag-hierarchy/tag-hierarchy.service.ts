@@ -27,4 +27,11 @@ export class TagHierarchyService extends RestService<TagHierarchy> {
       environment.API + tagHierarchy.uri + '/tags'
     );
   }
+
+  public createTagHierarchyInASingleShot(body: any): Observable<TagHierarchy> {
+    return this.http.post<TagHierarchy>(
+      environment.API + '/quickTagHierarchyCreate',
+      body
+    );
+  }
 }
