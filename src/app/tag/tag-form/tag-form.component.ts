@@ -68,9 +68,10 @@ export class TagFormComponent implements OnInit {
   }
 
   optionSelectedt(val: number) {
-    if (this.tagParent[val].name === 'undefined') {
+    /*if (this.tagParent[val].name === 'undefined') {
       this.parentTagName = 'Im a parent';
     }
-    this.tag.parent = this.tagParent[val];
+    this.tag.parent = this.tagParent[val];*/
+    this.tag.parent = this.tag;
   }
 }

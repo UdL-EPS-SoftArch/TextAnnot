@@ -2,6 +2,7 @@
   <div class="card-body">
     <p><b>Tag: </b>{{ t.name }}</p>
     <p>Tag-hierarchy: {{t.tagHierarchy.name}}</p>
+    <p>Parent: {{t.parent.name}}</p>
     <button type="button" class="btn btn-outline-danger right-side" (click)="delete(i)"><i class="fa fa-bomb"></i>
       Delete</button>
     <a routerLink="{{t.uri}}/edit" type="button" class="btn btn-outline-primary right-side"><i class="fa fa-pencil"></i>
