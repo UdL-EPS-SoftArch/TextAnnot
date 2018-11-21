@@ -8,7 +8,7 @@ class CreateUserSteps {
   private userList = new UserListPage();
 
   @when(/^I fill the user form with username "([^"]*)", e-mail "([^"]*)" and password "([^"]*)"$/)
-  async createUserWithUsernameEmailPassword(username: string, email: string, password: string): void {
+  async createUserWithUsernameEmailPassword(username: string, email: string, password: string): Promise<void> {
     await this.userForm.fillUserForm(username, email, password);
   }
 }

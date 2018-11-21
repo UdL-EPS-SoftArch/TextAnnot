@@ -14,7 +14,7 @@ class ListUsersSteps {
   }
 
   @then(/^I see (\d+) users/)
-  async iSeeUsers(count: number): void {
+  async iSeeUsers(count: number): Promise<void> {
     expect(await this.userList.getUsersCount()).to.equal(count);
   }
 }

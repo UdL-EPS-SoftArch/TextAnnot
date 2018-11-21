@@ -12,7 +12,7 @@ export class LoginForm {
     this.passwordInput = element(by.id('password'));
   }
 
-  async signIn(username: string, password: string): void {
+  async signIn(username: string, password: string): Promise<void> {
     await this.usernameInput.sendKeys(username);
     await this.passwordInput.sendKeys(password);
     await this.form.submit();
