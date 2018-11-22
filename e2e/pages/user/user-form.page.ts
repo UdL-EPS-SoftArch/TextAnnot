@@ -14,11 +14,11 @@ export class UserFormPage {
     this.password = this.form.element(by.id('password'));
   }
 
-  async fillUserForm(username: string, email: string, password: string): void {
+  async fillUserForm(username: string, email: string, password: string): Promise<void> {
     await this.username.sendKeys(username);
     await this.email.sendKeys(email);
     await this.password.sendKeys(password);
     await this.form.submit();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 }

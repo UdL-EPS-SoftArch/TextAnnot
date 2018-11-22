@@ -1,3 +1,4 @@
+import { TagService } from './tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -72,6 +73,12 @@ import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/m
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
+
+import { TagComponent } from './tag/tag.component';
+import { TagFormComponent } from './tag/tag-form/tag-form.component';
+import { TagListComponent } from './tag/tag-list/tag-list.component';
+import { TagSearchComponent } from './tag/tag-search/tag-search.component';
+
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
 import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
 import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/tag-hierarchy-list.component';
@@ -81,6 +88,7 @@ import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/ta
 import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
 import { TreeModule } from 'angular-tree-component';
 import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarchy-quick-creation/tag-hierarchy-quick-creation.component';
+
 
 @NgModule({
   declarations: [
@@ -122,6 +130,10 @@ import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarch
     TemplateSearchComponent,
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
+    TagComponent,
+    TagFormComponent,
+    TagListComponent,
+    TagSearchComponent,
     TagHierarchyComponent,
     TagHierarchyFormComponent,
     TagHierarchyListComponent,
@@ -148,7 +160,7 @@ import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarch
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService],
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService, TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
