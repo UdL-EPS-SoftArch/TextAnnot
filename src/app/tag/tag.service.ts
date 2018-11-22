@@ -21,7 +21,7 @@ export class TagService extends RestService<Tag> {
   }
 
  public findByTagHierarchy(tagHierarchy: TagHierarchy): Observable<Tag[]> {
-    const options: any = {params: [{key: 'tagHierarchy', value: tagHierarchy}]};
+    const options: any = {params: [{key: 'tagHierarchy', value: tagHierarchy.uri}]};
     return this.search('findByTagHierarchy', options);
   }
 }

@@ -36,12 +36,6 @@ export class TagFormComponent implements OnInit {
     this.tagHierarchyService.getAll().subscribe(
       res => {
         this.tagHierarchy = res;
-
-      }
-    );
-    this.tagService.getAll().subscribe(
-      res => {
-        this.tagParent = res;
       }
     );
   }
@@ -52,12 +46,12 @@ export class TagFormComponent implements OnInit {
         (res: Tag) => {
           this.afterInsert.emit(Object.assign({}, res));
           this.tag.name = '';
-          this.tagHierName = '';
-          this.tagParent.push(res);
+          // this.tagHierarchy.push(res.tagHierarchy);
+          // this.tagParent.push(res);
          this.modalService.dismissAll();
         },
         () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
-        location.reload();
+        // location.reload();
   }
   open(content) {
     this.modalService.open(content, {
@@ -65,11 +59,23 @@ export class TagFormComponent implements OnInit {
     });
   }
 
-  optionSelectedth(val: number) {
+  optionSelectedth(val: any) {
+    console.log(val);
+    console.log(this.tagHierarchy[val]);
     this.tag.tagHierarchy = this.tagHierarchy[val];
+    this.changeSelectedParentTag(val);
   }
 
-  optionSelectedt(val: number) {
+  changeSelectedParentTag(val: any) {
+    this.tagService.findByTagHierarchy(this.tagHierarchy[val]).subscribe(
+      res => {
+          console.log(res);
+          this.tagParent = res;
+      },
+      err => console.log(err)
+    );
+  }
+   optionSelectedt(val: number) {
     if (this.tagParent[val].name === 'undefined') {
       this.parentTagName = 'Im a parent';
     }
