@@ -13,7 +13,7 @@ import {TagHierarchy} from "../../tag-hierarchy/tag-hierarchy";
 })
 export class TagListComponent implements OnInit {
 
-  @Input() public tags: Tag[] = [];
+  @Input() public tags: Tag[] = undefined;
 
   public totalTags = 0;
   @Output() public deleteItem: EventEmitter<number> = new EventEmitter<number>();
@@ -26,7 +26,7 @@ export class TagListComponent implements OnInit {
         this.tags = tags;
         this.totalTags = tags.length;
 
-        // Get the metadata template for each sample
+        // Get the tagHierarchy template for each tag
         this.tags.map(
           (tag: Tag) => {
             tag.getRelation(TagHierarchy, 'tagHierarchy').subscribe(
@@ -39,6 +39,10 @@ export class TagListComponent implements OnInit {
 
   delete(index: number): void {
     this.deleteItem.emit(index);
+  }
+
+  showSearchResults(tags) {
+    this.tags = tags;
   }
 
 }
