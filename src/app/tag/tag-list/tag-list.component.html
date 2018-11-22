@@ -3,7 +3,7 @@
   <div class="card tag-list" *ngFor="let t of tags; let i = index">
     <div class="card-body">
       <p><b>Tag: </b>{{ t.name }}</p>
-      <p>Tag-hierarchy: {{t.tagHierarchy.name}}</p>
+      <p *ngIf="t.tagHierarchy">Tag-hierarchy: {{t.tagHierarchy.name}}</p>
       <!--<p>Parent: {{t.parent.name}}</p>-->
       <button type="button" class="btn btn-outline-danger right-side" (click)="delete(i)"><i class="fa fa-bomb"></i>
         Delete</button>
