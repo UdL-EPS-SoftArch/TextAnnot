@@ -15,7 +15,7 @@ class AuthenticationSteps {
   async iSignInAsWithPassword(username: string, password: string): Promise<void> {
     await this.navBar.clickSignin();
     await this.loginForm.signIn(username, password);
-    this.imSignedInAs(username);
+    await this.imSignedInAs(username);
   }
 
   @given(/^I'm signed in as "([^"]*)"$/)
@@ -31,9 +31,9 @@ class AuthenticationSteps {
 
   @given(/^I'm on the home page and logged out$/)
   async iMInHomePageLoggedOut(): Promise<void> {
-    this.navigationSteps.iGoToHomePage();
+    await this.navigationSteps.iGoToHomePage();
     if (await this.navBar.getCurrentUser() != null) {
-      this.iLogOut();
+      await this.iLogOut();
     }
   }
 }

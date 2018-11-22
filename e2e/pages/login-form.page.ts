@@ -16,6 +16,6 @@ export class LoginForm {
     await this.usernameInput.sendKeys(username);
     await this.passwordInput.sendKeys(password);
     await this.form.submit();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 }
