@@ -51,7 +51,6 @@ export class TagFormComponent implements OnInit {
          this.modalService.dismissAll();
         },
         () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
-        // location.reload();
   }
   open(content) {
     this.modalService.open(content, {
@@ -60,8 +59,6 @@ export class TagFormComponent implements OnInit {
   }
 
   optionSelectedth(val: any) {
-    console.log(val);
-    console.log(this.tagHierarchy[val]);
     this.tag.tagHierarchy = this.tagHierarchy[val];
     this.changeSelectedParentTag(val);
   }
@@ -69,14 +66,11 @@ export class TagFormComponent implements OnInit {
   changeSelectedParentTag(val: any) {
     this.tagService.findByTagHierarchy(this.tagHierarchy[val]).subscribe(
       res => {
-          console.log(res);
           this.tagParent = res;
-      },
-      err => console.log(err)
+      }
     );
   }
    optionSelectedt(val: number) {
-     console.log(val);
     if (val === -1) {
       this.tag.parent = null;
     }
