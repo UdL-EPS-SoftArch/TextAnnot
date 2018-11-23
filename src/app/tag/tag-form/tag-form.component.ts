@@ -1,7 +1,7 @@
 import { ErrorMessageService } from './../../error-handler/error-message.service';
 import { TagHierarchyService } from './../../tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchy } from './../../tag-hierarchy/tag-hierarchy';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Tag } from '../tag';
 import { Router } from '@angular/router';
 import { TagService } from '../tag.service';
@@ -13,14 +13,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./tag-form.component.css']
 })
 export class TagFormComponent implements OnInit {
-
   public tag: Tag;
+  public tagHierName: string;
+  public parentTagName: string;
+  public tagParent: Tag[];
   public tagHierarchy: TagHierarchy[];
   public errorMessage: string;
   public formTitle = 'Create Tag';
   public formSubtitle = 'Create a new Tag';
   public uriTagHierarchy: string;
-  @Output() public afterInsert: EventEmitter<TagHierarchy> = new EventEmitter<TagHierarchy>();
+  public uriTag: string;
+  @Output() public afterInsert: EventEmitter<Tag> = new EventEmitter<Tag>();
 
   constructor(private router: Router,
               private tagService: TagService,
@@ -43,7 +46,9 @@ export class TagFormComponent implements OnInit {
         (res: Tag) => {
           this.afterInsert.emit(Object.assign({}, res));
           this.tag.name = '';
-          this.modalService.dismissAll();
+          this.tagHierarchy = [];
+          this.tagParent = [];
+         this.modalService.dismissAll();
         },
         () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
   }
@@ -51,5 +56,24 @@ export class TagFormComponent implements OnInit {
     this.modalService.open(content, {
       ariaLabelledBy: 'modal-basic-title',
     });
+  }
+
+  optionSelectedth(val: any) {
+    this.tag.tagHierarchy = this.tagHierarchy[val];
+    this.changeSelectedParentTag(val);
+  }
+
+  changeSelectedParentTag(val: any) {
+    this.tagService.findByTagHierarchy(this.tagHierarchy[val]).subscribe(
+      res => {
+          this.tagParent = res;
+      }
+    );
+  }
+   optionSelectedt(val: number) {
+    if (val === -1) {
+      this.tag.parent = null;
+    }
+      this.tag.parent = this.tagParent[val];
   }
 }

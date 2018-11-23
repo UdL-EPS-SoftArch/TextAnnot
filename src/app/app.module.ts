@@ -85,6 +85,7 @@ import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/ta
 import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
 import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
+import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
 
 
 
@@ -137,6 +138,7 @@ import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/ta
     TagHierarchyListComponent,
     TagHierarchySearchComponent,
     TagHierarchyEditComponent,
+    TagEditComponent,
   ],
   imports: [
     BrowserModule,

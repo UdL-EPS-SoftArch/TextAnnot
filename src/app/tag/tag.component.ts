@@ -21,4 +21,8 @@ export class TagComponent implements OnInit {
   onSearch(tags: Tag[]) {
     this.tags = tags;
   }
+
+  onInsert(tag: Tag) {
+    this.tags.push(tag);
+  }
 }
