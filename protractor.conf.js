@@ -22,7 +22,7 @@ exports.config = {
       './e2e/features/steps/hooks.js'
     ],
     format: 'json:./e2e/protractor-cucumber-report.json',
-    tags: '~@ignore'
+    tags: ['~@ignore']
   },
   onPrepare() {
     require('ts-node').register({
