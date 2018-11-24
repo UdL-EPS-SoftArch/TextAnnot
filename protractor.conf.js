@@ -12,6 +12,7 @@ exports.config = {
       args: ['--headless', '--disable-gpu', '--window-size=1024x768']
     }
   },
+  SELENIUM_PROMISE_MANAGER: false,
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'custom',
