@@ -72,7 +72,8 @@ import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/m
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
-import {SampleFieldsFormComponent} from "./sample/sample-fields-form/sample-fields-form.component";
+import {SampleFieldsFormComponent} from './sample/sample-fields-form/sample-fields-form.component';
+import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input/metadatafield-input.component';
 
 
 @NgModule({
@@ -116,6 +117,7 @@ import {SampleFieldsFormComponent} from "./sample/sample-fields-form/sample-fiel
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
     SampleFieldsFormComponent,
+    MetadatafieldInputComponent,
   ],
   imports: [
     BrowserModule,

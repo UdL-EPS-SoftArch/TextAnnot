@@ -1,7 +1,8 @@
-<div class="form-group" style="width:100%;height:auto;padding: 20px; border:1px solid lightgray">
-  <ul>
-    <li *ngFor="let metadataField of metadataFields">
-      {{metadataField.name}}
-    </li>
-  </ul>
-</div>
+
+<ul>
+  <li *ngFor="let metadataField of metadataFields;">
+      <app-metadatafield-input [metadataFieldName]="metadataField.name" #child></app-metadatafield-input>
+  </li>
+</ul>
+
+
