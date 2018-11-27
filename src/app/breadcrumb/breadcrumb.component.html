@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
   <ul class="breadcrumb">
-    <li class="breadcrumb-item item" *ngFor="let page of collection">
+    <li class="breadcrumb-item item link-hover" *ngFor="let page of collection">
       <a (click)="breadService.navigate(page.uri)">{{page.name}}</a>
     </li>
   </ul>
