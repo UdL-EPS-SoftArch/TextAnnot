@@ -1,3 +1,4 @@
+import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarchy-quick-creation/tag-hierarchy-quick-creation.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -128,6 +129,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     TagHierarchySearchComponent,
     TagHierarchyEditComponent,
     TagHierarchyDetailComponent,
+    TagHierarchyQuickCreationComponent,
     BreadcrumbComponent,
   ],
   imports: [

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ErrorMessageService } from './../../error-handler/error-message.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TagHierarchy } from '../tag-hierarchy';
@@ -19,7 +20,8 @@ export class TagHierarchyFormComponent implements OnInit {
 
   constructor(private tagHierarchyService: TagHierarchyService,
               private modalService: NgbModal,
-              private errorService: ErrorMessageService) { }
+              private errorService: ErrorMessageService,
+              private router: Router) { }
 
   ngOnInit() {
     this.tagHierarchy = new TagHierarchy();
@@ -35,6 +37,11 @@ export class TagHierarchyFormComponent implements OnInit {
         },
         () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
 
+  }
+
+  toQuickCreation() {
+    this.router.navigate(['/tagHierarchies', 'quick-creation']);
+    this.modalService.dismissAll();
   }
 
   open(content) {

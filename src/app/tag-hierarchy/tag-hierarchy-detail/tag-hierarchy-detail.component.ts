@@ -4,13 +4,7 @@ import { TagHierarchy } from '../tag-hierarchy';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TagHierarchyService } from '../tag-hierarchy.service';
 import {Location} from '@angular/common';
-import { TREE_ACTIONS, KEYS, IActionMapping } from 'angular-tree-component';
-
-const actionMapping: IActionMapping = {
-  mouse: {
-    click: TREE_ACTIONS.TOGGLE_SELECTED,
-  }
-};
+import { TREE_ACTIONS, KEYS } from 'angular-tree-component';
 
 @Component({
   selector: 'app-tag-hierarchy-detail',

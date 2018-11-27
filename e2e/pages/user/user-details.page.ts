@@ -22,30 +22,30 @@ export class UserDetailsPage {
     this.deleteBtn = this.details.element(by.id('deleteBtn'));
   }
 
-  async getUsername(): string {
-    return this.detailsUsername.getText();
+  async getUsername(): Promise<string> {
+    return await this.detailsUsername.getText();
   }
 
-  async getEMail(): string {
-    return this.detailsEMail.getText();
+  async getEMail(): Promise<string> {
+    return await this.detailsEMail.getText();
   }
 
-  async getRole(): string {
-    return this.detailsRole.getText();
+  async getRole(): Promise<string> {
+    return await this.detailsRole.getText();
   }
 
-  async clickBackToListButton(): void {
+  async clickBackToListButton(): Promise<void> {
     await this.listBtn.click();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 
-  async clickEditButton(): void {
+  async clickEditButton(): Promise<void> {
     await this.editBtn.click();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 
-  async clickDeleteButton(): void {
+  async clickDeleteButton(): Promise<void> {
     await this.deleteBtn.click();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 }
