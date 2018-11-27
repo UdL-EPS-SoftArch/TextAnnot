@@ -1,3 +1,4 @@
+import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarchy-quick-creation/tag-hierarchy-quick-creation.component';
 import { TagService } from './tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -85,9 +86,10 @@ import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/ta
 import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
 import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
+import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
+import { TreeModule } from 'angular-tree-component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
-
-
 
 @NgModule({
   declarations: [
@@ -138,6 +140,9 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     TagHierarchyListComponent,
     TagHierarchySearchComponent,
     TagHierarchyEditComponent,
+    TagHierarchyDetailComponent,
+    TagHierarchyQuickCreationComponent,
+    BreadcrumbComponent,
     TagEditComponent,
   ],
   imports: [
@@ -150,7 +155,8 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
     FileUploadModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    TreeModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

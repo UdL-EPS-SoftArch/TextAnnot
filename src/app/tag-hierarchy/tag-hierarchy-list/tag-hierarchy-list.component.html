@@ -1,9 +1,13 @@
-<div class="card tag-list" *ngFor="let th of tagHierarchies; let i = index">
-  <div class="card-body">
-    <p><b>Hierarchy: </b>{{ th.name }}</p>
-    <button type="button" class="btn btn-outline-danger right-side" (click)="delete(i)"><i class="fa fa-bomb"></i>
-      Delete</button>
-    <a routerLink="{{th.uri}}/edit" type="button" class="btn btn-outline-primary right-side"><i class="fa fa-pencil"></i>
-      Edit</a>
+<div class="list-wrapper">
+  <div class="card tag-list" *ngFor="let th of tagHierarchies; let i = index" routerLink="{{th.uri}}/detail">
+    <div class="card-body">
+      <h4 class="card-subtitle display-4 th-name">{{ th.name }}</h4>
+      <p class="card-text text-muted">Tag Hierarchy</p>
+      <button type="button" class="btn btn-outline-danger right-side" (click)="delete(i); $event.stopPropagation()"><i class="fa fa-bomb"></i>
+        Delete</button>
+      <a routerLink="{{th.uri}}/edit" type="button" class="btn btn-outline-primary right-side"><i class="fa fa-pencil"></i>
+        Edit</a>
+    </div>
   </div>
 </div>
+

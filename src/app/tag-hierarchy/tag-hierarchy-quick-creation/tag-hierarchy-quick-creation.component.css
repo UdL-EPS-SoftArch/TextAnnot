@@ -1,0 +1,28 @@
+.marged-left {
+  margin-right: 10px;
+}
+
+.card-body {
+  position: relative;
+}
+
+.add-root {
+  position: absolute;
+  top: 1.8em;
+  right: 2em;
+}
+
+.card-title {
+  width: 50%;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.fab {
+  position: fixed;
+  bottom: 3em;
+  right: 3em;
+}
+
