@@ -10,3 +10,12 @@
 .breadcrumb-item {
   cursor: pointer;
 }
+
+.link-hover {
+  -webkit-transition: color .25s; /* For Safari 3.1 to 6.0 */
+  transition: color .25s;
+}
+
+.link-hover:hover {
+  color: blue;
+}
