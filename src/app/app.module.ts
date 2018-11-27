@@ -80,6 +80,7 @@ import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
 import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
 import { TreeModule } from 'angular-tree-component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { TreeModule } from 'angular-tree-component';
     TagHierarchySearchComponent,
     TagHierarchyEditComponent,
     TagHierarchyDetailComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,

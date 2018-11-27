@@ -1,0 +1,12 @@
+.breadcrumb {
+  background-color: whitesmoke;
+}
+
+.separator {
+  display: inline;
+  margin-left: .5em;
+}
+
+.breadcrumb-item {
+  cursor: pointer;
+}
