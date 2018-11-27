@@ -5,7 +5,7 @@ export class TagHierarchyListPage {
   private tagHierarchies;
 
   constructor() {
-    this.tagHierarchies = element.all(by.css('div.card'));
+    this.tagHierarchies = element.all(by.className('card'));
   }
 
   async getTagHierarchyInPosition(position: number): Promise<ElementArrayFinder> {
@@ -24,10 +24,6 @@ export class TagHierarchyListPage {
     await browser.takeScreenshot();
     const buttons = await element.all(by.className('btn-outline-danger'));
     const names = await element.all(by.className('th-name')).map(e => e.getText());
-    console.log(names.indexOf(name));
-    console.log(name);
-    console.log(names);
-    console.log(buttons.length);
     await buttons[names.indexOf(name)].click();
   }
 }
