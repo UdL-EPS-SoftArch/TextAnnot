@@ -5,11 +5,11 @@ export class TagHierarchyDetailsPage {
   private uri;
   private tree;
 
-  async getName(): string {
+  async getName(): Promise<string> {
     return this.name.getText();
   }
 
-  async getUri(): string {
+  async getUri(): Promise<string> {
     return this.uri.getText();
   }
 }

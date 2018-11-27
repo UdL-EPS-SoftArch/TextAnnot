@@ -17,16 +17,16 @@ export class BreadcrumbService {
     this.collection = new BehaviorSubject(this.pages);
   }
 
-  public serializePages(url: String){
-    var routes = url.split('/');
+  public serializePages(url: String) {
+    const routes = url.split('/');
 
     // Reset Breadcrumb
     this.pages = [];
     this.pages.push(this.homepage);
 
     // Load actual URL
-    routes.filter(param => param != 'about' && !Number(param)).forEach(route => {
-      if (route != '/' && route != undefined && route != "") {
+    routes.filter(param => param !== 'about' && !Number(param)).forEach(route => {
+      if (route !== '/' && route !== undefined && route !== '') {
         this.pages.push(new Page(route.charAt(0).toUpperCase() + route.slice(1), this.processRouteURL(route)));
       }
     });
@@ -40,9 +40,7 @@ export class BreadcrumbService {
   }
 
   public navigate(url: string) {
-    console.log(url.split('/')[url.split('/').length-1], this.router.url)
-    if (url.split('/')[url.split('/').length-1] != this.router.url) {
-      console.log('Equals')
+    if (url.split('/')[url.split('/').length - 1] !== this.router.url) {
       this.router.navigateByUrl(url);
     }
   }

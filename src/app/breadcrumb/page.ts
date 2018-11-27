@@ -1,6 +1,6 @@
 export class Page {
 
-  constructor(name: String, uri: String){
+  constructor(name: String, uri: String) {
     this.name = name;
     this.uri = uri;
   }

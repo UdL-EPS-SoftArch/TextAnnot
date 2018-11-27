@@ -10,7 +10,7 @@ import { BreadcrumbService } from './breadcrumb.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private router: Router, private breadService: BreadcrumbService){
+  constructor(private router: Router, private breadService: BreadcrumbService) {
     router.events.subscribe( val => {
       breadService.serializePages(router.url);
     });
