@@ -45,6 +45,12 @@ import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/ta
 
 
 
+import { TagComponent } from './tag/tag.component';
+import { TagFormComponent } from './tag/tag-form/tag-form.component';
+
+
+
+
 export const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
@@ -80,6 +86,8 @@ export const routes: Routes = [
   { path: 'tagHierarchies', component: TagHierarchyComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/new', component: TagHierarchyFormComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/quick-creation', component: TagHierarchyQuickCreationComponent, canActivate: [AdministratorGuard]},
+  { path: 'tags', component: TagComponent, canActivate: [AdministratorGuard]},
+  { path: 'tags/new', component: TagFormComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/edit', component: TagHierarchyEditComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/detail', component: TagHierarchyDetailComponent, canActivate: [AdministratorGuard]},
 ];
