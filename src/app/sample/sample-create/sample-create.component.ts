@@ -6,8 +6,8 @@ import { SampleService } from '../sample.service';
 import { MetadataTemplate } from '../../metadata-template/metadata-template';
 import { MetadataTemplateService } from '../../metadata-template/metadata-template.service';
 import { NgForm } from '@angular/forms';
-import {MetadataValueService} from '../../metadataValue/metadataValue.service';
-import {MetadataValue} from '../../metadataValue/metadataValue';
+import { MetadataValueService } from '../../metadataValue/metadataValue.service';
+import { MetadataValue } from '../../metadataValue/metadataValue';
 
 @Component({
   selector: 'app-sample-create',
@@ -21,6 +21,7 @@ export class SampleCreateComponent implements OnInit {
   public formSubtitle = 'Creates a new sample';
   public metadataTemplates: MetadataTemplate[] = [];
   public uriMetadataTemplate: string;
+  public values: MetadataValue[] = [];
   constructor(private router: Router,
               private sampleService: SampleService,
               private metadataTemplateService: MetadataTemplateService, private metadataValueService: MetadataValueService) { }
@@ -38,13 +39,18 @@ export class SampleCreateComponent implements OnInit {
   onSubmit(): void {
     this.sampleService.create(this.sample)
         .subscribe(
-          sample => this.router.navigate(['/samples']));
+          sample => {this.creationMetadataValues(sample); }
+        );
     this.sample.text = this.uriMetadataTemplate;
-    const fields = this.child.onSubmit();
-    for (const metadataValue of fields) {
-        console.log(metadataValue);
-
+  }
+  creationMetadataValues(sample): void {
+    this.values = this.child.onSubmit();
+    for (const metadataValue of this.values) {
+      if (metadataValue.value) {
+        metadataValue.forA = sample;
+        this.metadataValueService.create(metadataValue).subscribe(
+          metadatavalue => this.router.navigate(['/samples']));
+      }
     }
-
   }
 }

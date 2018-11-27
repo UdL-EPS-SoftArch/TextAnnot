@@ -1,7 +1,7 @@
 
 <ul>
   <li *ngFor="let metadataField of metadataFields;">
-      <app-metadatafield-input [metadataFieldName]="metadataField.name" #child></app-metadatafield-input>
+      <app-metadatafield-input [metadataField]="metadataField" #child></app-metadatafield-input>
   </li>
 </ul>
 

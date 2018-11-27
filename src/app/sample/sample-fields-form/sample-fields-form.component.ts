@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit, QueryList, SimpleChange, ViewChild,
 import {Metadatafield} from '../../metadatafield/metadatafield';
 import {MetadatafieldService} from '../../metadatafield/metadatafield.service';
 import {MetadatafieldInputComponent} from '../../metadatafield/metadatafield-input/metadatafield-input.component';
+import {MetadataValue} from '../../metadataValue/metadataValue';
 
 @Component({
   selector: 'app-sample-fields-form',
@@ -10,7 +11,7 @@ import {MetadatafieldInputComponent} from '../../metadatafield/metadatafield-inp
 export class SampleFieldsFormComponent implements OnInit {
   @ViewChildren(MetadatafieldInputComponent) childs: QueryList<MetadatafieldInputComponent>;
   public metadataFields: Metadatafield[] = [];
-
+  public values: MetadataValue[] = [];
   constructor(private metadataService: MetadatafieldService) {}
   @Input() metadataTemplateUri: string;
   ngOnInit() {
@@ -18,11 +19,10 @@ export class SampleFieldsFormComponent implements OnInit {
     (metadataFields: Metadatafield[]) => { this.metadataFields = metadataFields; });
   }
   onSubmit() {
-    const fields = [];
     const childsArray = this.childs.toArray();
     for (const child of childsArray) {
-      fields.push(child.onSubmit());
+      this.values.push(child.onSubmit());
     }
-    return fields;
+    return this.values;
   }
 }
