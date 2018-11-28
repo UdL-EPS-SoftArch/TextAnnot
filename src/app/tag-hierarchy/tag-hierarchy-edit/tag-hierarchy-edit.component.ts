@@ -45,5 +45,5 @@ export class TagHierarchyEditComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
 }
+

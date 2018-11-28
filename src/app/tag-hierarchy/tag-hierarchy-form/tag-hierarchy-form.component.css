@@ -6,9 +6,17 @@
   border-radius: 50%;
 }
 
+.link {
+  color: #50b9ff !important;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
 .fab {
   position: fixed;
-  bottom: 3em;
+  bottom: 2em;
   right: 3em;
 }
 

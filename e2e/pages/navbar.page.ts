@@ -15,23 +15,23 @@ export class NavigationBar {
     this.home = this.navbar.element(by.className('navbar-brand'));
   }
 
-  async clickSignin(): void {
-    browser.wait(ExpectedConditions.presenceOf(this.login));
+  async clickSignin(): Promise<void> {
+    await browser.wait(ExpectedConditions.presenceOf(this.login));
     await this.login.click();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 
-  async clickSignOut(): void {
+  async clickSignOut(): Promise<void> {
     await this.logout.click();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 
-  async goToMenuOption(option: string): void {
+  async goToMenuOption(option: string): Promise<void> {
     await this.navbar.element(by.linkText(option)).click();
-    browser.waitForAngular();
+    await browser.waitForAngular();
   }
 
-  async getCurrentUser(): string {
+  async getCurrentUser(): Promise<string> {
     if (await this.currentUser.isPresent()) {
       return await this.currentUser.getText();
     }

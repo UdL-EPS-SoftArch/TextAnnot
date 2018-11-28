@@ -12,6 +12,7 @@ exports.config = {
       args: ['--headless', '--disable-gpu', '--window-size=1024x768']
     }
   },
+  SELENIUM_PROMISE_MANAGER: false,
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'custom',
@@ -22,7 +23,7 @@ exports.config = {
       './e2e/features/steps/hooks.js'
     ],
     format: 'json:./e2e/protractor-cucumber-report.json',
-    tags: '~@ignore'
+    tags: ['~@ignore']
   },
   onPrepare() {
     require('ts-node').register({

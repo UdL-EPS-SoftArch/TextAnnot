@@ -8,11 +8,11 @@ export class UserListPage {
     this.users = element.all(by.css('div.card'));
   }
 
-  async getUserInPosition(position: number): ElementArrayFinder {
+  async getUserInPosition(position: number): Promise<ElementArrayFinder> {
     return await this.users.get(position - 1);
   }
 
-  async getUsersCount(): number {
+  async getUsersCount(): Promise<number> {
     return await this.users.count();
   }
 }
