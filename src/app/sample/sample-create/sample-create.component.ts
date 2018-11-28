@@ -8,6 +8,8 @@ import { MetadataTemplateService } from '../../metadata-template/metadata-templa
 import { NgForm } from '@angular/forms';
 import { MetadataValueService } from '../../metadataValue/metadataValue.service';
 import { MetadataValue } from '../../metadataValue/metadataValue';
+import {forkJoin, Observable} from 'rxjs/index';
+import { flatMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sample-create',
@@ -37,20 +39,18 @@ export class SampleCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.sampleService.create(this.sample)
-        .subscribe(
-          sample => {this.creationMetadataValues(sample); }
-        );
-    this.sample.text = this.uriMetadataTemplate;
+    const create$: Observable<Sample> = this.sampleService.create(this.sample) as Observable<Sample>;
+    create$.pipe(
+      flatMap((sample: Sample) => forkJoin(...this.creationMetadataValues(sample)))
+    ).subscribe(() => this.router.navigate(['/samples']));
   }
-  creationMetadataValues(sample): void {
+
+  creationMetadataValues(sample): Observable<MetadataValue>[] {
     this.values = this.child.onSubmit();
-    for (const metadataValue of this.values) {
-      if (metadataValue.value) {
-        metadataValue.forA = sample;
-        this.metadataValueService.create(metadataValue).subscribe(
-          metadatavalue => this.router.navigate(['/samples']));
-      }
-    }
+    return this.values.filter(value => value.value)
+      .map(value => {
+        value.forA = sample;
+        return this.metadataValueService.create(value) as Observable<MetadataValue>;
+      });
   }
 }
