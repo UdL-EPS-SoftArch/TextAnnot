@@ -20,6 +20,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           console.log('HTTP Error Interceptor: ' + this.extractErrorMessage(error));
           if (error.status !== 404) {
             this.errorMessageService.showErrorMessage(this.extractErrorMessage(error));
+          }
         }
       })
     );
