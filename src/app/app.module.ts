@@ -1,3 +1,5 @@
+import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarchy-quick-creation/tag-hierarchy-quick-creation.component';
+import { TagService } from './tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -75,6 +77,21 @@ import { FileUploadModule } from 'ng2-file-upload';
 import {SampleFieldsFormComponent} from './sample/sample-fields-form/sample-fields-form.component';
 import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input/metadatafield-input.component';
 
+import { TagComponent } from './tag/tag.component';
+import { TagFormComponent } from './tag/tag-form/tag-form.component';
+import { TagListComponent } from './tag/tag-list/tag-list.component';
+import { TagSearchComponent } from './tag/tag-search/tag-search.component';
+
+import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
+import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
+import { TagHierarchyListComponent } from './tag-hierarchy/tag-hierarchy-list/tag-hierarchy-list.component';
+import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-search/tag-hierarchy-search.component';
+import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
+import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
+import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
+import { TreeModule } from 'angular-tree-component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +133,19 @@ import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input
     TemplateSearchComponent,
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
+    TagComponent,
+    TagFormComponent,
+    TagListComponent,
+    TagSearchComponent,
+    TagHierarchyComponent,
+    TagHierarchyFormComponent,
+    TagHierarchyListComponent,
+    TagHierarchySearchComponent,
+    TagHierarchyEditComponent,
+    TagHierarchyDetailComponent,
+    TagHierarchyQuickCreationComponent,
+    BreadcrumbComponent,
+    TagEditComponent,
     SampleFieldsFormComponent,
     MetadatafieldInputComponent,
   ],
@@ -124,19 +154,20 @@ import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgbModule,
+    NgbModule.forRoot(),
     LoginBasicModule,
     AngularHalModule.forRoot(),
     ErrorHandlerModule,
     FileUploadModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    TreeModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
     AuthenticationBasicService, LoggedInGuard, AdministratorGuard, AdminService, LinguistService, SampleService,
-    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService],
+    XMLSampleService, MetadataValueService, MetadataTemplateService, MetadatafieldService, TagHierarchyService, TagService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

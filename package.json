@@ -29,6 +29,7 @@
     "@angular/router": "^6.1.5",
     "@angular/service-worker": "^6.1.5",
     "@ng-bootstrap/ng-bootstrap": "^3.3.1",
+    "angular-tree-component": "^8.0.0",
     "angular4-hal-aot": "^6.3.6",
     "bootstrap-css-only": "^4.0.0",
     "core-js": "^2.4.1",
@@ -38,7 +39,7 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.7.5",
+    "@angular-devkit/build-angular": "^0.7.5",
     "@angular/compiler-cli": "^6.1.5",
     "@angular/language-service": "^6.1.5",
     "@types/jasmine": "~2.8.3",

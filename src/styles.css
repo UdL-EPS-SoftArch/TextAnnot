@@ -17,3 +17,22 @@
 @-webkit-keyframes spin {
   to { -webkit-transform: rotate(360deg); }
 }
+
+.nav-link{
+  cursor: pointer;
+}
+
+/* TagHierarchy CSS */
+
+.toggle-children {
+  z-index: 1;
+  background-image: url(/assets/arrow-circle-right-solid.svg);
+  width: .8em;
+  height: .8em;
+  margin-top: .52em;
+}
+
+.toggle-children-placeholder {
+  z-index: 1;
+  background-image: url(/assets/tag-solid.svg);
+}

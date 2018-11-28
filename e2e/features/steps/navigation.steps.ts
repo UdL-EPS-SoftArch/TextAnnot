@@ -10,23 +10,23 @@ class NavigationSteps {
   private mainContent = new MainContentPage();
 
   @when(/^I go to the home page$/)
-  async iGoToHomePage(): void {
+  async iGoToHomePage(): Promise<void> {
     await browser.get('http://localhost:4200');
   }
 
   @when(/^I click menu option "([^"]*)"$/)
-  async iClickMenuOption (option: string): void {
+  async iClickMenuOption (option: string): Promise<void> {
     await this.navBar.goToMenuOption(option);
   }
 
   @when(/^I click submenu option "([^"]*)" in menu "([^"]*)"$/)
-  async iClickSubMenuOption (option: string, menu: string): void {
+  async iClickSubMenuOption (option: string, menu: string): Promise<void> {
     await this.navBar.goToMenuOption(menu);
     await this.navBar.goToMenuOption(option);
   }
 
   @when(/^I click the "([^"]*)" button$/)
-  async iClickButton (text: string): void {
+  async iClickButton (text: string): Promise<void> {
     await this.mainContent.clickButtonWithText(text);
   }
 }

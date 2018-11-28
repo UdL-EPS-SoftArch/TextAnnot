@@ -9,12 +9,12 @@ class ListUsersSteps {
   private userList = new UserListPage();
 
   @when(/^I click the user with name "([^"]*)"$/)
-  public IClickAUserWithName (name: string): void {
-    this.mainContent.clickLinkWithText(name);
+  async IClickAUserWithName (name: string): Promise<void> {
+    await this.mainContent.clickLinkWithText(name);
   }
 
   @then(/^I see (\d+) users/)
-  async iSeeUsers(count: number): void {
+  async iSeeUsers(count: number): Promise<void> {
     expect(await this.userList.getUsersCount()).to.equal(count);
   }
 }

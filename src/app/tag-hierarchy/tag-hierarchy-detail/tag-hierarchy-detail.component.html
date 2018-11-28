@@ -1,0 +1,22 @@
+<h4>TagHierarchy: {{formTitle}}</h4>
+<p class="lead">{{formSubtitle}}</p>
+<hr>
+<div>
+  <p>Name: {{tagHierarchy.name}}</p>
+  <p>Location: {{tagHierarchy.uri}}</p>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Structure</h5>
+      <h6 *ngIf="!structure" class="text-muted center">No roots added</h6>
+      <tree-root #tree [nodes]="nodes" [options]="options">
+        <tree-root [nodes]="nodes" [options]="options">
+          <template #loadingTemplate>Loading, please hold....</template>
+          <ng-template #treeNodeTemplate let-node let-index="index">
+            <h6 class="mr-sm-2">{{ node.data.name }}</h6>
+          </ng-template>
+        </tree-root>
+      </tree-root>
+    </div>
+  </div>
+</div>
