@@ -13,7 +13,7 @@ import {TagHierarchy} from "../../tag-hierarchy/tag-hierarchy";
 })
 export class TagListComponent implements OnInit {
 
-  @Input() public tags: Tag[] = undefined;
+  @Input() public tags: Tag[] = [];
 
   public totalTags = 0;
   @Output() public deleteItem: EventEmitter<number> = new EventEmitter<number>();
@@ -21,16 +21,25 @@ export class TagListComponent implements OnInit {
   constructor(private tagService: TagService) { }
 
   ngOnInit() {
+    this.refresh_list();
+  }
+
+  refresh_list(){
     this.tagService.getAll().subscribe(
       (tags: Tag[]) => {
         this.tags = tags;
         this.totalTags = tags.length;
+        console.log(this.totalTags);
 
         // Get the tagHierarchy template for each tag
         this.tags.map(
           (tag: Tag) => {
             tag.getRelation(TagHierarchy, 'tagHierarchy').subscribe(
               (tagHierarchy: TagHierarchy) => tag.tagHierarchy = tagHierarchy
+            );
+            tag.getRelation(Tag, 'parent').subscribe(
+              (parent: Tag) => tag.parent = parent,
+              error1 => console.log(error1)
             );
           }
         );
