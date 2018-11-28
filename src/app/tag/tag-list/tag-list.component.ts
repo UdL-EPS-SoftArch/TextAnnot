@@ -13,7 +13,7 @@ import {TagHierarchy} from "../../tag-hierarchy/tag-hierarchy";
 })
 export class TagListComponent implements OnInit {
 
-  @Input() public tags: Tag[] = [];
+  @Input() public tags: Tag[];
 
   public totalTags = 0;
   @Output() public deleteItem: EventEmitter<number> = new EventEmitter<number>();
@@ -21,7 +21,7 @@ export class TagListComponent implements OnInit {
   constructor(private tagService: TagService) { }
 
   ngOnInit() {
-    this.refresh_list();
+    // this.refresh_list();
   }
 
   refresh_list(){
