@@ -90,6 +90,7 @@ import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detai
 import { TreeModule } from 'angular-tree-component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -146,6 +147,7 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     TagEditComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -156,7 +158,7 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     ErrorHandlerModule,
     FileUploadModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    TreeModule.forRoot()
+    TreeModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
