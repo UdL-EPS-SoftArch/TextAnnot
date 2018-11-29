@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="card mb-1" *ngFor="let admin of admins">
+<div class="card mb-1 p-2" *ngFor="let admin of admins">
   <div class="card-block row m-1">
     <h4 class="card-title col-md-12 p-1"><a routerLink="{{admin.uri}}">{{admin.id}}</a></h4>
     <div class="col-md-4 p-1">
@@ -22,11 +22,11 @@
       <p class="card-text">{{admin.email}}</p>
     </div>
     <div class="col-md-4 p-1">
-      <a class="card-link pull-right" routerLink="{{admin.uri}}">Details</a>
+      <a class="card-link pull-right btn btn-outline-primary" routerLink="{{ admin.uri }}">Details</a>
     </div>
   </div>
 </div>
 
-<p i18n class="text-center">Showing {{admins.length}} out of { totalAdmins, plural,
+<p i18n class="text-center mt-4">Showing {{admins.length}} out of { totalAdmins, plural,
   =1 {1 admin}
   other { {{totalAdmins}} admins} }</p>
