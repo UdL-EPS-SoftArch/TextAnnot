@@ -23,7 +23,7 @@
         <button id="editBtn" type="button" [routerLink]="['edit']"
             class="btn m-1 btn-outline-success">Edit
         </button>
-        <button id="deleteBtn" type="button" [routerLink]="['delete']"
+        <button id="deleteBtn" type="button" (click)="delete()"
             class="btn m-1 btn-outline-danger">Delete
         </button>
       </div>
