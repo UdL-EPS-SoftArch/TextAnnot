@@ -2,6 +2,7 @@
 
 <p class="lead">List of tags</p>
 
-<app-tag-form (afterInsert)="onInsert($event)"></app-tag-form>
-<app-tag-search></app-tag-search>
-<app-tag-list></app-tag-list>
+<app-tag-search (emitResults)="onSearch($event)"></app-tag-search>
+<app-tag-list [tags]="tags" (deleteItem)="onDelete($event)"></app-tag-list>
+<app-tag-form (afterInsert)="onAdded($event)"></app-tag-form>
+
