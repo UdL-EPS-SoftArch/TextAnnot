@@ -5,7 +5,8 @@ import { MetadatafieldService } from '../metadatafield.service';
 
 @Component({
   selector: 'app-metadatafield-detail',
-  templateUrl: './metadatafield-detail.component.html'
+  templateUrl: './metadatafield-detail.component.html',
+  styleUrls: ['../metadataList.component.css']
 })
 export class MetadatafieldDetailComponent implements OnInit {
   public metaField: Metadatafield = new Metadatafield();

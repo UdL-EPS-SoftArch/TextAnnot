@@ -5,7 +5,8 @@ import {MetadataValueService} from '../metadataValue.service';
 
 @Component({
   selector: 'app-metadata-value-detail',
-  templateUrl: './metadata-value-detail.component.html'
+  templateUrl: './metadata-value-detail.component.html',
+  styleUrls: ['../metadataValue.component.css']
 })
 export class MetadataValueDetailComponent implements OnInit {
   public metaValue: MetadataValue = new MetadataValue();
