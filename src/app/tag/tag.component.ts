@@ -19,7 +19,7 @@ export class TagComponent implements OnInit {
       err => alert(err)
     );
   }
-  
+
   onSearch(tags: Tag[]) {
     this.tags = tags;
   }
