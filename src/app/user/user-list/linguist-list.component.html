@@ -14,7 +14,7 @@
   <div class="card-block row m-1">
     <h4 class="card-title col-md-12 p-1"><a routerLink="{{linguist.uri}}">{{linguist.id}}</a></h4>
     <div class="col-md-4 p-1">
-      <h6 class="card-subtitle text-muted">Username</h6>
+      <h6 class="card-subtitle text-muted"><i class="fa fa-ghost fa-sm prefix grey-text"></i>Username</h6>
       <p class="card-text">{{linguist.id}}</p>
     </div>
     <div class="col-md-4 p-1">
@@ -22,7 +22,8 @@
       <p class="card-text">{{linguist.email}}</p>
     </div>
     <div class="col-md-4 p-1">
-      <a class="card-link pull-right" routerLink="{{linguist.uri}}">Details</a>
+      <button id="editBtn" type="button" routerLink="{{linguist.uri}}/edit" class="btn m-1 btn-outline-success pull-right"><i style="margin-right: .25em" class="fa fa-pencil"></i>Edit</button>
+      <button type="button" class="btn m-1 btn-outline-primary pull-right" routerLink="{{linguist.uri}}"><i style="margin-right: .25em" class="fa fa-info-circle"></i>Details</button>
     </div>
   </div>
 </div>
