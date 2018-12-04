@@ -19,13 +19,13 @@ export class TagComponent implements OnInit {
       err => alert(err)
     );
   }
+  
   onSearch(tags: Tag[]) {
     this.tags = tags;
   }
 
   onAdded(tag: Tag) {
     this.tags.push(tag);
-    console.log(this.tags);
   }
 
   onDelete(index): void {

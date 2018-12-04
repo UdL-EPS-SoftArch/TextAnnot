@@ -21,7 +21,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           if (error.status !== 404) {
             this.errorMessageService.showErrorMessage(this.extractErrorMessage(error));
         }
-      })
+      }})
     );
   }
 
