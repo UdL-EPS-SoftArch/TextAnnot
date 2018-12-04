@@ -32,14 +32,12 @@ import { AdminService } from './user/admin.service';
 import { AdminCreateComponent } from './user/user-create/admin-create.component';
 import { AdminEditComponent } from './user/user-edit/admin-edit.component';
 import { AdminSearchComponent } from './user/user-search/admin-search.component';
-import { AdminDeleteComponent } from './user/user-delete/admin-delete.component';
 
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import { LinguistCreateComponent } from './user/user-create/linguist-create.component';
 import { LinguistEditComponent } from './user/user-edit/linguist-edit.component';
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
-import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
 import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
@@ -72,7 +70,6 @@ import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create
 import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
 import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
-import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { TagComponent } from './tag/tag.component';
@@ -90,6 +87,7 @@ import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detai
 import { TreeModule } from 'angular-tree-component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -101,13 +99,11 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     AdminCreateComponent,
     AdminEditComponent,
     AdminSearchComponent,
-    AdminDeleteComponent,
     LinguistListComponent,
     LinguistDetailComponent,
     LinguistCreateComponent,
     LinguistEditComponent,
     LinguistSearchComponent,
-    LinguistDeleteComponent,
     SampleCreateComponent,
     SampleSearchComponent,
     SampleListComponent,
@@ -120,7 +116,6 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     MetadatafieldSearchComponent,
     MetadatafieldEditComponent,
     MetadatafieldDetailComponent,
-    MetadatafieldDeleteComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,
@@ -146,6 +141,7 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     TagEditComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -156,7 +152,7 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     ErrorHandlerModule,
     FileUploadModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    TreeModule.forRoot()
+    TreeModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

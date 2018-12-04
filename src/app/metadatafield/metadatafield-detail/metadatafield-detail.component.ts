@@ -1,7 +1,9 @@
+import { ModalService } from './../../shared/confirm-modal/modal.service';
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Metadatafield} from '../metadatafield';
 import { MetadatafieldService } from '../metadatafield.service';
+import { ConfirmModalComponent } from '../../shared/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-metadatafield-detail',
@@ -15,12 +17,28 @@ export class MetadatafieldDetailComponent implements OnInit {
   public detailsPageSubtitle = 'Details about a MetadataField';
 
   constructor(private route: ActivatedRoute,
-              private metadataFieldService: MetadatafieldService) {
+              private router: Router,
+              private metadataFieldService: MetadatafieldService,
+              private confirmService: ModalService) {
   }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.metadataFieldService.get(id).subscribe(
       metadataField => this.metaField = metadataField);
+  }
+
+  public delete() {
+    this.confirmService.init(ConfirmModalComponent, {
+      title: 'Delete metadatafield',
+      message: 'Delete metadatafield?'
+    }).subscribe(
+      deleted => {
+        if (deleted) {
+          this.metadataFieldService.delete(this.metaField).subscribe(
+            () => this.router.navigate(['metadataFields']));
+        }
+      }
+    );
   }
 }
