@@ -92,6 +92,7 @@ import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detai
 import { TreeModule } from 'angular-tree-component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
+import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
 
 @NgModule({
   declarations: [
@@ -148,6 +149,7 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     TagEditComponent,
     SampleFieldsFormComponent,
     MetadatafieldInputComponent,
+    TagDetailComponent,
   ],
   imports: [
     BrowserModule,

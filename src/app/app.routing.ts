@@ -40,15 +40,9 @@ import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/ta
 import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
 import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
 
-
-
-
-
-
 import { TagComponent } from './tag/tag.component';
 import { TagFormComponent } from './tag/tag-form/tag-form.component';
-
-
+import { TagDetailComponent } from "./tag/tag-detail/tag-detail.component";
 
 
 export const routes: Routes = [
@@ -90,4 +84,5 @@ export const routes: Routes = [
   { path: 'tags/new', component: TagFormComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/edit', component: TagHierarchyEditComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/detail', component: TagHierarchyDetailComponent, canActivate: [AdministratorGuard]},
+  { path: 'tag/:id/detail', component: TagDetailComponent, canActivate: [AdministratorGuard]},
 ];
