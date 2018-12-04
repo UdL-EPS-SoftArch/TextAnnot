@@ -29,28 +29,22 @@ export class TagDetailComponent implements OnInit {
     this.tag = new Tag();
     const id = this.route.snapshot.paramMap.get('id');
     this.tagService.get(id).subscribe(
-      tagObj => {
-        this.tag = tagObj;
-        this.formTitle = tagObj.name + this.formTitle;
+      tag => {
+        this.tag = tag;
+        this.formTitle = tag.name + this.formTitle;
+
+        this.tag.getRelation(TagHierarchy, 'tagHierarchy').subscribe(
+          (tagHierarchy: TagHierarchy) => this.tag.tagHierarchy = tagHierarchy
+        );
+
+
+        this.tag.getRelation(Tag, 'parent').subscribe(
+          (parent: Tag) => this.tag.parent = parent,
+          error1 => console.log(error1)
+        );
 
       }
-    );
 
-    this.tag.getRelation(TagHierarchy, 'tagHierarchy').subscribe(
-      (tagHierarchy: TagHierarchy) => this.tag.tagHierarchy = tagHierarchy
-    );
-
-
-    this.tag.getRelation(Tag, 'parent').subscribe(
-      (parent: Tag) => this.tag.parent = parent,
-      error1 => console.log(error1)
-    );
-
-
-    this.tagService.getAll().subscribe(
-      (tags: Tag[]) => {
-        this.tags = tags;
-      }
     );
   }
 
