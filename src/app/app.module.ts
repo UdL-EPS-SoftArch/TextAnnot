@@ -52,7 +52,6 @@ import { MetadataValueService} from './metadataValue/metadataValue.service';
 import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
-import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
 import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
 import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/metadata-value-edit.component';
 
@@ -120,7 +119,6 @@ import { SharedModule } from './shared/shared.module';
     MetadataValueListComponent,
     MetadataValueDetailComponent,
     MetadataValueSearchComponent,
-    MetadataValueDeleteComponent,
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
     TemplateSearchComponent,
