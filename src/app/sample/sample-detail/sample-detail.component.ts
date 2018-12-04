@@ -16,6 +16,20 @@ export class SampleDetailComponent implements OnInit {
   public errorMessage: string;
   public detailsPageTitle = 'Sample';
   public detailsPageSubtitle = 'Details about a Sample';
+  public oldmetadatavalueField = '';
+  public compareMetadata(value: MetadataValue) {
+    if (this.oldmetadatavalueField === '') {
+      this.oldmetadatavalueField = value.fieldCategory;
+      return true;
+    } else if (this.oldmetadatavalueField === value.fieldCategory) {
+      return false;
+    } else {
+      this.oldmetadatavalueField = value.fieldCategory;
+      return true;
+    }
+
+  }
+
 
   constructor(private route: ActivatedRoute,
               private sampleService: SampleService, private metadataValueService: MetadataValueService) {
@@ -34,9 +48,9 @@ export class SampleDetailComponent implements OnInit {
         this.metadataValueService.findByForA(this.sample).subscribe(
           (metadataValues: MetadataValue[]) => this.metadataValues = metadataValues
         );
-       // this.sample.getRelationArray(MetadataValue, 'has').subscribe(
-       //   (metadataValues: MetadataValue[]) => sample.has = metadataValues
-       // );
-      });
-  }
+
+  });
+
+
+}
 }
