@@ -38,7 +38,7 @@
       <select class="form-control" id="parentSelect"
       [(ngModel)]="uriTag" #parentSelect name="parentSelect"
       (change)="optionSelectedt(parentSelect.value)">
-        <option selected [value]=-1>Im a root tag</option>
+        <option [value]=-1>Im a root tag</option>
         <option *ngFor="let t of tagParent;let i = index" [value]="i">{{t.name}}</option>
       </select>
     </div>

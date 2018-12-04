@@ -17,7 +17,6 @@ export class TagHierarchySearchComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   doSearch(searchTerm: string): void {
