@@ -13,9 +13,10 @@ export class ModalService {
 
   public data: any;
 
-  public result$: Subject<boolean> = new Subject();
+  public result$: Subject<boolean>;
 
   init(component: any, data: any): Observable<boolean> {
+    this.result$ = new Subject();
     this.data = data;
     this.domService.appendComponentTo(this.modalElementId, component);
     document.getElementById(this.modalElementId).className = 'show';
@@ -24,6 +25,7 @@ export class ModalService {
   }
 
   destroy() {
+    this.result$ = null;
     this.domService.removeComponent();
     document.getElementById(this.modalElementId).className = 'hidden';
     document.getElementById(this.overlayElementId).className = 'hidden';
