@@ -24,6 +24,7 @@ Feature: Manage Tag hierarchies
     And I sign in as "admin" with password "password"
     When I click submenu option "Tag Hierarchy" in menu "Administration"
     And I delete the tag hierarchy with name "name"
+    And I confirm the deletion
     Then I see 0 tag hierarchies
 
 
