@@ -84,5 +84,5 @@ export const routes: Routes = [
   { path: 'tags/new', component: TagFormComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/edit', component: TagHierarchyEditComponent, canActivate: [AdministratorGuard]},
   { path: 'tagHierarchies/:id/detail', component: TagHierarchyDetailComponent, canActivate: [AdministratorGuard]},
-  { path: 'tag/:id/detail', component: TagDetailComponent, canActivate: [AdministratorGuard]},
+  { path: 'tags/:id/detail', component: TagDetailComponent, canActivate: [AdministratorGuard]},
 ];

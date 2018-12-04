@@ -1,3 +1,14 @@
-<p>
-  tag-detail works!
-</p>
+<h4>Tag: {{formTitle}}</h4>
+<p class="lead">{{formSubtitle}}</p>
+<hr>
+<div>
+  <p>Name: {{tag.name}}</p>
+  <p>Location: {{tag.uri}}</p>
+
+  <div class="card">
+    <div class="card-body">
+      <p *ngIf="tag.tagHierarchy">Tag-hierarchy: {{tag.tagHierarchy.name}}</p>
+      <p *ngIf="tag.parent">Parent: {{tag.parent.name}}</p>
+    </div>
+  </div>
+</div>
