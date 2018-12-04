@@ -42,7 +42,7 @@ import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/ta
 
 import { TagComponent } from './tag/tag.component';
 import { TagFormComponent } from './tag/tag-form/tag-form.component';
-import { TagDetailComponent } from "./tag/tag-detail/tag-detail.component";
+import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
 
 
 export const routes: Routes = [

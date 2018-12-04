@@ -1,7 +1,7 @@
 import { TagService } from './tag.service';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from './tag';
-import {ErrorMessageService} from "../error-handler/error-message.service";
+import {ErrorMessageService} from '../error-handler/error-message.service';
 
 @Component({
   selector: 'app-tag',

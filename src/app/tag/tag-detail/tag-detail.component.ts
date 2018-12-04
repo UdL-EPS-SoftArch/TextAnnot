@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {TagHierarchy} from "../../tag-hierarchy/tag-hierarchy";
-import {Tag} from "../tag";
-import {ActivatedRoute, Router} from "@angular/router";
-import {TagService} from "../tag.service";
+import {TagHierarchy} from '../../tag-hierarchy/tag-hierarchy';
+import {Tag} from '../tag';
+import {ActivatedRoute, Router} from '@angular/router';
+import {TagService} from '../tag.service';
 
 @Component({
   selector: 'app-tag-detail',
