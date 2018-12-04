@@ -11,14 +11,13 @@ export class ModalService {
   private modalElementId = 'confirm-modal-container';
   private overlayElementId = 'overlay';
 
+  public data: any;
+
   public result$: Subject<boolean> = new Subject();
 
-  init(component: any, inputs: object, outputs: object): Observable<boolean> {
-    const componentConfig = {
-      inputs: inputs,
-      outputs: outputs
-    };
-    this.domService.appendComponentTo(this.modalElementId, component, componentConfig);
+  init(component: any, data: any): Observable<boolean> {
+    this.data = data;
+    this.domService.appendComponentTo(this.modalElementId, component);
     document.getElementById(this.modalElementId).className = 'show';
     document.getElementById(this.overlayElementId).className = 'show';
     return this.result$;

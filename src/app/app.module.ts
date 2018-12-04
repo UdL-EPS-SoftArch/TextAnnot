@@ -72,7 +72,6 @@ import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create
 import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
 import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
-import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { TagComponent } from './tag/tag.component';
@@ -121,7 +120,6 @@ import { SharedModule } from './shared/shared.module';
     MetadatafieldSearchComponent,
     MetadatafieldEditComponent,
     MetadatafieldDetailComponent,
-    MetadatafieldDeleteComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,
