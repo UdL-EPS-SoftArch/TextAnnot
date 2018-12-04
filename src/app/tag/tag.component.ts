@@ -1,7 +1,7 @@
 import { TagService } from './tag.service';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from './tag';
-
+import {ErrorMessageService} from '../error-handler/error-message.service';
 
 @Component({
   selector: 'app-tag',
@@ -10,7 +10,8 @@ import { Tag } from './tag';
 })
 export class TagComponent implements OnInit {
   public tags: Tag[] = [];
-  constructor( private tagService: TagService ) { }
+  constructor( private tagService: TagService,
+               private errorService: ErrorMessageService) { }
 
   ngOnInit() {
     this.tagService.getAll().subscribe (
@@ -18,11 +19,19 @@ export class TagComponent implements OnInit {
       err => alert(err)
     );
   }
+
   onSearch(tags: Tag[]) {
     this.tags = tags;
   }
 
-  onInsert(tag: Tag) {
+  onAdded(tag: Tag) {
     this.tags.push(tag);
+  }
+
+  onDelete(index): void {
+    this.tagService.delete(this.tags[index]).subscribe(
+      () =>  this.tags.splice(index, 1),
+      err => this.errorService.showErrorMessage(err)
+    );
   }
 }
