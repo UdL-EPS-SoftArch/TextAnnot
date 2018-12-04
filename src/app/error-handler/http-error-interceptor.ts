@@ -22,7 +22,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             this.errorMessageService.showErrorMessage(this.extractErrorMessage(error));
           }
         }
-      }})
+      })
     );
   }
 
