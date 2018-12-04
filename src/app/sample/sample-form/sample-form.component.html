@@ -8,23 +8,31 @@
     <div class="form-group" [class.was-validated]="text.dirty || text.touched">
       <label class="control-label" for="text">Text*</label>
       <input id="text" name="text" type="text" class="form-control" required
-           [(ngModel)]="sample.text" #text="ngModel">
+             [(ngModel)]="sample.text" #text="ngModel">
       <div class="invalid-feedback">The text is required</div>
     </div>
 
     <!-- describedBy -->
-      <div class="form-group" [class.was-validated]="describedBy.dirty || describedBy.touched">
-        <label class="control-label" for="describedBy">Described By*</label>
-        <select id="describedBy" name="describedBy" type="text" class="form-control" required
-               [(ngModel)]="sample.describedBy" #describedBy="ngModel" >
-          <option *ngFor="let metadataTemplate of metadataTemplates"  value="{{metadataTemplate.uri}}">{{metadataTemplate.name}}</option>
-        </select>
-        </div>
+    <div class="form-group" [class.was-validated]="describedBy.dirty || describedBy.touched">
+      <label class="control-label" for="describedBy">Described By*</label>
+      <select id="describedBy" name="describedBy" type="text" class="form-control" required
+              [(ngModel)]="sample.describedBy" #describedBy="ngModel">
+        <option *ngFor="let metadataTemplate of metadataTemplates" value="{{metadataTemplate.uri}}">
+          {{metadataTemplate.name}}
+        </option>
+      </select>
+    </div>
 
-        <!-- Button -->
+    <!--- fields --->
+
+    <app-sample-fields-form *ngIf="sample.describedBy" [metadataTemplateUri]="sample.describedBy"></app-sample-fields-form>
+
+
+    <!-- Button -->
     <div class="form-group">
       <button id="submit" type="submit" class="btn btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
     </div>
 
   </fieldset>
 </form>
+

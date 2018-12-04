@@ -74,6 +74,8 @@ import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/m
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
 import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import {SampleFieldsFormComponent} from './sample/sample-fields-form/sample-fields-form.component';
+import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input/metadatafield-input.component';
 
 import { TagComponent } from './tag/tag.component';
 import { TagFormComponent } from './tag/tag-form/tag-form.component';
@@ -144,6 +146,8 @@ import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
     TagHierarchyQuickCreationComponent,
     BreadcrumbComponent,
     TagEditComponent,
+    SampleFieldsFormComponent,
+    MetadatafieldInputComponent,
   ],
   imports: [
     BrowserModule,
