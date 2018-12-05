@@ -25,7 +25,7 @@ export class MetadataTemplateDetailComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.metadataTemplateService.get(id).subscribe(
-      MetadataTemplate => this.metadataTemplate = MetadataTemplate);
+      metadataTemplate => this.metadataTemplate = metadataTemplate);
   }
 
   public delete() {
