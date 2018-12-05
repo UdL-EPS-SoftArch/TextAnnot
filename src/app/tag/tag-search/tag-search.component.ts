@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { TagService } from './../tag.service';
+import { Tag } from './../tag';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tag-search',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TagSearchComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  emitResults: EventEmitter<Tag[]> = new EventEmitter();
+
+  public errorMessage: string;
+  constructor(private tagService: TagService) { }
 
   ngOnInit() {
   }
 
+  filterBy(filterValue: string): void {
+    this.tagService.findByNameContaining(filterValue).subscribe(
+      tags => this.emitResults.emit(tags)
+    );
+  }
 }

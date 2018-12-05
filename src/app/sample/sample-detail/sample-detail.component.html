@@ -10,8 +10,17 @@
     </div>
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Metadata Values</h6>
-      <p *ngFor="let value of metadataValues" class="card-text"><b>{{value?.fieldCategory}} - {{value?.fieldName}}</b>: {{value?.value}}</p>
+      <div *ngFor="let value of metadataValues" class="card-text">
+        <div *ngIf="compareMetadata(value); else notShow">
+          <p><b>{{value?.fieldCategory}}</b></p>
+          <p>{{value?.fieldName}}  --- {{value?.value}}</p>
+        </div>
+        <ng-template #notShow>
+            <p>{{value?.fieldName}} --- {{value?.value}}</p>
+        </ng-template>
+      </div>
     </div>
+
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Text</h6>
       <p class="card-text">{{sample.text}}</p>
