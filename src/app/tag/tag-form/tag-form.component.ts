@@ -78,8 +78,4 @@ export class TagFormComponent implements OnInit {
     }
       this.tag.parent = this.tagParent[val];
   }
-
-  clearSelection(val: number){
-    console.log('val');
-  }
 }
