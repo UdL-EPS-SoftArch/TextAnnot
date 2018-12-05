@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TreeModule } from 'angular-tree-component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AngularHalModule } from 'angular4-hal-aot';
 import { ExternalConfigurationService } from './external-configuration-service';
@@ -32,14 +34,12 @@ import { AdminService } from './user/admin.service';
 import { AdminCreateComponent } from './user/user-create/admin-create.component';
 import { AdminEditComponent } from './user/user-edit/admin-edit.component';
 import { AdminSearchComponent } from './user/user-search/admin-search.component';
-import { AdminDeleteComponent } from './user/user-delete/admin-delete.component';
 
 import { LinguistListComponent } from './user/user-list/linguist-list.component';
 import { LinguistDetailComponent } from './user/user-detail/linguist-detail.component';
 import { LinguistCreateComponent } from './user/user-create/linguist-create.component';
 import { LinguistEditComponent } from './user/user-edit/linguist-edit.component';
 import { LinguistSearchComponent } from './user/user-search/linguist-search.component';
-import { LinguistDeleteComponent } from './user/user-delete/linguist-delete.component';
 import { LinguistService } from './user/linguist.service';
 
 import { SampleCreateComponent } from './sample/sample-create/sample-create.component';
@@ -54,13 +54,13 @@ import { MetadataValueService} from './metadataValue/metadataValue.service';
 import { MetadataValueListComponent} from './metadataValue/metadata-value-list/metadata-value-list.component';
 import { MetadataValueDetailComponent } from './metadataValue/metadata-value-detail/metadata-value-detail.component';
 import { MetadataValueSearchComponent } from './metadataValue/metadata-value-search/metadata-value-search.component';
-import { MetadataValueDeleteComponent } from './metadataValue/metadata-value-delete/metadata-value-delete.component';
 import { MetadataValueCreateComponent } from './metadataValue/metadata-value-create/metadata-value-create.component';
 import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/metadata-value-edit.component';
 
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import { MetadataTemplateDetailComponent } from './metadata-template/metadata-template-detail/metadata-template-detail.component';
 import { TemplateSearchComponent } from './metadata-template/metadata-template-search/template-search.component';
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
@@ -72,8 +72,6 @@ import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create
 import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
 import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
-import { MetadatafieldDeleteComponent } from './metadatafield/metadatafield-delete/metadatafield-delete.component';
-import { FileUploadModule } from 'ng2-file-upload';
 import {SampleFieldsFormComponent} from './sample/sample-fields-form/sample-fields-form.component';
 import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input/metadatafield-input.component';
 
@@ -81,6 +79,8 @@ import { TagComponent } from './tag/tag.component';
 import { TagFormComponent } from './tag/tag-form/tag-form.component';
 import { TagListComponent } from './tag/tag-list/tag-list.component';
 import { TagSearchComponent } from './tag/tag-search/tag-search.component';
+import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
+import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
 
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
 import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
@@ -89,10 +89,10 @@ import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-searc
 import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
 import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
-import { TreeModule } from 'angular-tree-component';
+
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
-import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
+
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -104,13 +104,11 @@ import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
     AdminCreateComponent,
     AdminEditComponent,
     AdminSearchComponent,
-    AdminDeleteComponent,
     LinguistListComponent,
     LinguistDetailComponent,
     LinguistCreateComponent,
     LinguistEditComponent,
     LinguistSearchComponent,
-    LinguistDeleteComponent,
     SampleCreateComponent,
     SampleSearchComponent,
     SampleListComponent,
@@ -123,14 +121,13 @@ import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
     MetadatafieldSearchComponent,
     MetadatafieldEditComponent,
     MetadatafieldDetailComponent,
-    MetadatafieldDeleteComponent,
     SampleSearchComponent,
     MetadataValueListComponent,
     MetadataValueDetailComponent,
     MetadataValueSearchComponent,
-    MetadataValueDeleteComponent,
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
+    MetadataTemplateDetailComponent,
     TemplateSearchComponent,
     MetadataValueCreateComponent,
     MetadataValueEditComponent,
@@ -152,6 +149,7 @@ import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
     TagDetailComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -162,7 +160,7 @@ import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
     ErrorHandlerModule,
     FileUploadModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    TreeModule.forRoot()
+    TreeModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

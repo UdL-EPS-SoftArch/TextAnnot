@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {LinguistService} from '../linguist.service';
 import {Linguist} from '../linguist';
@@ -11,7 +12,9 @@ export class LinguistListComponent implements OnInit {
   public totalLinguists = 0;
   public errorMessage = '';
 
-  constructor(private linguistService: LinguistService) {
+  constructor(
+    public router: Router,
+    private linguistService: LinguistService) {
   }
 
   ngOnInit() {
