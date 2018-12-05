@@ -58,6 +58,7 @@ import { MetadataValueEditComponent } from './metadataValue/metadata-value-edit/
 import { MetadataTemplateService } from './metadata-template/metadata-template.service';
 import { MetadataTemplateFormComponent } from './metadata-template/metadata-template-form/metadata-template-form.component';
 import { MetadataTemplateListComponent } from './metadata-template/metadata-template-list/metadata-template-list.component';
+import { MetadataTemplateDetailComponent } from './metadata-template/metadata-template-detail/metadata-template-detail.component'
 import { TemplateSearchComponent } from './metadata-template/metadata-template-search/template-search.component';
 
 import { XMLSampleService } from './XMLsample/XMLsample.service';
@@ -121,6 +122,7 @@ import { SharedModule } from './shared/shared.module';
     MetadataValueSearchComponent,
     MetadataTemplateFormComponent,
     MetadataTemplateListComponent,
+    MetadataTemplateDetailComponent,
     TemplateSearchComponent,
     MetadataValueCreateComponent,
     MetadataValueEditComponent,

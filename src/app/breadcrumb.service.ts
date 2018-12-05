@@ -26,7 +26,7 @@ export class BreadcrumbService {
 
     // Load actual URL
     routes.filter(param => param !== 'about' && !Number(param)).forEach(route => {
-      if (route !== '/' && route !== undefined && route !== '') {
+      if (route !== '/' && route !== undefined && route != null && route !== '') {
         this.pages.push(new Page(route.charAt(0).toUpperCase() + route.slice(1), this.processRouteURL(route)));
       }
     });

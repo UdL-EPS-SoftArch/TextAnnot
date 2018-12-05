@@ -1,3 +1,4 @@
+import { MetadataTemplateDetailComponent } from './metadata-template/metadata-template-detail/metadata-template-detail.component';
 import { TagHierarchyQuickCreationComponent } from './tag-hierarchy/tag-hierarchy-quick-creation/tag-hierarchy-quick-creation.component';
 import { Routes } from '@angular/router';
 import { LoggedInGuard } from './login-basic/loggedin.guard';
@@ -63,6 +64,7 @@ export const routes: Routes = [
   { path: 'metadataValues/:id', component: MetadataValueDetailComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataValues', component: MetadataValueListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataTemplates/new', component: MetadataTemplateFormComponent, canActivate: [AdministratorGuard] },
+  { path: 'metadataTemplates/:name', component: MetadataTemplateDetailComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataTemplates', component: MetadataTemplateListComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataFields/new', component: MetadafieldCreateComponent, canActivate: [AdministratorGuard] },
   { path: 'metadataFields/:id/edit', component: MetadatafieldEditComponent },
