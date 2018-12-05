@@ -62,5 +62,6 @@ Feature: Manage Linguists
     And I click the user with name "user"
     And I see a user with name "user"
     When I click the "Delete" button
-    Then I see error alert "You should be an administrator to perform this action" and close it
+    And I confirm the deletion
+    Then I see error alert "Forbidden" and close it
     And I see 1 users

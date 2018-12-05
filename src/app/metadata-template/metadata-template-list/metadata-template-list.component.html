@@ -14,12 +14,12 @@
 <div class="card mb-1" *ngFor="let metadataTemplate of metadataTemplates">
   <div class="card-block row m-1">
     <h6 class="card-title col-md-12 p-1"><a routerLink="{{metadataTemplate.uri}}">{{metadataTemplate.name}}</a></h6>
-    <div class="col-md-4 p-1">
+    <div class="col-md-6 p-1">
       <h4 class="card-subtitle text-muted">Metadata Name</h4>
       <p class="card-text">{{metadataTemplate.name}}</p>
     </div>
-    <div class="col-md-4 p-1">
-      <a class="card-link pull-right" routerLink="{{metadataTemplate.uri}}">Details(Not implemented)</a>
+    <div class="col-md-6 p-1">
+      <button type="button" class="btn m-1 btn-outline-primary pull-right" routerLink="{{metadataTemplate.uri}}"><i style="margin-right: .25em" class="fa fa-info-circle"></i>Details</button>
     </div>
   </div>
 </div>

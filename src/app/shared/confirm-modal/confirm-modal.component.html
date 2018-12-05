@@ -1,0 +1,14 @@
+  <div class="modal-header">
+    <h4 class="modal-title">{{ modalService.data.title }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="no()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{ modalService.data.message }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="yes" class="btn btn-danger confirm-btn" (click)="yes()">Sí</button>
+    <button type="button" id="cancel" class="btn btn-secondary" (click)="no()">No</button>
+  </div>
+

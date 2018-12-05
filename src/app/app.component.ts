@@ -1,5 +1,6 @@
+import { ModalService } from './shared/confirm-modal/modal.service';
 import { Router } from '@angular/router';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { BreadcrumbService } from './breadcrumb.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { BreadcrumbService } from './breadcrumb.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private router: Router, private breadService: BreadcrumbService) {
+  constructor(router: Router,
+              breadService: BreadcrumbService,
+              public modalService: ModalService) {
     router.events.subscribe( val => {
       breadService.serializePages(router.url);
     });

@@ -6,7 +6,7 @@ export class ConfirmPage {
   private cancelBtn;
 
   constructor() {
-    this.confirmBtn = element(by.id('confirm'));
+    this.confirmBtn = element(by.id('yes'));
     this.cancelBtn = element(by.id('cancel'));
   }
 

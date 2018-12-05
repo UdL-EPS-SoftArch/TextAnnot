@@ -1,3 +1,5 @@
+import { ConfirmModalComponent } from './../../shared/confirm-modal/confirm-modal.component';
+import { ModalService } from './../../shared/confirm-modal/modal.service';
 import { TagTree } from './../tag-hierarchy-tree';
 import { Component, OnInit } from '@angular/core';
 import { TagHierarchy } from '../tag-hierarchy';
@@ -17,7 +19,6 @@ export class TagHierarchyDetailComponent implements OnInit {
   public errorMessage: string;
   public formTitle = ' details';
   public formSubtitle = 'Taghierarchy details page';
-  public tagHierarchies: TagHierarchy[] = [];
   public nodes: TagTree[];
   public structure: Boolean = false;
   public options = {
@@ -41,13 +42,12 @@ export class TagHierarchyDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
+    private confirmService: ModalService,
     private router: Router,
     private tagHierarchyService: TagHierarchyService
   ) { }
 
   ngOnInit() {
-    this.tagHierarchy = new TagHierarchy();
     const id = this.route.snapshot.paramMap.get('id');
     this.tagHierarchyService.get(id).subscribe(
       tagHierarchyObj => {
@@ -63,11 +63,20 @@ export class TagHierarchyDetailComponent implements OnInit {
         );
       }
     );
-    this.tagHierarchyService.getAll().subscribe(
-      (tagHierarchies: TagHierarchy[]) => {
-        this.tagHierarchies = tagHierarchies;
+  }
+
+  public delete() {
+    this.confirmService.init(ConfirmModalComponent, {
+      title: 'Delete tag hierarchy',
+      message: 'Delete tag hierarchy?'
+    }).subscribe(
+      deleted => {
+        if (deleted) {
+          this.tagHierarchyService.delete(this.tagHierarchy).subscribe(
+            () => this.router.navigateByUrl('/tagHierarchies')
+          );
+        }
       }
     );
   }
-
 }
