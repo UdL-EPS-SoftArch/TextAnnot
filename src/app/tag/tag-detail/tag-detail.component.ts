@@ -48,4 +48,13 @@ export class TagDetailComponent implements OnInit {
     );
   }
 
+  edit(){
+    this.router.navigate(['tags/' + this.tag.id + '/edit']);
+  }
+
+  delete() {
+    this.tagService.delete(this.tag).subscribe(
+      () => this.router.navigate(['tags']));
+  }
+
 }

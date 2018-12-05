@@ -10,6 +10,17 @@
       <p *ngIf="tag.parent; then content else other_content"><b>Parent</b>: {{tag.parent.name}}</p>
       <ng-template #content><b>Parent</b>: {{tag.parent.name}}</ng-template>
       <ng-template #other_content><b>Parent</b>: I'm a root</ng-template>
+      <div class="card-footer text-center">
+        <button id="listBtn" type="button" [routerLink]="['/tags']"
+                class="btn btn-primary">Back to List
+        </button>
+        <button id="editBtn" type="button" [routerLink]="['/tags/' + tag.id + '/edit']"
+                class="btn btn-success">Edit
+        </button>
+        <button id="deleteBtn" type="button" (click)="delete()"
+                class="btn btn-danger">Delete
+        </button>
+      </div>
     </div>
   </div>
 
