@@ -8,7 +8,7 @@ import {MetadataTemplateService} from '../../metadata-template/metadata-template
 
 @Component({
   selector: 'app-sample-edit',
-  templateUrl: '../sample-form/sample-form.component.html'
+  templateUrl: 'sample-edit.component.html'
 })
 export class SampleEditComponent implements OnInit {
   public sample: Sample;
