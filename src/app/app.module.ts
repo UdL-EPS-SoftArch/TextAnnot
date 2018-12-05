@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routing';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TreeModule } from 'angular-tree-component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AngularHalModule } from 'angular4-hal-aot';
 import { ExternalConfigurationService } from './external-configuration-service';
@@ -70,7 +72,6 @@ import { MetadafieldCreateComponent } from './metadatafield/metadatafield-create
 import { MetadatafieldSearchComponent } from './metadatafield/metadatafield-search/metadatafield-search.component';
 import { MetadatafieldEditComponent } from './metadatafield/metadatafield-edit/metadatafield-edit.component';
 import { MetadatafieldDetailComponent } from './metadatafield/metadatafield-detail/metadatafield-detail.component';
-import { FileUploadModule } from 'ng2-file-upload';
 import {SampleFieldsFormComponent} from './sample/sample-fields-form/sample-fields-form.component';
 import { MetadatafieldInputComponent } from './metadatafield/metadatafield-input/metadatafield-input.component';
 
@@ -78,6 +79,8 @@ import { TagComponent } from './tag/tag.component';
 import { TagFormComponent } from './tag/tag-form/tag-form.component';
 import { TagListComponent } from './tag/tag-list/tag-list.component';
 import { TagSearchComponent } from './tag/tag-search/tag-search.component';
+import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
+import { TagDetailComponent } from './tag/tag-detail/tag-detail.component';
 
 import { TagHierarchyComponent } from './tag-hierarchy/tag-hierarchy.component';
 import { TagHierarchyFormComponent } from './tag-hierarchy/tag-hierarchy-form/tag-hierarchy-form.component';
@@ -86,9 +89,9 @@ import { TagHierarchySearchComponent } from './tag-hierarchy/tag-hierarchy-searc
 import { TagHierarchyService } from './tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchyEditComponent } from './tag-hierarchy/tag-hierarchy-edit/tag-hierarchy-edit.component';
 import { TagHierarchyDetailComponent } from './tag-hierarchy/tag-hierarchy-detail/tag-hierarchy-detail.component';
-import { TreeModule } from 'angular-tree-component';
+
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { TagEditComponent } from './tag/tag-edit/tag-edit.component';
+
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -143,6 +146,7 @@ import { SharedModule } from './shared/shared.module';
     TagEditComponent,
     SampleFieldsFormComponent,
     MetadatafieldInputComponent,
+    TagDetailComponent,
   ],
   imports: [
     SharedModule,
