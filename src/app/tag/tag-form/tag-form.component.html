@@ -13,7 +13,7 @@
       </div>
     </div>
 <div class="modal-body">
-<form id="tag-form" (ngSubmit)="onSubmit(content)" #form="ngForm">
+<form id="tag-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
 
   <fieldset>
     <!-- Name input -->
@@ -53,5 +53,5 @@
 </div>
 </ng-template>
 
-<button class="btn btn-primary btn-lg float-right circle fab" (click)="open(content); clearSelection();"><span class="fa fa-plus"></span></button>
+<button class="btn btn-primary btn-lg float-right circle fab" (click)="open(content);"><span class="fa fa-plus"></span></button>
 

@@ -47,6 +47,8 @@ export class TagFormComponent implements OnInit {
         (res: Tag) => {
           this.afterInsert.emit(Object.assign({}, res));
           this.tag.name = '';
+          this.uriTagHierarchy = '';
+          this.uriTag = '';
           this.modalService.dismissAll();
         },
         () => this.errorService.showErrorMessage('Error creating Tag'));
