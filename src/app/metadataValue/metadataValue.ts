@@ -11,5 +11,5 @@ export class MetadataValue extends Resource {
   fieldName: string;
   fieldCategory: string;
   forA: Sample;
-  valued: Metadatafield;
+  values: Metadatafield;
 }
