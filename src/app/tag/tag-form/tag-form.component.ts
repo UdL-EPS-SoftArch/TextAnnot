@@ -6,6 +6,7 @@ import { Tag } from '../tag';
 import { Router } from '@angular/router';
 import { TagService } from '../tag.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-form',
@@ -24,7 +25,6 @@ export class TagFormComponent implements OnInit {
   public uriTagHierarchy: string;
   public uriTag: string;
   @Output() public afterInsert: EventEmitter<Tag> = new EventEmitter<Tag>();
-
   constructor(private router: Router,
               private tagService: TagService,
               private modalService: NgbModal,
@@ -32,6 +32,7 @@ export class TagFormComponent implements OnInit {
               private errorService: ErrorMessageService) { }
 
   ngOnInit() {
+    console.log('onInit');
     this.tag = new Tag();
     this.tagHierarchyService.getAll().subscribe(
       res => {
@@ -46,12 +47,11 @@ export class TagFormComponent implements OnInit {
         (res: Tag) => {
           this.afterInsert.emit(Object.assign({}, res));
           this.tag.name = '';
-          this.tagHierarchy = [];
-          this.tagParent = [];
-         this.modalService.dismissAll();
+          this.modalService.dismissAll();
         },
-        () => this.errorService.showErrorMessage('Error creating Tag Hierarchy'));
+        () => this.errorService.showErrorMessage('Error creating Tag'));
   }
+
   open(content) {
     this.modalService.open(content, {
       ariaLabelledBy: 'modal-basic-title',
@@ -70,10 +70,14 @@ export class TagFormComponent implements OnInit {
       }
     );
   }
-   optionSelectedt(val: number) {
+  optionSelectedt(val: number) {
     if (val === -1) {
       this.tag.parent = null;
     }
       this.tag.parent = this.tagParent[val];
+  }
+
+  clearSelection(val: number){
+    console.log('val');
   }
 }
