@@ -21,7 +21,6 @@ export class TagHierarchyListPage {
   }
 
   async deleteTagHierarchyByName(name: string): Promise<any> {
-    await browser.takeScreenshot();
     const buttons = await element.all(by.className('btn-outline-danger'));
     const names = await element.all(by.className('th-name')).map(e => e.getText());
     await buttons[names.indexOf(name)].click();

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Tag } from '../tag';
 
 @Component({
   selector: 'app-tag-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TagListComponent implements OnInit {
 
+  @Input() public tags: Tag[] = [];
+
+  @Output() public deleteItem: EventEmitter<number> = new EventEmitter<number>();
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  delete(index: number): void {
+    this.deleteItem.emit(index);
+  }
+
+  showSearchResults(tags) {
+    this.tags = tags;
   }
 
 }
