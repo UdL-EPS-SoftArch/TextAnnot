@@ -6,11 +6,10 @@ import { Tag } from '../tag';
 import { Router } from '@angular/router';
 import { TagService } from '../tag.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-form',
-  templateUrl: './tag-form.component.html',
+  templateUrl: '/tag-form.component.html',
   styleUrls: ['./tag-form.component.css']
 })
 export class TagFormComponent implements OnInit {
@@ -32,7 +31,6 @@ export class TagFormComponent implements OnInit {
               private errorService: ErrorMessageService) { }
 
   ngOnInit() {
-    console.log('onInit');
     this.tag = new Tag();
     this.tagHierarchyService.getAll().subscribe(
       res => {
