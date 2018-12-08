@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Metadatafield} from '../metadatafield';
 import {MetadataValue} from '../../metadataValue/metadataValue';
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-metadatafield-input',
@@ -19,14 +18,14 @@ export class MetadatafieldInputComponent implements OnInit {
   ngOnInit() {
     this.metadataValues.forEach(metadataVal => {
 
-      if(metadataVal.fieldName ==  this.metadataField.name){
+      if (metadataVal.fieldName ===  this.metadataField.name) {
         this.mValue = metadataVal;
         this.fieldValue = metadataVal.value;
       }
     });
-    if(this.mValue == undefined){
+    if (this.mValue === undefined) {
       this.mValue = new MetadataValue();
-      this.mValue.value = "";
+      this.mValue.value = '';
     }
   }
   onSubmit() {

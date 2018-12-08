@@ -1,10 +1,10 @@
-import {Component, Input, OnChanges, OnInit, QueryList, SimpleChange, ViewChild, ViewChildren} from '@angular/core';
+import {Component, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {Metadatafield} from '../../metadatafield/metadatafield';
 import {MetadatafieldService} from '../../metadatafield/metadatafield.service';
 import {MetadatafieldInputComponent} from '../../metadatafield/metadatafield-input/metadatafield-input.component';
 import {MetadataValue} from '../../metadataValue/metadataValue';
-import {MetadataValueService} from "../../metadataValue/metadataValue.service";
-import {Sample} from "../sample";
+import {MetadataValueService} from '../../metadataValue/metadataValue.service';
+import {Sample} from '../sample';
 
 @Component({
   selector: 'app-sample-fields-form',
@@ -34,7 +34,6 @@ export class SampleFieldsFormComponent implements OnInit {
       });
     }
   }
-
   onSubmit() {
     const childsArray = this.childs.toArray();
     for (const child of childsArray) {
