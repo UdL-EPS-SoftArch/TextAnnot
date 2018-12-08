@@ -3,7 +3,7 @@ import { TagHierarchyService } from './../../tag-hierarchy/tag-hierarchy.service
 import { TagHierarchy } from './../../tag-hierarchy/tag-hierarchy';
 import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Tag } from '../tag';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TagService } from '../tag.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Location} from '@angular/common';
@@ -26,6 +26,7 @@ export class TagEditComponent implements OnInit {
   public uriTag: string;
   @Output() public afterInsert: EventEmitter<Tag> = new EventEmitter<Tag>();
   constructor(private router: Router,
+              private route: ActivatedRoute,
               private location: Location,
               private tagService: TagService,
               private modalService: NgbModal,
@@ -34,30 +35,24 @@ export class TagEditComponent implements OnInit {
 
   ngOnInit() {
     this.tag = new Tag();
+    const id = this.route.snapshot.paramMap.get('id');
+    this.tagService.get(id).subscribe(
+      tagElem => this.tag = tagElem
+    );
     this.tagHierarchyService.getAll().subscribe(
-      res => {
-        this.tagHierarchy = res;
+      tagHierarchies => {
+        this.tagHierarchy = tagHierarchies;
       }
     );
   }
 
   onSubmit(): void {
-    this.tagService.create(this.tag)
+    this.tagService.update(this.tag)
       .subscribe(
-        (res: Tag) => {
-          this.afterInsert.emit(Object.assign({}, res));
-          this.tag.name = '';
-          this.uriTagHierarchy = '';
-          this.uriTag = '';
-          this.modalService.dismissAll();
+        (updatedTag: Tag) => {
+          this.router.navigate(['tag'])
         },
-        () => this.errorService.showErrorMessage('Error creating Tag'));
-  }
-
-  open(content) {
-    this.modalService.open(content, {
-      ariaLabelledBy: 'modal-basic-title',
-    });
+        () => this.errorService.showErrorMessage('Error updating Tag'));
   }
 
   optionSelectedth(val: any) {
