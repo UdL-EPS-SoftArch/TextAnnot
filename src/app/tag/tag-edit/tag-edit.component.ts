@@ -39,10 +39,9 @@ export class TagEditComponent implements OnInit {
     this.tagService.get(id).subscribe(
       tagElem => this.tag = tagElem
     );
+
     this.tagHierarchyService.getAll().subscribe(
-      tagHierarchies => {
-        this.tagHierarchy = tagHierarchies;
-      }
+      tagHierarchies => this.tagHierarchy = tagHierarchies
     );
   }
 
