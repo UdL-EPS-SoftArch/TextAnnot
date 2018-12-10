@@ -13,7 +13,7 @@
       </div>
     </div>
 <div class="modal-body">
-<form id="tag-form" (ngSubmit)="onSubmit(content)" #form="ngForm">
+<form id="tag-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
 
   <fieldset>
     <!-- Name input -->
@@ -27,7 +27,7 @@
     <div class="form-group">
       <label for="tagHierarchySelect">Tag Hierarchy</label>
       <select class="form-control" id="tagHierarchySelect" required
-      [(ngModel)]="uriTagHierarchy" #tagHierarchyselect name="tagHierarchyselect" (change)="optionSelectedth(tagHierarchyselect.value)">
+      [(ngModel)]="uriTagHierarchy" #tagHierarchyselect name="tagHierarchyselect" (change)="optionSelectedth(tagHierarchyselect.value);">
         <option *ngFor="let th of tagHierarchy;let i = index" [value]="i">{{th.name}}</option>
       </select>
    </div>
@@ -38,7 +38,7 @@
       <select class="form-control" id="parentSelect"
       [(ngModel)]="uriTag" #parentSelect name="parentSelect"
       (change)="optionSelectedt(parentSelect.value)">
-        <option selected [value]=-1>Im a root tag</option>
+        <option [value]=-1>Im a root tag</option>
         <option *ngFor="let t of tagParent;let i = index" [value]="i">{{t.name}}</option>
       </select>
     </div>
@@ -53,5 +53,5 @@
 </div>
 </ng-template>
 
-<button class="btn btn-primary btn-lg float-right circle fab" (click)="open(content)"><span class="fa fa-plus"></span></button>
+<button class="btn btn-primary btn-lg float-right circle fab" (click)="open(content);"><span class="fa fa-plus"></span></button>
 
