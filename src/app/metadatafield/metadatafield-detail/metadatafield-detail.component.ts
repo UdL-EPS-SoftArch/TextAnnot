@@ -1,9 +1,11 @@
+import { MetadataTemplateService } from './../../metadata-template/metadata-template.service';
 import { ModalService } from './../../shared/confirm-modal/modal.service';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Metadatafield} from '../metadatafield';
 import { MetadatafieldService } from '../metadatafield.service';
 import { ConfirmModalComponent } from '../../shared/confirm-modal/confirm-modal.component';
+import { MetadataTemplate } from '../../metadata-template/metadata-template';
 
 @Component({
   selector: 'app-metadatafield-detail',
@@ -25,7 +27,12 @@ export class MetadatafieldDetailComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.metadataFieldService.get(id).subscribe(
-      metadataField => this.metaField = metadataField);
+      metadataField => {
+        this.metaField = metadataField;
+        this.metaField.getRelation(MetadataTemplate, 'definedAt')
+          .subscribe(metadataTemplate => this.metaField.definedAt = metadataTemplate);
+      }
+    );
   }
 
   public delete() {
