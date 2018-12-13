@@ -1,6 +1,6 @@
 <ul class="form-group" style="width:100%;height:auto;padding: 30px; border:1px solid lightgray">
   <li style="list-style: none" *ngFor="let metadataField of metadataFields;">
-      <app-metadatafield-input [metadataField]="metadataField" #child></app-metadatafield-input>
+      <app-metadatafield-input [metadataField]="metadataField" [metadataValues]="metadataValues" #child></app-metadatafield-input>
   </li>
 </ul>
 
