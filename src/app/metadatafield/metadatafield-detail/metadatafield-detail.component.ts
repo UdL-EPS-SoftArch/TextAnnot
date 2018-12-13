@@ -1,4 +1,3 @@
-import { MetadataTemplateService } from './../../metadata-template/metadata-template.service';
 import { ModalService } from './../../shared/confirm-modal/modal.service';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
