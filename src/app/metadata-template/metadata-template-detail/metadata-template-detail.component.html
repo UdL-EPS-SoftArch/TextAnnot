@@ -1,4 +1,4 @@
-<h4>{{detailsPageTitle}}</h4>
+<h4 class=" display-4">{{detailsPageTitle}}</h4>
 <p class="lead">{{detailsPageSubtitle}}</p>
 
 <div class="card">
@@ -10,7 +10,7 @@
     </div>
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Metadata Fields:</h6>
-      <p class="card-text" *ngFor="let field of metadataFields" >{{field.name}}</p>
+      <a [routerLink]="[field.uri]" *ngFor="let field of metadataFields" class="badge badge-info m-2">{{field.name}}</a>
     </div>
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Samples:</h6>

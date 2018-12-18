@@ -32,12 +32,12 @@ export class MetadataTemplateDetailComponent implements OnInit {
     this.metadataTemplateService.get(id).subscribe(
       metadataTemplate => {
         this.metadataTemplate = metadataTemplate;
-        console.log(metadataTemplate);
         this.metadataFieldService
           .getMetadataFieldsByMetadataTemplate(metadataTemplate.uri)
           .subscribe(
             metadataField => {
               this.metadataFields = metadataField;
+              console.log(this.metadataField);
             }
           );
       }
