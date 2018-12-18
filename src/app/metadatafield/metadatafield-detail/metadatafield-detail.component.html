@@ -1,7 +1,7 @@
-<h4>{{detailsPageTitle}}</h4>
+<h4 class="display-4">{{detailsPageTitle}}</h4>
 <p class="lead">{{detailsPageSubtitle}}</p>
 
-<div class="card">
+<div class="card mb-4">
   <div class="card-block">
     <h4 class="card-title col-md-12 p-3">{{metaField.id}}</h4>
     <div class="p-3">
@@ -22,7 +22,7 @@
     </div>
     <div class="p-3" *ngIf="metaField.definedAt">
       <h6 class="card-subtitle text-muted">Matadata template</h6>
-      <p class="card-text">{{metaField.definedAt.name}}</p>
+      <a [routerLink]="[metaField.definedAt.uri]" class="card-text">{{metaField.definedAt.name}}</a>
     </div>
     <div class="card-footer text-right">
       <button id="listBtn" type="button" [routerLink]="['..']"
