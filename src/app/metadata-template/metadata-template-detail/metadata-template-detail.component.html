@@ -10,10 +10,10 @@
     </div>
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Metadata Fields:</h6>
-      <p class="card-text">{{metadataTemplate.defines}}</p>
+      <p class="card-text" *ngFor="let field of metadataFields" >{{field.name}}</p>
     </div>
     <div class="p-3">
-      <h6 class="card-subtitle text-muted">Samplpes:</h6>
+      <h6 class="card-subtitle text-muted">Samples:</h6>
       <p class="card-text">{{metadataTemplate.describes}}</p>
     </div>
     <!--

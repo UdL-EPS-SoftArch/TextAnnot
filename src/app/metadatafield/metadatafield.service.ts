@@ -15,7 +15,7 @@ export class MetadatafieldService extends RestService<Metadatafield> {
     return this.search('findByMetadataFieldContaining', options);
   }
   public getMetadataFieldsByMetadataTemplate(metadataTemplate: string): Observable<Metadatafield[]> {
-    const options: any = {params: [{key: 'metadataTemplate', value: metadataTemplate}]};
+    const options: any = {params: [{key: 'metadataTemplates', value: metadataTemplate}]};
     return this.search('findByDefinedAt', options);
   }
 }
