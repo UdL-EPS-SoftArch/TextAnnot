@@ -49,7 +49,7 @@ export class TagEditComponent implements OnInit {
     this.tagService.update(this.tag)
       .subscribe(
         (updatedTag: Tag) => {
-          this.router.navigate(['tag'])
+          this.router.navigate(['/tags'])
         },
         () => this.errorService.showErrorMessage('Error updating Tag'));
   }
