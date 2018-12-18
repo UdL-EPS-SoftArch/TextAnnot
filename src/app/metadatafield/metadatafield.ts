@@ -8,6 +8,7 @@ export class Metadatafield extends Resource {
   uri: string;
   name: string;
   type: string;
-  definedIn: MetadataTemplate;
+  category: string;
+  definedAt: MetadataTemplate;
   has: MetadataValue[];
 }
