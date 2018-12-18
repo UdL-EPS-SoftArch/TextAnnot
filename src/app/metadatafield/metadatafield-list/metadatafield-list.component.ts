@@ -25,9 +25,9 @@ export class MetadataFieldListComponent implements OnInit {
           if (this.metadatafieldlistcomp.hasNext()) {
             this.metadatafieldlistcomp.next()
               .subscribe(
-                (metadataFields: Metadatafield[]) => {
-                  this.metadataFields = this.metadataFields.concat(metadataFields);
-                  this.totalmetadataFields += metadataFields.length
+                (nextMetadataFields: Metadatafield[]) => {
+                  this.metadataFields = this.metadataFields.concat(nextMetadataFields);
+                  this.totalmetadataFields += nextMetadataFields.length;
                 });
           }
         });
