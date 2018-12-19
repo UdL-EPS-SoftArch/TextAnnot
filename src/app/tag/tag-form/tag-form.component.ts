@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-tag-form',
-  templateUrl: '/tag-form.component.html',
+  templateUrl: './tag-form.component.html',
   styleUrls: ['./tag-form.component.css']
 })
 export class TagFormComponent implements OnInit {
