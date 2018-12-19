@@ -37,7 +37,6 @@ export class MetadataTemplateDetailComponent implements OnInit {
           .subscribe(
             metadataField => {
               this.metadataFields = metadataField;
-              console.log(this.metadataField);
             }
           );
       }
