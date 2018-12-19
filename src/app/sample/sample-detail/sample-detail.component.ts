@@ -17,6 +17,7 @@ export class SampleDetailComponent implements OnInit {
   public detailsPageTitle = 'Sample';
   public detailsPageSubtitle = 'Details about a Sample';
   public oldmetadatavalueField = '';
+
   public compareMetadata(value: MetadataValue) {
     if (this.oldmetadatavalueField === '') {
       this.oldmetadatavalueField = value.fieldCategory;
@@ -27,9 +28,7 @@ export class SampleDetailComponent implements OnInit {
       this.oldmetadatavalueField = value.fieldCategory;
       return true;
     }
-
   }
-
 
   constructor(private route: ActivatedRoute,
               private sampleService: SampleService, private metadataValueService: MetadataValueService) {
@@ -49,8 +48,6 @@ export class SampleDetailComponent implements OnInit {
           (metadataValues: MetadataValue[]) => this.metadataValues = metadataValues
         );
 
-  });
-
-
-}
+    });
+  }
 }
