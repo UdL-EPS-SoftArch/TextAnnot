@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Metadatafield} from '../metadatafield';
+import { Metadatafield } from '../metadatafield';
 import { MetadatafieldService } from '../metadatafield.service';
 
 @Component({
@@ -18,8 +18,19 @@ export class MetadataFieldListComponent implements OnInit {
     this.metadatafieldlistcomp.getAll()
       .subscribe(
         (metadataFields: Metadatafield[]) => {
-          this.metadataFields = metadataFields;
-          this.totalmetadataFields = metadataFields.length; });
+          this.metadataFields = this.metadataFields.concat(metadataFields);
+          this.totalmetadataFields += metadataFields.length;
+
+          // Get next pages of the resource
+          if (this.metadatafieldlistcomp.hasNext()) {
+            this.metadatafieldlistcomp.next()
+              .subscribe(
+                (nextMetadataFields: Metadatafield[]) => {
+                  this.metadataFields = this.metadataFields.concat(nextMetadataFields);
+                  this.totalmetadataFields += nextMetadataFields.length;
+                });
+          }
+        });
   }
 
   showSearchResults(metadataFields) {
