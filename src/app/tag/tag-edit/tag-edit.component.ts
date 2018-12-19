@@ -54,7 +54,7 @@ export class TagEditComponent implements OnInit {
           .subscribe((tHierarchy: TagHierarchy) => this.tag.tagHierarchy = tHierarchy);
           updatedTag.getRelation(Tag, 'parent')
           .subscribe((tparent: Tag) => this.tag.parent = tparent);
-          this.router.navigate(['/tags'])
+          this.router.navigate(['/tags']);
         },
         () => this.errorService.showErrorMessage('Error updating Tag'));
   }
@@ -77,8 +77,8 @@ export class TagEditComponent implements OnInit {
     }
       this.tag.parent = this.tagParent[val];
   }
-  letsGoBack(){
-    this.location.back()
+  letsGoBack() {
+    this.location.back();
   }
 }
 
