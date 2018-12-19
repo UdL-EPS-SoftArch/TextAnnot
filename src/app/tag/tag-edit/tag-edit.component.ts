@@ -24,6 +24,7 @@ export class TagEditComponent implements OnInit {
   public formSubtitle = 'Create a new Tag';
   public uriTagHierarchy: string;
   public uriTag: string;
+  public tHierarchy: TagHierarchy;
   @Output() public afterInsert: EventEmitter<Tag> = new EventEmitter<Tag>();
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -46,9 +47,13 @@ export class TagEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.tagService.update(this.tag)
+    this.tagService.patch(this.tag)
       .subscribe(
         (updatedTag: Tag) => {
+          updatedTag.getRelation(TagHierarchy, 'tagHierarchy')
+          .subscribe((tHierarchy: TagHierarchy) => this.tag.tagHierarchy = tHierarchy);
+          updatedTag.getRelation(Tag, 'parent')
+          .subscribe((tparent: Tag) => this.tag.parent = tparent);
           this.router.navigate(['/tags'])
         },
         () => this.errorService.showErrorMessage('Error updating Tag'));
