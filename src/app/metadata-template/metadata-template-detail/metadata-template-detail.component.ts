@@ -3,7 +3,7 @@ import { ModalService } from '../../shared/confirm-modal/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MetadataTemplate } from '../metadata-template';
-import { Metadatafield } from '../../metadatafield/metadatafield'
+import { Metadatafield } from '../../metadatafield/metadatafield';
 import { MetadataTemplateService } from '../metadata-template.service';
 import { ConfirmModalComponent } from '../../shared/confirm-modal/confirm-modal.component';
 
