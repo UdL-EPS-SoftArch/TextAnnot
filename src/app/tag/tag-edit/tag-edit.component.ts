@@ -56,12 +56,12 @@ export class TagEditComponent implements OnInit {
         updatedTag.getRelation(TagHierarchy, 'tagHierarchy')
         .subscribe((tHierarchy: TagHierarchy) => this.tag.tagHierarchy = tHierarchy);
 
-        if(updatedTag.parent == null) {
-          updatedTag.deleteRelation('parent', updatedTag).subscribe()
+        if (updatedTag.parent == null) {
+          updatedTag.deleteRelation('parent', updatedTag).subscribe();
         } else {
           updatedTag.getRelation(Tag, 'parent')
           .subscribe((tparent: Tag) => {
-              this.tag.parent = tparent
+              this.tag.parent = tparent;
           });
         }
 
