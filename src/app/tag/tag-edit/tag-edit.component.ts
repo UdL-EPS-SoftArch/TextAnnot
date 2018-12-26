@@ -55,17 +55,16 @@ export class TagEditComponent implements OnInit {
       (updatedTag: Tag) => {
         updatedTag.getRelation(TagHierarchy, 'tagHierarchy')
         .subscribe((tHierarchy: TagHierarchy) => this.tag.tagHierarchy = tHierarchy);
-        console.log(updatedTag);
+
         if(updatedTag.parent == null) {
-          console.log(updatedTag.parent);
           updatedTag.deleteRelation('parent', updatedTag).subscribe()
         } else {
           updatedTag.getRelation(Tag, 'parent')
           .subscribe((tparent: Tag) => {
-            console.log(tparent);
               this.tag.parent = tparent
           });
         }
+
         this.router.navigate(['/tags']);
       },
       () => this.errorService.showErrorMessage('Error updating Tag'));
