@@ -19,7 +19,7 @@ export class MetadafieldCreateComponent implements OnInit {
   public metadataTemplates: MetadataTemplate[] = [];
 
   constructor(private router: Router,
-              private metadataField: MetadatafieldService,  private metadataTemplateService: MetadataTemplateService) { }
+              private metadatafieldService: MetadatafieldService,  private metadataTemplateService: MetadataTemplateService) { }
 
   ngOnInit() {
     this.metadatafield = new Metadatafield();
@@ -31,9 +31,9 @@ export class MetadafieldCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.metadataField.create(this.metadatafield)
+    this.metadatafieldService.create(this.metadatafield)
       .subscribe(
-        metadatafield => this.router.navigate(['/metadataFields']));
+        () => this.router.navigate(['/metadataFields']));
 
   }
 }
