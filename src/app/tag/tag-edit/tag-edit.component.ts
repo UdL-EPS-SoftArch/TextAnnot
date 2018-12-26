@@ -1,3 +1,5 @@
+import { forkJoin } from 'rxjs/index';
+import { flatMap } from 'rxjs/operators';
 import { ErrorMessageService } from './../../error-handler/error-message.service';
 import { TagHierarchyService } from './../../tag-hierarchy/tag-hierarchy.service';
 import { TagHierarchy } from './../../tag-hierarchy/tag-hierarchy';
@@ -7,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TagService } from '../tag.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Location} from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tag-edit',
@@ -48,16 +51,25 @@ export class TagEditComponent implements OnInit {
 
   onSubmit(): void {
     this.tagService.patch(this.tag)
-      .subscribe(
-        (updatedTag: Tag) => {
-          updatedTag.getRelation(TagHierarchy, 'tagHierarchy')
-          .subscribe((tHierarchy: TagHierarchy) => this.tag.tagHierarchy = tHierarchy);
+    .subscribe(
+      (updatedTag: Tag) => {
+        updatedTag.getRelation(TagHierarchy, 'tagHierarchy')
+        .subscribe((tHierarchy: TagHierarchy) => this.tag.tagHierarchy = tHierarchy);
+        console.log(updatedTag);
+        if(updatedTag.parent == null) {
+          console.log(updatedTag.parent);
+          updatedTag.deleteRelation('parent', updatedTag).subscribe()
+        } else {
           updatedTag.getRelation(Tag, 'parent')
-          .subscribe((tparent: Tag) => this.tag.parent = tparent);
-          this.router.navigate(['/tags']);
-        },
-        () => this.errorService.showErrorMessage('Error updating Tag'));
-  }
+          .subscribe((tparent: Tag) => {
+            console.log(tparent);
+              this.tag.parent = tparent
+          });
+        }
+        this.router.navigate(['/tags']);
+      },
+      () => this.errorService.showErrorMessage('Error updating Tag'));
+}
 
   optionSelectedth(val: any) {
     this.tag.tagHierarchy = this.tagHierarchy[val];
@@ -74,8 +86,9 @@ export class TagEditComponent implements OnInit {
   optionSelectedt(val: number) {
     if (val === -1) {
       this.tag.parent = null;
-    }
+    } else {
       this.tag.parent = this.tagParent[val];
+    }
   }
   letsGoBack() {
     this.location.back();
