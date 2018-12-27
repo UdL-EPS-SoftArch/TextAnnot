@@ -1,7 +1,7 @@
 import { ModalService } from './shared/confirm-modal/modal.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { BreadcrumbService } from './breadcrumb.service';
+import { BreadcrumbService } from './breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-root',

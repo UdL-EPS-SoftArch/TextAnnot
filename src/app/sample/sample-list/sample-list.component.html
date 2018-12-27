@@ -9,16 +9,16 @@
 
 <div class="card mb-1" *ngFor="let sample of samples">
   <div class="card-block row m-1">
-    <div class="col-md-8 p-1">
+    <div class="col-md-4 p-1">
       <h6 class="card-subtitle text-muted">Text</h6>
       <p class="card-text">{{sample?.text | slice:0:80}}...</p>
     </div>
-    <div class="col-md-3 p-1">
+    <div class="col-md-4 p-1">
       <h6 class="card-subtitle text-muted">Metadata Template</h6>
       <p class="card-text">{{sample?.describedBy?.name}}</p>
     </div>
-    <div class="col-md-1 p-1">
-      <a class="card-link pull-right" routerLink="{{sample?.uri}}">Details</a>
+    <div class="col-md-4 p-1">
+      <button type="button" class="btn m-1 btn-outline-primary pull-right" routerLink="{{sample?.uri}}"><i style="margin-right: .25em" class="fa fa-info-circle"></i>Details</button>
     </div>
   </div>
 </div>
