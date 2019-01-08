@@ -27,7 +27,9 @@
     [(ngModel)]="uriTag" #name="ngModel" #parentSelect name="parentSelect"
     (change)="optionSelectedt(parentSelect.value)">
       <option [value]=-1>Im a root tag</option>
-      <option *ngFor="let t of tagParent;let i = index" [value]="i">{{t.name}}</option>
+      <ng-container *ngFor="let t of tagParent;let i = index;">
+        <option *ngIf="t.id!=tag.id" [value]="i">{{t.name}}</option>
+      </ng-container>
     </select>
   </div>
 
