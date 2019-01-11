@@ -1,7 +1,9 @@
+import { MetadatafieldService } from './../../metadatafield/metadatafield.service';
 import { ModalService } from '../../shared/confirm-modal/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MetadataTemplate } from '../metadata-template';
+import { Metadatafield } from '../../metadatafield/metadatafield';
 import { MetadataTemplateService } from '../metadata-template.service';
 import { ConfirmModalComponent } from '../../shared/confirm-modal/confirm-modal.component';
 
@@ -12,6 +14,8 @@ import { ConfirmModalComponent } from '../../shared/confirm-modal/confirm-modal.
 })
 export class MetadataTemplateDetailComponent implements OnInit {
   public metadataTemplate: MetadataTemplate = new MetadataTemplate();
+  public metadataField: Metadatafield = new Metadatafield();
+  public metadataFields: Metadatafield[];
   public errorMessage: string;
   public detailsPageTitle = 'MetadataTemplate';
   public detailsPageSubtitle = 'Details about a MetadataTemplate';
@@ -19,13 +23,24 @@ export class MetadataTemplateDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private metadataTemplateService: MetadataTemplateService,
+              private metadataFieldService: MetadatafieldService,
               private confirmService: ModalService) {
   }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('name');
     this.metadataTemplateService.get(id).subscribe(
-      metadataTemplate => this.metadataTemplate = metadataTemplate);
+      metadataTemplate => {
+        this.metadataTemplate = metadataTemplate;
+        this.metadataFieldService
+          .getMetadataFieldsByMetadataTemplate(metadataTemplate.uri)
+          .subscribe(
+            metadataField => {
+              this.metadataFields = metadataField;
+            }
+          );
+      }
+    );
   }
 
   public delete() {

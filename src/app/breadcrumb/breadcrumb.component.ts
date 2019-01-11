@@ -1,4 +1,4 @@
-import { BreadcrumbService } from '../breadcrumb.service';
+import { BreadcrumbService } from './breadcrumb.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Page } from './page';

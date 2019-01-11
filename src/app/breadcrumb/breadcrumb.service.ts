@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Page } from './breadcrumb/page';
+import { Page } from './page';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class BreadcrumbService {
     this.pages.push(this.homepage);
 
     // Load actual URL
-    routes.filter(param => param !== 'about' && !Number(param)).forEach(route => {
+    routes.filter(param => param !== 'about').forEach(route => {
       if (route !== '/' && route !== undefined && route != null && route !== '') {
         this.pages.push(new Page(decodeURI(route.charAt(0).toUpperCase() + route.slice(1)), this.processRouteURL(route)));
       }

@@ -1,4 +1,4 @@
-<h4>{{detailsPageTitle}}</h4>
+<h4 class=" display-4">{{detailsPageTitle}}</h4>
 <p class="lead">{{detailsPageSubtitle}}</p>
 
 <div class="card">
@@ -10,22 +10,17 @@
     </div>
     <div class="p-3">
       <h6 class="card-subtitle text-muted">Metadata Fields:</h6>
-      <p class="card-text">{{metadataTemplate.defines}}</p>
+      <a [routerLink]="[field.uri]" *ngFor="let field of metadataFields" class="badge badge-info m-2">{{field.name}}</a>
     </div>
     <div class="p-3">
-      <h6 class="card-subtitle text-muted">Samplpes:</h6>
+      <h6 class="card-subtitle text-muted">Samples:</h6>
       <p class="card-text">{{metadataTemplate.describes}}</p>
     </div>
-    <!--
-    <div class="p-3">
-      <h6 class="card-subtitle text-muted">Role</h6>
-      <p class="card-text">{{user.authorities[0]?.authority.split('_')[1]}}</p>
-    </div> -->
     <div class="card-footer text-right">
       <button id="listBtn" type="button" [routerLink]="['..']"
               class="btn btn-outline-primary"><i style="margin-right: .25em" class="fa fa-angle-left"></i>Back to List
       </button>
-      <button id="editBtn" type="button" [routerLink]="['edit']"
+      <button id="editBtn" type="button"
               class="btn btn-outline-success spaced"><i style="margin-right: .25em" class="fa fa-pencil"></i>Edit
       </button>
       <button id="deleteBtn" type="button" (click)="delete()"

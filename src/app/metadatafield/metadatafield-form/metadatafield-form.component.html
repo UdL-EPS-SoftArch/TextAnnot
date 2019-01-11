@@ -1,9 +1,8 @@
-<h4>{{formTitle}}</h4>
+<h4 class="display-4">{{formTitle}}</h4>
 <p class="lead">{{formSubtitle}}</p>
 
-<form id="metadatafield-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="metadatafield-form" style="padding: 1em" (ngSubmit)="onSubmit()" #form="ngForm">
   <fieldset>
-
 
     <!-- name input -->
     <div class="form-group" [class.was-validated]="name.dirty || name.touched">
@@ -13,7 +12,6 @@
       <div class="invalid-feedback">The text is required</div>
     </div>
 
-
     <!-- type input -->
     <div class="form-group" [class.was-validated]="type.dirty || type.touched">
       <label class="control-label" for="type">Type*</label>
@@ -22,11 +20,19 @@
       <div class="invalid-feedback">The text is required</div>
     </div>
 
-    <!-- definedAt -->
-    <div class="form-group" [class.was-validated]="definedAt.dirty || definedAt.touched">
-      <label class="control-label" for="definedAt">definedAt*</label>
-      <select id="definedAt" name="definedAt" type="text" class="form-control" required
-              [(ngModel)]="metadatafield.definedAt" #definedAt="ngModel">
+     <!-- category input -->
+     <div class="form-group" [class.was-validated]="category.dirty || category.touched">
+      <label class="control-label" for="type">Category*</label>
+      <input id="type" name="type" type="text" class="form-control" required
+              [(ngModel)]="metadatafield.category" #category="ngModel">
+      <div class="invalid-feedback">The text is required</div>
+    </div>
+
+    <!-- definedIn -->
+    <div class="form-group" [class.was-validated]="definedIn.dirty || definedIn.touched">
+      <label class="control-label" for="definedIn">definedIn*</label>
+      <select id="definedIn" name="definedIn" type="text" class="form-control" required
+              [(ngModel)]="metadatafield.definedAt" #definedIn="ngModel">
         <option *ngFor="let metadataTemplate of metadataTemplates" [ngValue]="metadataTemplate.uri">{{metadataTemplate.name}}</option>
       </select>
       <div class="invalid-feedback">The described By field is required</div>
