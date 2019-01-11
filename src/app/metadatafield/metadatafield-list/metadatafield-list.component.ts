@@ -9,25 +9,67 @@ import { MetadatafieldService } from '../metadatafield.service';
 })
 export class MetadataFieldListComponent implements OnInit {
   public metadataFields: Metadatafield[] = [];
-  public totalmetadataFields = 0;
+  public totalMetadataFields = 0;
+  public pageTotalMetadataFields = 0;
   public errorMessage = '';
+  public hasNext: Boolean;
+  public actualPage: number;
 
-  constructor(private metadatafieldlistcomp: MetadatafieldService) {}
+  constructor(private metadatafieldService: MetadatafieldService) {}
 
   ngOnInit() {
-    this.metadatafieldlistcomp.getAll()
+    if (this.actualPage == null) {
+      this.actualPage = 0;
+    }
+
+    this.getMetadataFieldList();
+    this.getTotalMetadataFields();
+
+  }
+
+  goNext() {
+    if (this.hasNext) {
+      this.actualPage++;
+      console.log(this.actualPage);
+      this.getMetadataFieldList();
+    }
+    console.log(this.hasNext);
+  }
+
+  goPrev() {
+    if (this.actualPage > 0) {
+      this.actualPage--;
+      console.log(this.actualPage);
+      this.getMetadataFieldList();
+    }
+
+  }
+
+  getMetadataFieldList() {
+    this.metadatafieldService.getAll()
+      .subscribe( () => {
+
+        this.metadatafieldService.page(this.actualPage)
+          .subscribe(
+            (metadataFields: Metadatafield[]) => {
+              this.metadataFields = metadataFields;
+              this.pageTotalMetadataFields = metadataFields.length;
+              this.hasNext = this.metadatafieldService.hasNext();
+            });
+      });
+  }
+
+  getTotalMetadataFields() {
+    this.metadatafieldService.getAll()
       .subscribe(
         (metadataFields: Metadatafield[]) => {
-          this.metadataFields = this.metadataFields.concat(metadataFields);
-          this.totalmetadataFields += metadataFields.length;
+          this.totalMetadataFields += metadataFields.length;
 
-          // Get next pages of the resource
-          if (this.metadatafieldlistcomp.hasNext()) {
-            this.metadatafieldlistcomp.next()
+          if (this.metadatafieldService.hasNext()) {
+            this.metadatafieldService.next()
               .subscribe(
                 (nextMetadataFields: Metadatafield[]) => {
-                  this.metadataFields = this.metadataFields.concat(nextMetadataFields);
-                  this.totalmetadataFields += nextMetadataFields.length;
+                  this.totalMetadataFields += nextMetadataFields.length;
                 });
           }
         });

@@ -20,6 +20,12 @@
   </div>
 </div>
 
-<p i18n class="text-center">Showing {{metadataFields.length}} out of { totalmetadataFields, plural,
-  =1 {1 metadataField}
-  other { {{totalmetadataFields}} metadataFields} }</p>
+<p i18n class="text-center">Showing {{pageTotalMetadataFields}} out of
+  { totalMetadataFields, plural, =1 {1 metadataField}  other { {{totalMetadataFields}} metadataFields} }
+</p>
+
+<!-- list.component.html -->
+<div id="buttons" style="text-align: center">
+  <button class="btn m-1 btn-outline-primary" (click)="goPrev()" [disabled]="actualPage === 0"> Previous</button> {{actualPage}}
+  <button class="btn m-1 btn-outline-primary" (click)="goNext()" [disabled]="hasNext === false"> Next</button>
+</div>
