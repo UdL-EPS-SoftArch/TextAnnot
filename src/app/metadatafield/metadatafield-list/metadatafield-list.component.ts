@@ -9,28 +9,49 @@ import { MetadatafieldService } from '../metadatafield.service';
 })
 export class MetadataFieldListComponent implements OnInit {
   public metadataFields: Metadatafield[] = [];
-  public totalmetadataFields = 0;
+  public totalMetadataFields = 0;
+  public pageTotalMetadataFields = 0;
   public errorMessage = '';
+  public hasNext: Boolean;
+  public actualPage: number;
 
-  constructor(private metadatafieldlistcomp: MetadatafieldService) {}
+  constructor(private metadatafieldService: MetadatafieldService) {}
 
   ngOnInit() {
-    this.metadatafieldlistcomp.getAll()
+    if (this.actualPage == null) {
+      this.actualPage = 0;
+    }
+
+    this.metadatafieldService.getAll()
+      .subscribe( () => {
+        this.totalMetadataFields = this.metadatafieldService.totalElement();
+        this.getMetadataFieldList();
+      });
+  }
+
+  goNext() {
+    if (this.hasNext) {
+      this.actualPage++;
+      this.getMetadataFieldList();
+    }
+  }
+
+  goPrev() {
+    if (this.actualPage > 0) {
+      this.actualPage--;
+      this.getMetadataFieldList();
+    }
+
+  }
+
+  getMetadataFieldList() {
+    this.metadatafieldService.page(this.actualPage)
       .subscribe(
         (metadataFields: Metadatafield[]) => {
-          this.metadataFields = this.metadataFields.concat(metadataFields);
-          this.totalmetadataFields += metadataFields.length;
-
-          // Get next pages of the resource
-          if (this.metadatafieldlistcomp.hasNext()) {
-            this.metadatafieldlistcomp.next()
-              .subscribe(
-                (nextMetadataFields: Metadatafield[]) => {
-                  this.metadataFields = this.metadataFields.concat(nextMetadataFields);
-                  this.totalmetadataFields += nextMetadataFields.length;
-                });
-          }
-        });
+          this.metadataFields = metadataFields;
+          this.pageTotalMetadataFields = metadataFields.length;
+          this.hasNext = this.metadatafieldService.hasNext();
+      });
   }
 
   showSearchResults(metadataFields) {
