@@ -22,57 +22,36 @@ export class MetadataFieldListComponent implements OnInit {
       this.actualPage = 0;
     }
 
-    this.getMetadataFieldList();
-    this.getTotalMetadataFields();
-
+    this.metadatafieldService.getAll()
+      .subscribe( () => {
+        this.totalMetadataFields = this.metadatafieldService.totalElement();
+        this.getMetadataFieldList();
+      });
   }
 
   goNext() {
     if (this.hasNext) {
       this.actualPage++;
-      console.log(this.actualPage);
       this.getMetadataFieldList();
     }
-    console.log(this.hasNext);
   }
 
   goPrev() {
     if (this.actualPage > 0) {
       this.actualPage--;
-      console.log(this.actualPage);
       this.getMetadataFieldList();
     }
 
   }
 
   getMetadataFieldList() {
-    this.metadatafieldService.getAll()
-      .subscribe( () => {
-
-        this.metadatafieldService.page(this.actualPage)
-          .subscribe(
-            (metadataFields: Metadatafield[]) => {
-              this.metadataFields = metadataFields;
-              this.pageTotalMetadataFields = metadataFields.length;
-              this.hasNext = this.metadatafieldService.hasNext();
-            });
-      });
-  }
-
-  getTotalMetadataFields() {
-    this.metadatafieldService.getAll()
+    this.metadatafieldService.page(this.actualPage)
       .subscribe(
         (metadataFields: Metadatafield[]) => {
-          this.totalMetadataFields += metadataFields.length;
-
-          if (this.metadatafieldService.hasNext()) {
-            this.metadatafieldService.next()
-              .subscribe(
-                (nextMetadataFields: Metadatafield[]) => {
-                  this.totalMetadataFields += nextMetadataFields.length;
-                });
-          }
-        });
+          this.metadataFields = metadataFields;
+          this.pageTotalMetadataFields = metadataFields.length;
+          this.hasNext = this.metadatafieldService.hasNext();
+      });
   }
 
   showSearchResults(metadataFields) {
